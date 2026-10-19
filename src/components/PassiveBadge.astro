@@ -1,0 +1,20 @@
+---
+// Stand-in for the Certified Passive House Designer logo.
+// When the file arrives, save it as public/logos/passive-house-designer.png (or .svg)
+// and replace the placeholder <span> with an <img> of it.
+---
+<div class="badge">
+  <span class="badge__mark">Logo Certified Passive House Designer</span>
+  <span class="badge__text">Proiectant certificat Passive House</span>
+</div>
+
+<style>
+  .badge { display: flex; align-items: center; gap: 16px; }
+  .badge__mark {
+    width: 112px; height: 112px; flex: none;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 10px; border: 1px dashed var(--grey-3); background: var(--surface);
+    font-size: 11px; line-height: 1.3; color: var(--text-2);
+  }
+  .badge__text { max-width: 170px; font-size: 14px; line-height: 1.4; color: var(--text-2); }
+</style>

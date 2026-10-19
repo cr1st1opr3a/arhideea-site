@@ -1,0 +1,36 @@
+---
+import Logo from './Logo.astro';
+import { SITE } from '../site';
+const year = new Date().getFullYear();
+---
+<footer id="contact" class="site-footer">
+  <div class="wrap site-footer__in">
+    <div class="cta">
+      <p class="cta__line">Spuneți-ne cum vreți să locuiți. Noi ne ocupăm de calcule.</p>
+      <div class="cta__contact">
+        <a class="cta__mail" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        {SITE.phone && <a class="cta__phone" href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a>}
+      </div>
+    </div>
+    <div class="base">
+      <Logo inverse />
+      <span>{SITE.company} · {SITE.city}</span>
+      <a href={SITE.facebook} rel="noopener">Facebook</a>
+      <span>© {year}</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--petrol-d); color: #fff; }
+  .site-footer__in { padding-block: 88px 36px; display: flex; flex-direction: column; gap: 64px; }
+  .cta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px; }
+  .cta__line { font-size: clamp(30px, 4vw, 52px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.06; max-width: 680px; }
+  .cta__contact { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .cta__mail, .cta__phone { color: #fff; font-size: 22px; min-height: 44px; display: inline-flex; align-items: center; }
+  .cta__mail { border-bottom: 2px solid var(--green); }
+  .cta__mail:hover, .cta__phone:hover { color: var(--green); }
+  .base { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px 32px; font-size: 14px; color: #B9CCD1; }
+  .base a { color: #B9CCD1; min-height: 44px; display: inline-flex; align-items: center; }
+  .base a:hover { color: #fff; }
+</style>

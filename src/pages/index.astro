@@ -1,0 +1,118 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import HeroSlider from '../components/HeroSlider.astro';
+import Stats from '../components/Stats.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import PassiveBadge from '../components/PassiveBadge.astro';
+import { SITE, TEAM, SPECIALTIES } from '../site';
+import { CATEGORIES } from '../content.config';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const featured = projects.filter((p) => p.data.featured);
+const usedCats = CATEGORIES.filter((c) => projects.some((p) => p.data.categories.includes(c)));
+
+const steps = [
+  { t: 'Ascultăm', d: 'Tema, bugetul și felul în care vreți să locuiți.' },
+  { t: 'Calculăm', d: 'Bilanț energetic, însorire, punți termice, confort de vară.' },
+  { t: 'Coordonăm', d: SPECIALTIES.join(', ') + '.' },
+  { t: 'Urmărim', d: 'Detaliile de execuție și lucrările pe șantier.' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: SITE.company,
+  alternateName: SITE.name,
+  url: Astro.site?.href,
+  email: SITE.email,
+  description: SITE.description,
+  address: { '@type': 'PostalAddress', addressLocality: SITE.city, addressCountry: 'RO' },
+  sameAs: [SITE.facebook],
+};
+---
+<Base current="home">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <section class="wrap intro">
+    <div class="intro__text">
+      <span class="eyebrow">Birou de arhitectură · Brașov</span>
+      <h1>Calculăm fiecare detaliu, ca să vă simțiți bine acasă.</h1>
+      <p class="intro__lede">Arhitectură, urbanism și coordonarea tuturor specialităților. Rigoare tehnică în proiect, atenție la oamenii care vor locui acolo.</p>
+    </div>
+    <PassiveBadge />
+  </section>
+
+  {featured.length > 0 && <HeroSlider projects={featured} />}
+
+  <Stats items={[
+    { value: projects.length, label: 'proiecte în portofoliu' },
+    { value: SPECIALTIES.length, label: 'specialități coordonate' },
+    { value: usedCats.length, label: 'tipuri de proiecte' },
+  ]} />
+
+  <ProjectGrid projects={projects} pageSize={6} />
+  <div class="wrap all-link"><a class="link-arrow" href="/proiecte/">Toate proiectele pe o singură pagină →</a></div>
+
+  <section id="cum-lucram" class="wrap how">
+    <div class="section-head">
+      <h2>Cum lucrăm</h2>
+      <p class="lede">Începem cu oamenii și cu locul. Continuăm cu calcule, detalii și coordonare, până pe șantier.</p>
+    </div>
+    <ol class="steps">
+      {steps.map((s, i) => (
+        <li class="step">
+          <span class="step__n">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="step__t">{s.t}</h3>
+          <p class="step__d">{s.d}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section id="atelier" class="team">
+    <div class="wrap team__in">
+      <h2>Atelier</h2>
+      <div class="team__people">
+        {TEAM.map((m) => (
+          <div class="person">
+            <span class="person__img" aria-hidden="true">{m.initials}</span>
+            <div class="person__txt">
+              <h3 class="person__name">{m.name}</h3>
+              <p class="person__role">{m.role}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .intro { padding-block: 72px 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between; }
+  .intro__text { flex: 1 1 600px; display: flex; flex-direction: column; gap: 24px; }
+  .intro h1 { font-size: clamp(38px, 5.2vw, 70px); line-height: 1.02; letter-spacing: -0.035em; max-width: 15ch; }
+  .intro__lede { max-width: 620px; font-size: 19px; color: var(--text-2); }
+
+  .all-link { padding-bottom: 40px; display: flex; justify-content: center; }
+
+  .how { padding-block: 104px; }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 2px; background: var(--line); border: 1px solid var(--line); }
+  .step { background: var(--surface); padding: 28px 24px 36px; display: flex; flex-direction: column; gap: 14px; }
+  .step__n { font-size: 14px; font-weight: 700; color: var(--red-text); }
+  .step__t { font-size: 22px; letter-spacing: -0.02em; }
+  .step__d { font-size: 15px; color: var(--text-2); }
+
+  .team { background: var(--grey-1); }
+  .team__in { padding-block: 96px; display: flex; flex-wrap: wrap; gap: 48px; }
+  .team h2 { flex: 1 1 240px; font-size: clamp(30px, 3.4vw, 40px); }
+  .team__people { flex: 3 1 600px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 32px; }
+  .person { display: flex; gap: 20px; align-items: center; }
+  .person__img {
+    width: 120px; height: 150px; flex: none; background: var(--petrol-l); color: #fff;
+    display: flex; align-items: flex-end; padding: 10px 12px; font-size: 28px; font-weight: 700; letter-spacing: -0.02em;
+  }
+  .person__txt { display: flex; flex-direction: column; gap: 6px; }
+  .person__name { font-size: 21px; letter-spacing: -0.015em; }
+  .person__role { font-size: 15px; color: var(--text-2); }
+</style>

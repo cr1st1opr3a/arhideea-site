@@ -1,0 +1,17 @@
+---
+title: "Casa M/G"
+location: "Brașov"
+categories: ["Locuințe"]
+summary: "O locuință confortabilă, cu linii clasice, într-o zonă verde a orașului."
+highlights: ["Linii clasice", "Zonă verde a orașului"]
+order: 120
+featured: false
+cover: ./foto-01.jpg
+gallery:
+  - src: ./foto-01.jpg
+  - src: ./foto-02.jpg
+  - src: ./foto-03.jpg
+  - src: ./foto-04.jpg
+placeholderPhotos: true
+oldPath: "/projects/casa-3/"
+---

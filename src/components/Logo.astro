@@ -1,0 +1,21 @@
+---
+// Stand-in wordmark. When the real logo arrives, save it as public/logos/arhideea.svg
+// and swap the markup below for: <img src="/logos/arhideea.svg" alt="Arhideea" width="…" height="…" />
+interface Props { inverse?: boolean }
+const { inverse = false } = Astro.props;
+---
+<span class:list={['logo', { 'logo--inverse': inverse }]}>
+  <span class="logo__dot" aria-hidden="true"></span>
+  <span class="logo__word">arhideea</span>
+  <span class="logo__sub">arhitectură + design</span>
+</span>
+
+<style>
+  .logo { display: inline-flex; align-items: baseline; gap: 8px; color: var(--petrol-d); }
+  .logo__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--red); align-self: center; }
+  .logo__word { font-size: 24px; font-weight: 700; letter-spacing: -0.03em; }
+  .logo__sub { font-size: 13px; color: var(--text-2); }
+  .logo--inverse { color: #fff; }
+  .logo--inverse .logo__sub { color: var(--on-petrol); }
+  @media (max-width: 520px) { .logo__sub { display: none; } }
+</style>

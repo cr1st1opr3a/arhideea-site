@@ -1,0 +1,142 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+import { CATEGORIES } from '../content.config';
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+  /** How many cards to show before "Încarcă încă". */
+  pageSize?: number;
+  heading?: string;
+  headingLevel?: 'h1' | 'h2';
+}
+const { projects, pageSize = 6, heading = 'Proiecte', headingLevel = 'h2' } = Astro.props;
+const used = CATEGORIES.filter((c) => projects.some((p) => p.data.categories.includes(c)));
+const H = headingLevel;
+---
+<section id="proiecte" class="wrap grid-section" data-grid data-page-size={pageSize}>
+  <div class="section-head">
+    <H class="grid-title">{heading}</H>
+    <div class="chips" role="group" aria-label="Filtrează după categorie">
+      <button type="button" class="chip" data-filter="" aria-pressed="true">Toate</button>
+      {used.map((c) => <button type="button" class="chip" data-filter={c} aria-pressed="false">{c}</button>)}
+    </div>
+  </div>
+
+  <p class="visually-hidden" aria-live="polite" data-status></p>
+
+  <div class="grid" data-list>
+    {projects.map((p) => <ProjectCard project={p} />)}
+  </div>
+
+  <div class="more">
+    <button type="button" class="btn" data-more hidden>Încarcă încă proiecte</button>
+  </div>
+</section>
+
+<style>
+  .grid-section { padding-top: 104px; padding-bottom: 40px; }
+  .grid-title { font-size: clamp(30px, 3.4vw, 40px); }
+  h1.grid-title { font-size: clamp(40px, 5vw, 64px); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    min-height: 44px; padding: 0 16px; font-size: 14px; cursor: pointer;
+    border: 1px solid #C3CACC; background: var(--surface); color: var(--ink);
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .chip:hover { border-color: var(--petrol); }
+  .chip[aria-pressed='true'] { background: var(--petrol); border-color: var(--petrol); color: #fff; }
+  :global(html:not(.js)) .chips { display: none; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 32px; }
+  .more { display: flex; justify-content: center; margin-top: 40px; }
+  .more .btn[hidden] { display: none; }
+  .grid :global(.skeleton) { display: flex; flex-direction: column; gap: 14px; animation: pulse 1.1s ease-in-out infinite; }
+  .grid :global(.skeleton__img) { aspect-ratio: 4 / 3; background: #DDE1E2; }
+  .grid :global(.skeleton__line) { height: 18px; width: 60%; background: #DDE1E2; }
+  .grid :global(.skeleton__line--short) { height: 14px; width: 38%; background: var(--line-soft); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-grid]').forEach((root) => {
+    const pageSize = Number(root.dataset.pageSize) || 6;
+    const list = root.querySelector<HTMLElement>('[data-list]')!;
+    const cards = [...list.querySelectorAll<HTMLElement>('[data-card]')];
+    const chips = [...root.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    const more = root.querySelector<HTMLButtonElement>('[data-more]')!;
+    const status = root.querySelector<HTMLElement>('[data-status]')!;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let filter = '';
+    let limit = pageSize;
+
+    const matching = () => cards.filter((c) => !filter || c.dataset.categories!.split('|').includes(filter));
+
+    // Cards wait invisible until the grid scrolls into view, then rise in one after another.
+    const enter = (els: HTMLElement[]) => {
+      els.forEach((el, i) => {
+        el.removeAttribute('data-enter');
+        el.removeAttribute('data-wait');
+        void el.offsetWidth;
+        el.style.setProperty('--delay', `${(i % pageSize) * 70}ms`);
+        el.setAttribute('data-enter', '');
+      });
+    };
+
+    const apply = (animate: HTMLElement[] | 'all') => {
+      const m = matching();
+      const shown = m.slice(0, limit);
+      cards.forEach((c) => c.toggleAttribute('data-hidden', !shown.includes(c)));
+      const rest = m.length - shown.length;
+      more.hidden = rest <= 0;
+      more.textContent = `Încarcă încă ${Math.min(rest, pageSize)} ${Math.min(rest, pageSize) === 1 ? 'proiect' : 'proiecte'}`;
+      if (!reduce) enter(animate === 'all' ? shown : animate);
+      return shown;
+    };
+
+    chips.forEach((chip) =>
+      chip.addEventListener('click', () => {
+        filter = chip.dataset.filter || '';
+        limit = pageSize;
+        chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+        apply('all');
+        const total = matching().length;
+        status.textContent = `${total} ${total === 1 ? 'proiect' : 'proiecte'}${filter ? ` în categoria ${filter}` : ''}`;
+      })
+    );
+
+    more.addEventListener('click', () => {
+      const next = matching().slice(limit, limit + pageSize);
+      more.disabled = true;
+      // A short loading state, then the next set rises in.
+      const skeletons = next.map(() => {
+        const s = document.createElement('div');
+        s.className = 'skeleton';
+        s.setAttribute('aria-hidden', 'true');
+        s.innerHTML = '<div class="skeleton__img"></div><div class="skeleton__line"></div><div class="skeleton__line skeleton__line--short"></div>';
+        list.appendChild(s);
+        return s;
+      });
+      setTimeout(() => {
+        skeletons.forEach((s) => s.remove());
+        limit += pageSize;
+        apply(next);
+        more.disabled = false;
+        status.textContent = `Au fost adăugate ${next.length} proiecte`;
+        next[0]?.querySelector<HTMLAnchorElement>('.card__title a')?.focus({ preventScroll: true });
+      }, reduce ? 0 : 450);
+    });
+
+    // First paint: show the first page; animate it when it comes into view.
+    const firstShown = apply([]);
+    if (!reduce && 'IntersectionObserver' in window) {
+      firstShown.forEach((c) => c.setAttribute('data-wait', ''));
+      let done = false;
+      const reveal = () => { if (done) return; done = true; io.disconnect(); enter(firstShown); };
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) reveal();
+      }, { threshold: 0.12 });
+      io.observe(list);
+      // Safety net: never leave the cards invisible.
+      setTimeout(reveal, 4000);
+    }
+  });
+</script>
