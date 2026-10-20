@@ -84,6 +84,31 @@
     "googleUrl": "",
     "rating": "5.0",
     "count": "",
-    "items": []
+    "items": [
+      {
+        "author": "Catalina Moleavin",
+        "text": "Foarte creativi, tehnici si bine documentati. Cu multa atentie la detalii, la nevoile noastre si la restrictiile zonei. Am colaborat excelent cu Dana si Cristi. Oameni faini."
+      },
+      {
+        "author": "VioS",
+        "text": "Arhitecti de exceptie. Am lucrat impreuna cu ei proiectul, inclusiv interiorul, unei case pe lemn cu o structura de perte probabil unica in Romania. S-au implicat si au fost aproape de mine, pe parcursul derularii intregului proiect. …"
+      },
+      {
+        "author": "Adrian Pieleanu",
+        "text": "Foarte drăguți. I-am contactat pe Whatsapp pentru ca eram interesat sa obțin consultanta pre-cumpărare a unui teren. Foarte rapid mi-au dat sfaturi foarte bune, verificând detaliile terenului. …"
+      },
+      {
+        "author": "Fanel Masache",
+        "text": "Full of ideas, building on customers expectations, supporting and solutions oriented! This was our experience with Cristi and Arhideea. Strongly recommended! Thank you!"
+      },
+      {
+        "author": "Cosmin Obogeanu",
+        "text": "Quality services, on time and full of creativity and efficient solutions."
+      },
+      {
+        "author": "Rares Dragan",
+        "text": "Cool, dedicated, creative. Highly recommended!"
+      }
+    ]
   }
 }

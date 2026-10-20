@@ -206,6 +206,6 @@ collections:
                 summary: '{{fields.author}}'
                 fields:
                   - { name: author, label: Nume, widget: string }
-                  - { name: rating, label: Stele, widget: number, value_type: int, min: 1, max: 5, default: 5 }
+                  - { name: rating, label: Stele (opțional), widget: number, value_type: int, min: 1, max: 5, required: false }
                   - { name: date, label: Data (opțional), widget: string, required: false, hint: 'Ex.: martie 2025' }
                   - { name: text, label: Text recenzie, widget: text }

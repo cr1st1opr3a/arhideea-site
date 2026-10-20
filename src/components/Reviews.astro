@@ -17,11 +17,12 @@ const stars = (n = 5) => '★★★★★'.slice(0, Math.max(0, Math.min(5, Math
           <span>{REVIEWS.count ? `${REVIEWS.count} recenzii pe Google` : 'pe Google'}</span>
         </p>
       )}
+      {!REVIEWS.rating && <p class="reviews__score">Recenzii lăsate pe Google</p>}
     </div>
     <div class="reviews__track" data-reviews>
       {items.map((r) => (
         <figure class="review">
-          <span class="review__stars" aria-label={`${r.rating ?? 5} din 5 stele`}>{stars(r.rating ?? 5)}</span>
+          {r.rating && <span class="review__stars" aria-label={`${r.rating} din 5 stele`}>{stars(r.rating)}</span>}
           <blockquote>{r.text}</blockquote>
           <figcaption><strong>{r.author}</strong>{r.date && <span> · {r.date}</span>}</figcaption>
         </figure>
