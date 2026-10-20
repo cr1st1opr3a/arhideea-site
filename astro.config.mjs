@@ -8,6 +8,9 @@ import path from 'node:path';
 const projectsDir = './src/content/projects';
 const redirects = {
   '/projects/casa-de-vacanta': '/proiecte/',
+  // Renamed projects keep their old addresses.
+  '/proiecte/casa-r1-rasnov': '/proiecte/casa-c-s-rasnov/',
+  '/proiecte/casa-r2-rasnov': '/proiecte/casa-c-d-rasnov/',
 };
 for (const slug of fs.readdirSync(projectsDir)) {
   const file = path.join(projectsDir, slug, 'index.md');
