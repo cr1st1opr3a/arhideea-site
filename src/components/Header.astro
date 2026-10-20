@@ -17,7 +17,8 @@ const { current } = Astro.props;
 
 <style>
   .site-header { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
-  .site-header__in { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding-block: 14px; }
+  .site-header__in { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding-block: 12px; }
+  .site-header__in > a { display: block; }
   nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; font-size: 15px; }
   nav a { color: var(--ink); min-height: 44px; display: inline-flex; align-items: center; }
   nav a:hover, nav a[aria-current='page'] { color: var(--petrol); }

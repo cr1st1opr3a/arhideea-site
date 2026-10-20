@@ -80,6 +80,7 @@ const jsonLd = {
             <div class="person__txt">
               <h3 class="person__name">{m.name}</h3>
               <p class="person__role">{m.role}</p>
+              {m.mark && <img class="person__mark" src={m.mark.src} alt={m.mark.alt} width={m.mark.w} height={m.mark.h} />}
             </div>
           </div>
         ))}
@@ -115,4 +116,5 @@ const jsonLd = {
   .person__txt { display: flex; flex-direction: column; gap: 6px; }
   .person__name { font-size: 21px; letter-spacing: -0.015em; }
   .person__role { font-size: 15px; color: var(--text-2); }
+  .person__mark { margin-top: 8px; width: 90px; height: auto; }
 </style>

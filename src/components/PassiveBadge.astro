@@ -1,20 +1,15 @@
 ---
-// Stand-in for the Certified Passive House Designer logo.
-// When the file arrives, save it as public/logos/passive-house-designer.png (or .svg)
-// and replace the placeholder <span> with an <img> of it.
+// Certified Passive House Designer logo. The current file is only 26×27 px;
+// replace public/logos/passive-house-designer.png with a larger one (or SVG) and raise the size below.
 ---
 <div class="badge">
-  <span class="badge__mark">Logo Certified Passive House Designer</span>
-  <span class="badge__text">Proiectant certificat Passive House</span>
+  <img class="badge__mark" src="/logos/passive-house-designer.png" alt="Certified Passive House Designer" width="26" height="27" />
+  <span class="badge__text"><strong>Certified Passive House Designer</strong> Proiectant certificat de Passive House Institute</span>
 </div>
 
 <style>
-  .badge { display: flex; align-items: center; gap: 16px; }
-  .badge__mark {
-    width: 112px; height: 112px; flex: none;
-    display: flex; align-items: center; justify-content: center; text-align: center;
-    padding: 10px; border: 1px dashed var(--grey-3); background: var(--surface);
-    font-size: 11px; line-height: 1.3; color: var(--text-2);
-  }
-  .badge__text { max-width: 170px; font-size: 14px; line-height: 1.4; color: var(--text-2); }
+  .badge { display: flex; align-items: center; gap: 14px; padding: 14px 18px 14px 14px; background: var(--surface); border: 1px solid var(--line); }
+  .badge__mark { width: 52px; height: 54px; flex: none; image-rendering: auto; }
+  .badge__text { max-width: 210px; font-size: 13px; line-height: 1.4; color: var(--text-2); display: flex; flex-direction: column; gap: 2px; }
+  .badge__text strong { font-size: 14px; color: var(--ink); }
 </style>
