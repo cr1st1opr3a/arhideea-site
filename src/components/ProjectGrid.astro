@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import ProjectCard from './ProjectCard.astro';
 import { CATEGORIES } from '../content.config';
+import { catSlug } from '../lib/categories';
 interface Props {
   projects: CollectionEntry<'projects'>[];
   /** How many cards to show before "Încarcă încă". */
@@ -18,7 +19,7 @@ const H = headingLevel;
     <H class="grid-title">{heading}</H>
     <div class="chips" role="group" aria-label="Filtrează după categorie">
       <button type="button" class="chip" data-filter="" aria-pressed="true">Toate</button>
-      {used.map((c) => <button type="button" class="chip" data-filter={c} aria-pressed="false">{c}</button>)}
+      {used.map((c) => <button type="button" class="chip" data-filter={c} data-slug={catSlug(c)} aria-pressed="false">{c}</button>)}
     </div>
   </div>
 
@@ -124,6 +125,14 @@ const H = headingLevel;
         next[0]?.querySelector<HTMLAnchorElement>('.card__title a')?.focus({ preventScroll: true });
       }, reduce ? 0 : 450);
     });
+
+    // Arriving from a category link (?categorie=...) preselects that filter.
+    const wanted = new URLSearchParams(location.search).get('categorie');
+    const preset = wanted ? chips.find((c) => c.dataset.slug === wanted) : undefined;
+    if (preset) {
+      filter = preset.dataset.filter || '';
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(c === preset)));
+    }
 
     // First paint: show the first page; animate it when it comes into view.
     const firstShown = apply([]);

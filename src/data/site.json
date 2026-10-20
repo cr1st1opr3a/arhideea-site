@@ -11,27 +11,6 @@
     "title": "Calculăm fiecare detaliu, ca să vă simțiți bine acasă.",
     "lede": "Arhitectură, urbanism și coordonarea tuturor specialităților. Rigoare tehnică în proiect, atenție la oamenii care vor locui acolo."
   },
-  "how": {
-    "intro": "Începem cu oamenii și cu locul. Continuăm cu calcule, detalii și coordonare, până la finalizarea construcței.",
-    "steps": [
-      {
-        "title": "Ascultăm",
-        "text": "Tema, bugetul și felul în care vreți să locuiți."
-      },
-      {
-        "title": "Calculăm",
-        "text": "Însorire, etanşeitate, punți termice, comfort."
-      },
-      {
-        "title": "Coordonăm",
-        "text": "Urbanism, arhitectură, rezistență, instalații, amenajări interioare și exterioare."
-      },
-      {
-        "title": "Urmărim",
-        "text": "Detaliile de execuție și lucrările pe șantier."
-      }
-    ]
-  },
   "specialties": [
     "Arhitectură",
     "Urbanism",
@@ -110,5 +89,9 @@
         "text": "Cool, dedicated, creative. Highly recommended!"
       }
     ]
+  },
+  "manifesto": {
+    "label": "Ce facem",
+    "text": "Suntem un atelier de arhitectură care proiectează [case eficiente energetic](/proiecte/?categorie=constructii-eficiente), [locuințe](/proiecte/?categorie=locuinte), [interioare](/proiecte/?categorie=amenajari-interioare) și [spații de lucru](/proiecte/?categorie=spatii-comerciale), coordonând toate specialitățile, de la urbanism până pe șantier."
   }
 }

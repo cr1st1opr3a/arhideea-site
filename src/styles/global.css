@@ -1,24 +1,3 @@
-@font-face {
-  font-family: 'Heros';
-  src: url('/fonts/texgyreheros-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Heros';
-  src: url('/fonts/texgyreheros-italic.woff2') format('woff2');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Heros';
-  src: url('/fonts/texgyreheros-bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 
 :root {
   --bg: #F2F3F3;
@@ -39,7 +18,7 @@
   --red: #E2231A;
   --red-text: #C81E17;
 
-  --font: 'Heros', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font: 'Inter Tight Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --wrap: 1280px;
   --gutter: clamp(16px, 4vw, 40px);
   --ease: cubic-bezier(.2, .7, .2, 1);
@@ -63,7 +42,7 @@ a { color: var(--petrol); text-decoration: none; }
 a:hover { color: var(--petrol-d); }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--petrol); outline-offset: 3px; }
-h1, h2, h3 { margin: 0; color: var(--petrol-d); font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; }
+h1, h2, h3 { margin: 0; color: var(--petrol-d); font-weight: 300; letter-spacing: -0.03em; line-height: 1.05; }
 p { margin: 0; }
 
 .wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gutter); }

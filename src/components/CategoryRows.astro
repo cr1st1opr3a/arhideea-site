@@ -1,0 +1,97 @@
+---
+// One horizontal, swipeable row of projects per category (homepage).
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { CATEGORIES } from '../content.config';
+import { catSlug } from '../lib/categories';
+interface Props { projects: CollectionEntry<'projects'>[] }
+const { projects } = Astro.props;
+const rows = CATEGORIES.map((c) => ({ c, items: projects.filter((p) => p.data.categories.includes(c)) })).filter((r) => r.items.length);
+const pad = (x: number) => String(x).padStart(2, '0');
+---
+<section id="proiecte" class="rows" aria-label="Proiecte pe categorii">
+  {rows.map((r) => (
+    <div class="row" data-row>
+      <div class="wrap row__head">
+        <h2 class="row__title"><a href={`/proiecte/?categorie=${catSlug(r.c)}`}>{r.c}</a></h2>
+        <div class="row__meta">
+          <span class="row__count" aria-hidden="true"><span data-pos>01</span>/{pad(r.items.length)}</span>
+          <button type="button" class="rbtn" data-prev aria-label={`Înapoi în ${r.c}`}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" /></svg></button>
+          <button type="button" class="rbtn" data-next aria-label={`Înainte în ${r.c}`}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" /></svg></button>
+        </div>
+      </div>
+      <ul class="row__track" data-track>
+        {r.items.map((p) => (
+          <li class="tile">
+            <a href={`/proiecte/${p.id}/`} class="tile__link">
+              <span class="tile__media">
+                <Image src={p.data.cover} alt="" widths={[480, 720, 960]} sizes="(min-width: 900px) 420px, 82vw" class="tile__img" />
+              </span>
+              <span class="tile__cat">{p.data.location ?? p.data.categories[0]}</span>
+              <span class="tile__name">{p.data.title}</span>
+            </a>
+          </li>
+        ))}
+        <li class="tile tile--all">
+          <a href={`/proiecte/?categorie=${catSlug(r.c)}`} class="tile__more">Toate proiectele<br />{r.c.toLowerCase()} →</a>
+        </li>
+      </ul>
+    </div>
+  ))}
+</section>
+
+<style>
+  .rows { padding-block: clamp(64px, 8vw, 112px) 24px; display: flex; flex-direction: column; gap: clamp(56px, 7vw, 96px); }
+  .row__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 24px; margin-bottom: 24px; }
+  .row__title { font-size: clamp(28px, 3.2vw, 44px); }
+  .row__title a { color: var(--petrol-d); }
+  .row__title a:hover { color: var(--petrol); }
+  .row__meta { display: flex; align-items: center; gap: 6px; }
+  .row__count { font-size: 14px; color: var(--text-2); font-variant-numeric: tabular-nums; margin-right: 10px; }
+  .rbtn { width: 44px; height: 44px; border: 1px solid var(--grey-3); border-radius: 50%; background: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: border-color .2s, background .2s, opacity .2s; }
+  .rbtn:hover { border-color: var(--petrol); }
+  .rbtn:disabled { opacity: .3; cursor: default; }
+  .rbtn svg { width: 15px; height: 15px; stroke: var(--ink); fill: none; stroke-width: 1.6; }
+
+  .row__track {
+    list-style: none; margin: 0; padding: 0 var(--gutter) 8px;
+    display: grid; grid-auto-flow: column; grid-auto-columns: clamp(260px, 30vw, 420px); gap: clamp(16px, 2vw, 28px);
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+    scrollbar-width: none; overscroll-behavior-x: contain;
+  }
+  .row__track::-webkit-scrollbar { display: none; }
+  @media (min-width: 1360px) { .row__track { padding-inline: calc((100vw - var(--wrap)) / 2 + var(--gutter)); scroll-padding-inline: calc((100vw - var(--wrap)) / 2 + var(--gutter)); } }
+  .tile { scroll-snap-align: start; }
+  .tile__link { display: flex; flex-direction: column; gap: 10px; color: var(--ink); }
+  .tile__media { display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--grey-2); }
+  .tile__media :global(.tile__img) { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease); }
+  .tile__link:hover :global(.tile__img) { transform: scale(1.04); }
+  .tile__cat { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-2); }
+  .tile__name { font-size: 22px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.2; color: var(--petrol-d); }
+  .tile__link:hover .tile__name { color: var(--petrol); }
+  .tile--all { display: flex; }
+  .tile__more { flex: 1; aspect-ratio: 4 / 5; display: flex; align-items: flex-end; padding: 24px; background: var(--petrol-d); color: #fff; font-size: 24px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.2; }
+  .tile__more:hover { background: var(--petrol); color: #fff; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-row]').forEach((row) => {
+    const track = row.querySelector<HTMLElement>('[data-track]')!;
+    const tiles = [...track.querySelectorAll<HTMLElement>('.tile:not(.tile--all)')];
+    const prev = row.querySelector<HTMLButtonElement>('[data-prev]')!;
+    const next = row.querySelector<HTMLButtonElement>('[data-next]')!;
+    const pos = row.querySelector<HTMLElement>('[data-pos]')!;
+    const step = () => (tiles[1] ? tiles[1].offsetLeft - tiles[0].offsetLeft : track.clientWidth * 0.8);
+    const update = () => {
+      const i = Math.min(tiles.length - 1, Math.round(track.scrollLeft / step()));
+      pos.textContent = String(i + 1).padStart(2, '0');
+      prev.disabled = track.scrollLeft < 4;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    };
+    prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+    track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+</script>

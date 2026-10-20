@@ -79,7 +79,7 @@ collections:
         value_type: int
         default: 0
         hint: 'Numărul mai mic apare primul. Proiectele existente au 10, 20, 30… Pune 5 ca să apară primul.'
-      - { name: featured, label: În sliderul de pe prima pagină, widget: boolean, default: false }
+      - { name: featured, label: În sliderul mare de pe prima pagină, widget: boolean, default: false, hint: 'Alege proiecte cu fotografii orizontale foarte bune; titlul site-ului apare peste ele.' }
       - { name: cover, label: Fotografie copertă, widget: image, choose_url: false }
       - name: gallery
         label: Galerie foto
@@ -141,20 +141,17 @@ collections:
             widget: object
             fields:
               - { name: eyebrow, label: Rândul mic de deasupra, widget: string }
-              - { name: title, label: Titlu mare, widget: string }
-              - { name: lede, label: Text sub titlu, widget: text }
-          - name: how
-            label: Secțiunea „Cum lucrăm”
+              - { name: title, label: Titlu mare (peste fotografie), widget: string }
+              - { name: lede, label: Text sub fraza mare, widget: text }
+          - name: manifesto
+            label: Fraza mare de pe prima pagină
             widget: object
             fields:
-              - { name: intro, label: Text introductiv, widget: text }
-              - name: steps
-                label: Pași
-                widget: list
-                summary: '{{fields.title}}'
-                fields:
-                  - { name: title, label: Titlu, widget: string }
-                  - { name: text, label: Text, widget: text }
+              - { name: label, label: Eticheta din stânga, widget: string }
+              - name: text
+                label: Fraza
+                widget: text
+                hint: 'Cuvintele cu link se scriu așa: [interioare](/proiecte/?categorie=amenajari-interioare). Categorii: constructii-eficiente, locuinte, amenajari-interioare, spatii-comerciale, dotari-pentru-turism.'
           - name: specialties
             label: Specialități coordonate
             widget: list

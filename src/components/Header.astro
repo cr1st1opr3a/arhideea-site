@@ -1,32 +1,118 @@
 ---
 import Logo from './Logo.astro';
+import { SITE } from '../site';
+import { CATEGORIES } from '../content.config';
+import { catSlug } from '../lib/categories';
 interface Props { current?: 'home' | 'proiecte' | 'contact' }
 const { current } = Astro.props;
+const tel = SITE.phone ? SITE.phone.replace(/[^\d+]/g, '') : '';
 ---
 <header class="site-header">
   <div class="wrap site-header__in">
-    <a href="/" aria-label="Arhideea, prima pagină"><Logo /></a>
-    <nav aria-label="Principal">
+    <a href="/" class="site-header__logo" aria-label="Arhideea, prima pagină"><Logo /></a>
+    <nav class="site-header__quick" aria-label="Scurtături">
       <a href="/proiecte/" aria-current={current === 'proiecte' ? 'page' : undefined}>Proiecte</a>
-      <a href="/#cum-lucram">Cum lucrăm</a>
-      <a href="/#atelier">Atelier</a>
-      <a href="/contact/" class="nav-cta" aria-current={current === 'contact' ? 'page' : undefined}>Contact</a>
+      <a href="/contact/" aria-current={current === 'contact' ? 'page' : undefined}>Contact</a>
     </nav>
+    <button type="button" class="burger" aria-expanded="false" aria-controls="meniu" data-menu-open>
+      <span class="visually-hidden">Deschide meniul</span>
+      <span class="burger__lines" aria-hidden="true"></span>
+    </button>
   </div>
 </header>
 
+<div id="meniu" class="menu" role="dialog" aria-modal="true" aria-label="Meniu" hidden data-menu>
+  <div class="wrap menu__top">
+    <a href="/" class="site-header__logo" aria-label="Arhideea, prima pagină"><Logo inverse /></a>
+    <button type="button" class="menu__close" data-menu-close>
+      <span class="visually-hidden">Închide meniul</span>
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="wrap menu__body">
+    <nav class="menu__main" aria-label="Principal">
+      <a href="/proiecte/">Proiecte</a>
+      <a href="/#atelier">Atelier</a>
+      <a href="/#recenzii">Clienți</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="menu__side">
+      <p class="menu__label">Categorii</p>
+      <ul>
+        {CATEGORIES.map((c) => <li><a href={`/proiecte/?categorie=${catSlug(c)}`}>{c}</a></li>)}
+      </ul>
+      <p class="menu__label">Contact</p>
+      <p class="menu__contact">
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        {SITE.phone && <a href={`tel:${tel}`}>{SITE.phone}</a>}
+      </p>
+    </div>
+  </div>
+</div>
+
 <style>
-  .site-header { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
-  .site-header__in { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding-block: 12px; }
-  .site-header__in > a { display: block; }
-  nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; font-size: 15px; }
-  nav a { color: var(--ink); min-height: 44px; display: inline-flex; align-items: center; }
-  nav a:hover, nav a[aria-current='page'] { color: var(--petrol); }
-  nav a[aria-current='page'] { box-shadow: inset 0 -2px 0 var(--green); }
-  .nav-cta { background: var(--petrol); color: #fff !important; padding: 0 20px; }
-  .nav-cta:hover { background: var(--petrol-d); }
-  @media (max-width: 560px) {
-    nav { gap: 4px 16px; font-size: 14px; }
-    .nav-cta { padding: 0 14px; }
-  }
+  .site-header { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 30; }
+  .site-header__in { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 12px; }
+  .site-header__logo { display: block; margin-right: auto; }
+  .site-header__quick { display: flex; gap: 28px; font-size: 15px; }
+  .site-header__quick a { color: var(--ink); min-height: 44px; display: inline-flex; align-items: center; }
+  .site-header__quick a:hover, .site-header__quick a[aria-current='page'] { color: var(--petrol); }
+  .site-header__quick a[aria-current='page'] { box-shadow: inset 0 -2px 0 var(--green); }
+  @media (max-width: 640px) { .site-header__quick { display: none; } }
+
+  .burger { width: 48px; height: 48px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: -10px; }
+  .burger__lines, .burger__lines::before, .burger__lines::after { display: block; width: 26px; height: 1.5px; background: var(--ink); position: relative; }
+  .burger__lines::before, .burger__lines::after { content: ''; position: absolute; left: 0; }
+  .burger__lines::before { top: -8px; }
+  .burger__lines::after { top: 8px; }
+
+  .menu { position: fixed; inset: 0; z-index: 60; background: var(--petrol-d); color: #fff; overflow-y: auto; }
+  .menu[hidden] { display: none; }
+  .menu:not([hidden]) { animation: menuIn .35s var(--ease) both; }
+  @keyframes menuIn { from { opacity: 0; } to { opacity: 1; } }
+  .menu__top { display: flex; justify-content: space-between; align-items: center; padding-block: 12px; border-bottom: 1px solid rgba(255,255,255,.12); }
+  .menu__close { width: 48px; height: 48px; border: 0; background: none; color: #fff; font-size: 40px; font-weight: 200; line-height: 1; cursor: pointer; margin-right: -10px; }
+  .menu__body { padding-block: 64px 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 56px; }
+  .menu__main { display: flex; flex-direction: column; gap: 4px; }
+  .menu__main a { color: #fff; font-size: clamp(40px, 6vw, 72px); font-weight: 300; letter-spacing: -0.035em; line-height: 1.15; width: fit-content; }
+  .menu__main a:hover { color: var(--green); }
+  .menu__label { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--on-petrol); margin: 0 0 12px; }
+  .menu__side ul { list-style: none; margin: 0 0 40px; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+  .menu__side a { color: #fff; font-size: 19px; min-height: 40px; display: inline-flex; align-items: center; }
+  .menu__side a:hover { color: var(--green); }
+  .menu__contact { display: flex; flex-direction: column; margin: 0; }
+  :global(html.menu-open) { overflow: hidden; }
 </style>
+
+<script>
+  const menu = document.querySelector<HTMLElement>('[data-menu]');
+  const openBtn = document.querySelector<HTMLButtonElement>('[data-menu-open]');
+  const closeBtn = document.querySelector<HTMLButtonElement>('[data-menu-close]');
+  if (menu && openBtn && closeBtn) {
+    const open = () => {
+      menu.hidden = false;
+      openBtn.setAttribute('aria-expanded', 'true');
+      document.documentElement.classList.add('menu-open');
+      closeBtn.focus();
+    };
+    const close = () => {
+      menu.hidden = true;
+      openBtn.setAttribute('aria-expanded', 'false');
+      document.documentElement.classList.remove('menu-open');
+      openBtn.focus();
+    };
+    openBtn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    menu.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a')) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (menu.hidden) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'Tab') {
+        const f = [...menu.querySelectorAll<HTMLElement>('a, button')];
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+  }
+</script>

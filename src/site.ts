@@ -4,7 +4,6 @@ import data from './data/site.json';
 
 export const SITE = data;
 export const HERO = data.hero;
-export const HOW = data.how;
 export const SPECIALTIES: string[] = data.specialties;
 
 export type Member = { name: string; role: string; photo?: string; mark?: string };
@@ -18,3 +17,4 @@ export const STATS: Stat[] = data.stats ?? [];
 export const CONTACT = data.contact;
 export type Review = { author: string; rating?: number; date?: string; text: string };
 export const REVIEWS: { title: string; googleUrl?: string; rating?: string; count?: string; items: Review[] } = data.reviews;
+export const MANIFESTO: { label: string; text: string } = data.manifesto;
