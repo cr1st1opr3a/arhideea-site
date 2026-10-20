@@ -12,8 +12,11 @@ gallery:
   - src: ./foto-02.jpg
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
+  - src: ./foto-05.jpg
+  - src: ./foto-06.jpg
+  - src: ./foto-07.jpg
 facts:
   - { k: "Colaborare", v: "Graft Design (proiectant general)" }
-placeholderPhotos: true
+placeholderPhotos: false
 oldPath: "/projects/amenajare-zona-clienti-distrigaz-brasov/"
 ---

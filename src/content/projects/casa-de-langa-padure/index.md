@@ -11,6 +11,8 @@ gallery:
   - src: ./foto-02.jpg
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
-placeholderPhotos: true
+  - src: ./foto-05.jpg
+  - src: ./foto-06.jpg
+placeholderPhotos: false
 oldPath: "/projects/casa-de-langa-padure/"
 ---

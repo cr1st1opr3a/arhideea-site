@@ -11,8 +11,10 @@ gallery:
   - src: ./foto-02.jpg
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
+  - src: ./foto-05.jpg
+  - src: ./foto-06.jpg
 technical:
   - { k: "Intervenție", v: "Consolidare, reabilitare termică" }
-placeholderPhotos: true
+placeholderPhotos: false
 oldPath: "/projects/remodelare-locuinta/"
 ---

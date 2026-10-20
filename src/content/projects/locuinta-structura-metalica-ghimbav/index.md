@@ -12,10 +12,13 @@ gallery:
   - src: ./foto-02.jpg
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
+  - src: ./foto-05.jpg
+  - src: ./foto-06.jpg
+  - src: ./foto-07.jpg
 facts:
   - { k: "Suprafață teren", v: "300 mp" }
 technical:
   - { k: "Structură", v: "Metalică" }
-placeholderPhotos: true
+placeholderPhotos: false
 oldPath: "/projects/locuinta-eficienta-cu-structura-metalica/"
 ---

@@ -11,9 +11,11 @@ gallery:
   - src: ./foto-02.jpg
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
+  - src: ./foto-05.jpg
+  - src: ./foto-06.jpg
 technical:
   - { k: "Standard", v: "Aproape de casă pasivă" }
   - { k: "Structură", v: "Integral din lemn" }
-placeholderPhotos: true
+placeholderPhotos: false
 oldPath: "/projects/3124/"
 ---

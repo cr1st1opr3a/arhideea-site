@@ -12,10 +12,13 @@ gallery:
   - src: ./foto-02.jpg
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
+  - src: ./foto-05.jpg
+  - src: ./foto-06.jpg
+  - src: ./foto-07.jpg
 technical:
   - { k: "Structură", v: "Integral din lemn" }
   - { k: "Izolație termică", v: "Celuloză, vată bazaltică" }
   - { k: "Ventilație", v: "Cu recuperare de căldură" }
-placeholderPhotos: true
+placeholderPhotos: false
 oldPath: "/projects/casa-v-o/"
 ---

@@ -15,6 +15,6 @@ gallery:
 technical:
   - { k: "Structură", v: "Cadre din beton și framing" }
   - { k: "Încălzire", v: "Pompă de căldură aer-apă" }
-placeholderPhotos: true
+placeholderPhotos: false
 oldPath: "/projects/locuinta-la-campina/"
 ---
