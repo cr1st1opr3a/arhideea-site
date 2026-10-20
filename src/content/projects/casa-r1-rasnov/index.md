@@ -1,7 +1,7 @@
 ---
 title: "Casa R1"
 location: "Râșnov"
-categories: ["Construcții eficiente", "Locuințe"]
+categories: ["Construcții eficiente", "Structuri din lemn", "Locuințe"]
 summary: "Locuință eficientă energetic la Râșnov, cu structură din lemn."
 highlights: ["Eficientă energetic", "Structură din lemn", "Râșnov"]
 order: 2

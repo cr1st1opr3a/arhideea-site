@@ -1,6 +1,6 @@
 ---
 title: "Casa D/I"
-categories: ["Construcții eficiente", "Locuințe"]
+categories: ["Construcții eficiente", "Structuri din lemn", "Locuințe"]
 summary: "O locuință proiectată foarte aproape de standardul de casă pasivă, cu structură integral din lemn."
 highlights: ["Aproape de standardul de casă pasivă", "Structură integral din lemn"]
 order: 20

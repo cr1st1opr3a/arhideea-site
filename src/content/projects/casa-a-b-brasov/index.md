@@ -1,7 +1,7 @@
 ---
 title: "Casa A/B"
 location: "Brașov"
-categories: ["Construcții eficiente", "Locuințe"]
+categories: ["Construcții eficiente", "Structuri din lemn", "Locuințe"]
 summary: "Locuință eficientă energetic, cu structură din lemn în sistem framing, parțial prefabricată: panourile de perete au fost realizate în fabrică și montate pe șantier cu macaraua."
 highlights: ["Eficientă energetic", "Structură din lemn tip framing", "Parțial prefabricată"]
 order: 5

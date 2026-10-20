@@ -4,6 +4,7 @@ import { z } from 'astro/zod';
 
 export const CATEGORIES = [
   'Construcții eficiente',
+  'Structuri din lemn',
   'Locuințe',
   'Amenajări interioare',
   'Spații comerciale',

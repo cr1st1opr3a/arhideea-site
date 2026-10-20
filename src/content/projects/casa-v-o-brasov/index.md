@@ -1,7 +1,7 @@
 ---
 title: "Casa V/O"
 location: "Brașov"
-categories: ["Construcții eficiente", "Locuințe"]
+categories: ["Construcții eficiente", "Structuri din lemn", "Locuințe"]
 summary: "Locuință eficientă energetic, cu structură integral din lemn. Izolații cu celuloză și vată bazaltică, sistem de ventilație cu recuperare de căldură."
 highlights: ["Structură integral din lemn", "Izolații: celuloză și vată bazaltică", "Ventilație cu recuperare de căldură"]
 order: 50
