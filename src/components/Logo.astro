@@ -1,5 +1,5 @@
 ---
-// Arhideea logo, traced to vector from the original (public/logos/arhideea-original.jpg).
+// Arhideea logo, traced to vector from public/logos/arhideea-original.jpg.
 interface Props { inverse?: boolean }
 const { inverse = false } = Astro.props;
 ---
@@ -7,12 +7,12 @@ const { inverse = false } = Astro.props;
   class:list={['logo', { 'logo--inverse': inverse }]}
   src={inverse ? '/logos/arhideea-light.svg' : '/logos/arhideea.svg'}
   alt="Arhideea arhitectură · design"
-  width="2400"
-  height="736"
+  width="2528"
+  height="591"
 />
 
 <style>
-  .logo { display: block; height: 46px; width: auto; }
-  .logo--inverse { height: 52px; }
+  .logo { display: block; height: 48px; width: auto; }
+  .logo--inverse { height: 56px; }
   @media (max-width: 520px) { .logo { height: 38px; } }
 </style>
