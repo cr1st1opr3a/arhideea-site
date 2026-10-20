@@ -11,6 +11,10 @@ gallery:
   - src: ./foto-01.jpg
   - src: ./foto-02.jpg
   - src: ./foto-03.jpg
+  - src: ./foto-04.jpg
+    caption: "Bucătărie, living și dining"
+  - src: ./foto-05.jpg
+    caption: "Spațiul de zi, cu galeria de la etaj"
 area:
   land: 1072
   built: 263.45
