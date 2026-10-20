@@ -1,7 +1,7 @@
 ---
 title: "Casa P/T"
 location: "Brașov"
-categories: ["Construcții eficiente", "Locuințe"]
+categories: ["Construcții eficiente energetic", "Locuințe"]
 summary: "O casă în centrul istoric al Brașovului, care preia elemente tradiționale ale zonei. Locuință eficientă energetic."
 highlights: ["Centrul istoric al Brașovului", "Elemente tradiționale ale zonei", "Eficientă energetic"]
 order: 3

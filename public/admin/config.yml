@@ -50,7 +50,7 @@ collections:
     summary: '{{title}} — {{location}}'
     sortable_fields: [order, title]
     view_filters:
-      - { label: Construcții eficiente, field: categories, pattern: Construcții eficiente }
+      - { label: Construcții eficiente energetic, field: categories, pattern: Construcții eficiente energetic }
       - { label: Structuri din lemn, field: categories, pattern: Structuri din lemn }
       - { label: Locuințe, field: categories, pattern: Locuințe }
       - { label: Amenajări interioare, field: categories, pattern: Amenajări interioare }
@@ -66,7 +66,7 @@ collections:
         widget: select
         multiple: true
         min: 1
-        options: [Construcții eficiente, Structuri din lemn, Locuințe, Amenajări interioare, Spații comerciale, Dotări pentru turism]
+        options: [Construcții eficiente energetic, Structuri din lemn, Locuințe, Amenajări interioare, Spații comerciale, Dotări pentru turism]
       - { name: summary, label: Descriere scurtă, widget: text, hint: 'Una-două fraze. Apare sub titlu și în listări.' }
       - name: highlights
         label: Puncte cheie
@@ -164,7 +164,7 @@ collections:
               - name: text
                 label: Fraza
                 widget: text
-                hint: 'Cuvintele cu link se scriu așa: [interioare](/proiecte/?categorie=amenajari-interioare). Categorii: constructii-eficiente, structuri-din-lemn, locuinte, amenajari-interioare, spatii-comerciale, dotari-pentru-turism.'
+                hint: 'Cuvintele cu link se scriu așa: [interioare](/proiecte/?categorie=amenajari-interioare). Categorii: constructii-eficiente-energetic, structuri-din-lemn, locuinte, amenajari-interioare, spatii-comerciale, dotari-pentru-turism.'
           - name: specialties
             label: Specialități coordonate
             widget: list

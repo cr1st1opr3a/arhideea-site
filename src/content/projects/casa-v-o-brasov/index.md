@@ -3,7 +3,7 @@ title: Casa V/O
 location: Brașov
 year: ''
 categories:
-  - Construcții eficiente
+  - Construcții eficiente energetic
   - Structuri din lemn
   - Locuințe
 summary: Locuință eficientă energetic, cu structură integral din lemn. Izolații cu celuloză și vată bazaltică, sistem de ventilație cu recuperare de căldură.

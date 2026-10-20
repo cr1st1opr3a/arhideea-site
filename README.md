@@ -26,7 +26,7 @@ src/content/projects/casa-v-o-brasov/
 | `title` | yes | e.g. `Casa V/O` |
 | `location` | no | e.g. `Brașov` |
 | `year` | no | e.g. `2021` |
-| `categories` | yes | one or more of: Construcții eficiente, Locuințe, Amenajări interioare, Spații comerciale, Dotări pentru turism |
+| `categories` | yes | one or more of: Construcții eficiente energetic, Structuri din lemn, Locuințe, Amenajări interioare, Spații comerciale, Dotări pentru turism |
 | `summary` | yes | one or two sentences; shown as the lead text |
 | `highlights` | no | 2–3 short lines for the card's "Fișă tehnică" and the slider |
 | `order` | yes | lower comes first; give a new project a number below the current lowest |

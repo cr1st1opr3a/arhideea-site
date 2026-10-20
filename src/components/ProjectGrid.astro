@@ -127,7 +127,10 @@ const H = headingLevel;
     });
 
     // Arriving from a category link (?categorie=...) preselects that filter.
-    const wanted = new URLSearchParams(location.search).get('categorie');
+    // Old category addresses keep working after a rename.
+    const renamed: Record<string, string> = { 'constructii-eficiente': 'constructii-eficiente-energetic' };
+    const asked = new URLSearchParams(location.search).get('categorie');
+    const wanted = asked ? renamed[asked] ?? asked : asked;
     const preset = wanted ? chips.find((c) => c.dataset.slug === wanted) : undefined;
     if (preset) {
       filter = preset.dataset.filter || '';

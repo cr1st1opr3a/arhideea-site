@@ -1,7 +1,7 @@
 ---
 title: "Locuința la Câmpina"
 location: "Câmpina"
-categories: ["Construcții eficiente", "Locuințe"]
+categories: ["Construcții eficiente energetic", "Locuințe"]
 summary: "Locuință eficientă energetic, construită în sistem mixt: cadre din beton și sistem framing. Încălzire cu pompă de căldură aer-apă."
 highlights: ["Sistem mixt: beton și framing", "Pompă de căldură aer-apă"]
 order: 110

@@ -1,7 +1,7 @@
 ---
 title: "Casa C/G"
 location: "lângă București"
-categories: ["Construcții eficiente", "Locuințe"]
+categories: ["Construcții eficiente energetic", "Locuințe"]
 summary: "Locuință în apropierea Bucureștiului, proiectată pentru eficiență energetică, cu accent pe evitarea supraîncălzirii."
 highlights: ["Proiectată pentru eficiență energetică", "Accent pe evitarea supraîncălzirii"]
 order: 10

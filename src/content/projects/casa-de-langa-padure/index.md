@@ -1,6 +1,6 @@
 ---
 title: "Casa de lângă pădure"
-categories: ["Construcții eficiente", "Locuințe"]
+categories: ["Construcții eficiente energetic", "Locuințe"]
 summary: "O locuință eficientă energetic, cu elemente de design scandinave."
 highlights: ["Eficientă energetic", "Elemente de design scandinave"]
 order: 100

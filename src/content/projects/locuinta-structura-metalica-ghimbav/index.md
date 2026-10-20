@@ -1,7 +1,7 @@
 ---
 title: "Locuință eficientă cu structură metalică"
 location: "Ghimbav"
-categories: ["Construcții eficiente", "Locuințe"]
+categories: ["Construcții eficiente energetic", "Locuințe"]
 summary: "Primul proiect de locuință eficientă energetic realizat și implementat de Arhideea, la Ghimbav. Un lot mic, de 300 mp, care a impus o rezolvare atipică."
 highlights: ["Primul proiect eficient energetic Arhideea", "Lot de 300 mp, rezolvare atipică"]
 order: 60
