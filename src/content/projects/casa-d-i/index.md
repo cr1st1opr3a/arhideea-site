@@ -13,6 +13,8 @@ gallery:
   - src: ./foto-04.jpg
   - src: ./foto-05.jpg
   - src: ./foto-06.jpg
+region: "Împrejurimi Brașov"
+structure: "Lemn"
 technical:
   - { k: "Standard", v: "Aproape de casă pasivă" }
   - { k: "Structură", v: "Integral din lemn" }

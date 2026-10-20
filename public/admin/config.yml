@@ -77,7 +77,7 @@ collections:
       - name: order
         label: Ordine în listă
         widget: number
-        value_type: int
+        value_type: float
         default: 0
         hint: 'Numărul mai mic apare primul. Proiectele existente au 10, 20, 30… Pune 5 ca să apară primul.'
       - { name: featured, label: În sliderul mare de pe prima pagină, widget: boolean, default: false, hint: 'Alege proiecte cu fotografii orizontale foarte bune; titlul site-ului apare peste ele.' }
@@ -91,11 +91,23 @@ collections:
         fields:
           - { name: src, label: Fotografie, widget: image, choose_url: false }
           - { name: caption, label: Legendă (opțional), widget: string, required: false }
+      - name: area
+        label: Suprafețe (mp)
+        widget: object
+        required: false
+        collapsed: false
+        hint: 'Doar cifre. Apar în fișa proiectului și vor fi folosite la filtre.'
+        fields:
+          - { name: land, label: Suprafață teren, widget: number, value_type: float, required: false }
+          - { name: built, label: Suprafață construită, widget: number, value_type: float, required: false }
+          - { name: gross, label: Suprafață desfășurată, widget: number, value_type: float, required: false }
+      - { name: region, label: Zonă (pentru filtre), widget: select, required: false, options: ['Brașov', 'Împrejurimi Brașov', 'Prahova', 'București și Ilfov', 'Alte zone'] }
+      - { name: structure, label: Structură (pentru filtre), widget: select, required: false, options: ['Lemn', 'Zidărie', 'Beton armat', 'Metal'] }
       - name: facts
         label: Fișa proiectului
         widget: list
         required: false
-        hint: 'Ex.: Suprafață — 180 mp'
+        hint: 'Alte date, ex.: Stadiu — Finalizat. Suprafețele se completează mai sus.'
         summary: '{{fields.k}}: {{fields.v}}'
         fields:
           - { name: k, label: Denumire, widget: string }

@@ -15,8 +15,8 @@ gallery:
   - src: ./foto-05.jpg
   - src: ./foto-06.jpg
   - src: ./foto-07.jpg
-facts:
-  - { k: "Suprafață teren", v: "300 mp" }
+region: "Împrejurimi Brașov"
+structure: "Metal"
 technical:
   - { k: "Structură", v: "Metalică" }
 placeholderPhotos: false

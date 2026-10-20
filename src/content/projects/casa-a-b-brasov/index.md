@@ -13,11 +13,14 @@ gallery:
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
   - src: ./foto-05.jpg
+area:
+  land: 1834
+  built: 248.05
+  gross: 394.12
+region: "Împrejurimi Brașov"
+structure: "Lemn"
 facts:
   - { k: "Stadiu", v: "În execuție" }
-  - { k: "Suprafață teren", v: "1.834 mp" }
-  - { k: "Suprafață construită", v: "248 mp" }
-  - { k: "Suprafață desfășurată", v: "394 mp" }
 technical:
   - { k: "Structură", v: "Lemn, sistem framing" }
   - { k: "Execuție", v: "Panouri de perete prefabricate" }

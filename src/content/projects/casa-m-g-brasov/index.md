@@ -21,6 +21,7 @@ gallery:
   - src: ./foto-11.jpg
   - src: ./foto-12.jpg
   - src: ./foto-13.jpg
+region: "Brașov"
 placeholderPhotos: false
 oldPath: "/projects/casa-3/"
 ---

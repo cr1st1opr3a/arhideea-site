@@ -12,6 +12,7 @@ gallery:
   - src: ./foto-02.jpg
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
+region: "Prahova"
 technical:
   - { k: "Structură", v: "Cadre din beton și framing" }
   - { k: "Încălzire", v: "Pompă de căldură aer-apă" }

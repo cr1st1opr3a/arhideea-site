@@ -17,6 +17,7 @@ gallery:
   - src: ./foto-07.jpg
   - src: ./foto-08.jpg
   - src: ./foto-09.jpg
+region: "Brașov"
 placeholderPhotos: false
 oldPath: "/projects/2857/"
 ---

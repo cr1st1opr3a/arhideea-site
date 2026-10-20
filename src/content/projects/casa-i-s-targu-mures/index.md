@@ -14,10 +14,11 @@ gallery:
   - src: ./foto-04.jpg
   - src: ./foto-05.jpg
   - src: ./foto-06.jpg
-facts:
-  - { k: "Suprafață teren", v: "1.837 mp" }
-  - { k: "Suprafață construită", v: "235 mp" }
-  - { k: "Suprafață desfășurată", v: "340 mp" }
+area:
+  land: 1837
+  built: 235
+  gross: 340
+region: "Alte zone"
 placeholderPhotos: false
 oldPath: "/projects/casa-i-s-tg-mures/"
 ---

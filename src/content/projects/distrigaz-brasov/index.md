@@ -15,6 +15,7 @@ gallery:
   - src: ./foto-05.jpg
   - src: ./foto-06.jpg
   - src: ./foto-07.jpg
+region: "Brașov"
 facts:
   - { k: "Colaborare", v: "Graft Design (proiectant general)" }
 placeholderPhotos: false

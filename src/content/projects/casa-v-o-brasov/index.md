@@ -15,10 +15,12 @@ gallery:
   - src: ./foto-05.jpg
   - src: ./foto-06.jpg
   - src: ./foto-07.jpg
-facts:
-  - { k: "Suprafață teren", v: "565 mp" }
-  - { k: "Suprafață construită", v: "118 mp" }
-  - { k: "Suprafață desfășurată", v: "201 mp" }
+area:
+  land: 565
+  built: 117.71
+  gross: 201.11
+region: "Brașov"
+structure: "Lemn"
 technical:
   - { k: "Structură", v: "Integral din lemn" }
   - { k: "Izolație termică", v: "Celuloză, vată bazaltică" }

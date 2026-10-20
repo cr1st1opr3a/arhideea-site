@@ -15,6 +15,7 @@ gallery:
   - src: ./foto-05.jpg
   - src: ./foto-06.jpg
   - src: ./foto-07.jpg
+region: "București și Ilfov"
 technical:
   - { k: "Concept", v: "Eficiență energetică" }
   - { k: "Confort de vară", v: "Protecție la supraîncălzire" }

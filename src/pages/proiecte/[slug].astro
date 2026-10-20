@@ -24,10 +24,14 @@ const hasBody = (project.body ?? '').trim().length > 0;
 const photos = d.gallery.length ? d.gallery : [{ src: d.cover, caption: undefined }];
 const og = await getImage({ src: d.cover, width: 1200, format: 'jpg' });
 
+const mp = (n: number) => `${Math.round(n).toLocaleString('ro-RO')} mp`;
 const projectRows = [
   d.location && { k: 'Amplasament', v: d.location },
   { k: 'Categorie', v: d.categories.join(', ') },
   d.year && { k: 'An', v: d.year },
+  d.area.land && { k: 'Suprafață teren', v: mp(d.area.land) },
+  d.area.built && { k: 'Suprafață construită', v: mp(d.area.built) },
+  d.area.gross && { k: 'Suprafață desfășurată', v: mp(d.area.gross) },
   ...d.facts,
 ].filter(Boolean) as { k: string; v: string }[];
 const tabs = [

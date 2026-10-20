@@ -13,6 +13,7 @@ gallery:
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
   - src: ./foto-05.jpg
+region: "Împrejurimi Brașov"
 placeholderPhotos: false
 oldPath: "/projects/pensiune-cheile-gradistei/"
 ---

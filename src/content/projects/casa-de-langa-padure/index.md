@@ -13,10 +13,11 @@ gallery:
   - src: ./foto-04.jpg
   - src: ./foto-05.jpg
   - src: ./foto-06.jpg
-facts:
-  - { k: "Suprafață teren", v: "400 mp" }
-  - { k: "Suprafață construită", v: "137 mp" }
-  - { k: "Suprafață desfășurată", v: "281 mp" }
+area:
+  land: 400
+  built: 137.15
+  gross: 281.23
+region: "Împrejurimi Brașov"
 placeholderPhotos: false
 oldPath: "/projects/casa-de-langa-padure/"
 ---

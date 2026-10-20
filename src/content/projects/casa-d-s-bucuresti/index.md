@@ -14,10 +14,11 @@ gallery:
   - src: ./foto-04.jpg
   - src: ./foto-05.jpg
   - src: ./foto-06.jpg
-facts:
-  - { k: "Suprafață teren", v: "500 mp" }
-  - { k: "Suprafață construită", v: "120 mp" }
-  - { k: "Suprafață desfășurată", v: "305 mp" }
+area:
+  land: 500
+  built: 120
+  gross: 305
+region: "București și Ilfov"
 placeholderPhotos: false
 oldPath: "/projects/casa-d-s-bucuresti/"
 ---

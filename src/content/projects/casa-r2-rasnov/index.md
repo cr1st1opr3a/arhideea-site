@@ -12,6 +12,8 @@ gallery:
   - src: ./foto-02.jpg
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
+region: "Împrejurimi Brașov"
+structure: "Lemn"
 technical:
   - { k: "Structură", v: "Lemn" }
 placeholderPhotos: false

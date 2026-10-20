@@ -11,6 +11,14 @@ export const CATEGORIES = [
   'Dotări pentru turism',
 ] as const;
 
+// Used by the project filters (location and structure); kept as fixed lists so they group cleanly.
+export const REGIONS = ['Brașov', 'Împrejurimi Brașov', 'Prahova', 'București și Ilfov', 'Alte zone'] as const;
+export const STRUCTURES = ['Lemn', 'Zidărie', 'Beton armat', 'Metal'] as const;
+
+// Empty values from the admin editor ("" or null) count as "not filled in".
+const blank = (v: unknown) => (v === '' || v === null ? undefined : v);
+const sqm = z.preprocess(blank, z.coerce.number().positive().optional());
+
 const row = z.object({ k: z.string(), v: z.string() });
 
 const projects = defineCollection({
@@ -31,6 +39,10 @@ const projects = defineCollection({
       featured: z.boolean().default(false),
       cover: photo(),
       gallery: z.array(z.object({ src: photo(), caption: z.string().optional() })).default([]),
+      // Surfaces in square metres (numbers only). Shown in the project sheet and used by the filters.
+      area: z.preprocess(blank, z.object({ land: sqm, built: sqm, gross: sqm }).partial().default({})),
+      region: z.preprocess(blank, z.enum(REGIONS).optional()),
+      structure: z.preprocess(blank, z.enum(STRUCTURES).optional()),
       facts: z.array(row).default([]),
       technical: z.array(row).default([]),
       quote: z.object({ text: z.string(), author: z.string().optional() }).partial().optional().transform((q) => (q && q.text ? q : undefined)),

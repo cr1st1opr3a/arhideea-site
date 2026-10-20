@@ -11,10 +11,13 @@ gallery:
   - src: ./foto-01.jpg
   - src: ./foto-02.jpg
   - src: ./foto-03.jpg
+area:
+  land: 1072
+  built: 263.45
+  gross: 425.6
+region: "Brașov"
+structure: "Zidărie"
 facts:
   - { k: "Context", v: "Centrul istoric" }
-  - { k: "Suprafață teren", v: "1.072 mp" }
-  - { k: "Suprafață construită", v: "263 mp" }
-  - { k: "Suprafață desfășurată", v: "426 mp" }
 placeholderPhotos: false
 ---

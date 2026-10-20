@@ -12,10 +12,12 @@ gallery:
   - src: ./foto-02.jpg
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
-facts:
-  - { k: "Suprafață teren", v: "800 mp" }
-  - { k: "Suprafață construită", v: "273 mp" }
-  - { k: "Suprafață desfășurată", v: "273 mp" }
+area:
+  land: 800
+  built: 272.87
+  gross: 272.87
+region: "Împrejurimi Brașov"
+structure: "Lemn"
 technical:
   - { k: "Structură", v: "Lemn" }
 placeholderPhotos: false

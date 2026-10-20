@@ -14,6 +14,7 @@ gallery:
   - src: ./foto-04.jpg
   - src: ./foto-05.jpg
   - src: ./foto-06.jpg
+region: "Alte zone"
 placeholderPhotos: false
 oldPath: "/projects/casa/"
 ---

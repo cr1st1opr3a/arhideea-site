@@ -10,6 +10,7 @@ cover: ./foto-01.jpg
 gallery:
   - src: ./foto-01.jpg
   - src: ./foto-02.jpg
+region: "Brașov"
 facts:
   - { k: "Stadiu", v: "În execuție" }
   - { k: "Teren", v: "Lot de colț" }
