@@ -17,9 +17,28 @@ for (const slug of fs.readdirSync(projectsDir)) {
   if (m) redirects[m[1].replace(/\/$/, '')] = `/proiecte/${slug}/`;
 }
 
+// Real 301 redirects for hosts that read a _redirects file (Cloudflare Pages, Netlify).
+// The meta-refresh pages Astro generates remain as a fallback for other hosts.
+const writeRedirects = {
+  name: 'write-redirects-file',
+  hooks: {
+    'astro:build:done': ({ dir }) => {
+      const lines = Object.entries(redirects).flatMap(([from, to]) => [
+        `${from} ${to} 301`,
+        `${from}/ ${to} 301`,
+      ]);
+      lines.push('/feed/ / 301', '/wp-admin/* / 301', '/wp-login.php / 301');
+      fs.writeFileSync(new URL('_redirects', dir), lines.join('\n') + '\n');
+    },
+  },
+};
+
 export default defineConfig({
   site: 'https://www.arhideea.ro',
   trailingSlash: 'always',
   redirects,
-  integrations: [sitemap({ filter: (page) => !Object.keys(redirects).some((r) => page.endsWith(r + '/')) })],
+  integrations: [
+    sitemap({ filter: (page) => !Object.keys(redirects).some((r) => page.endsWith(r + '/')) }),
+    writeRedirects,
+  ],
 });
