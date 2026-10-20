@@ -13,5 +13,8 @@ gallery:
   - src: ./foto-03.jpg
 facts:
   - { k: "Context", v: "Centrul istoric" }
+  - { k: "Suprafață teren", v: "1.072 mp" }
+  - { k: "Suprafață construită", v: "263 mp" }
+  - { k: "Suprafață desfășurată", v: "426 mp" }
 placeholderPhotos: false
 ---

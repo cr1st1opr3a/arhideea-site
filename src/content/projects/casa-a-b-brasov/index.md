@@ -15,6 +15,9 @@ gallery:
   - src: ./foto-05.jpg
 facts:
   - { k: "Stadiu", v: "În execuție" }
+  - { k: "Suprafață teren", v: "1.834 mp" }
+  - { k: "Suprafață construită", v: "248 mp" }
+  - { k: "Suprafață desfășurată", v: "394 mp" }
 technical:
   - { k: "Structură", v: "Lemn, sistem framing" }
   - { k: "Execuție", v: "Panouri de perete prefabricate" }

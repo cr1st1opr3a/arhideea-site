@@ -14,6 +14,10 @@ gallery:
   - src: ./foto-04.jpg
   - src: ./foto-05.jpg
   - src: ./foto-06.jpg
+facts:
+  - { k: "Suprafață teren", v: "500 mp" }
+  - { k: "Suprafață construită", v: "120 mp" }
+  - { k: "Suprafață desfășurată", v: "305 mp" }
 placeholderPhotos: false
 oldPath: "/projects/casa-d-s-bucuresti/"
 ---
