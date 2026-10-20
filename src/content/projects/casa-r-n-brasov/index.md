@@ -12,6 +12,6 @@ gallery:
   - src: ./foto-02.jpg
 facts:
   - { k: "Stadiu", v: "În execuție" }
-  - { k: "Amplasament", v: "Lot de colț" }
+  - { k: "Teren", v: "Lot de colț" }
 placeholderPhotos: false
 ---
