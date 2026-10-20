@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-interface Props { current?: 'home' | 'proiecte' }
+interface Props { current?: 'home' | 'proiecte' | 'contact' }
 const { current } = Astro.props;
 ---
 <header class="site-header">
@@ -10,7 +10,7 @@ const { current } = Astro.props;
       <a href="/proiecte/" aria-current={current === 'proiecte' ? 'page' : undefined}>Proiecte</a>
       <a href="/#cum-lucram">Cum lucrăm</a>
       <a href="/#atelier">Atelier</a>
-      <a href="#contact" class="nav-cta">Contact</a>
+      <a href="/contact/" class="nav-cta" aria-current={current === 'contact' ? 'page' : undefined}>Contact</a>
     </nav>
   </div>
 </header>

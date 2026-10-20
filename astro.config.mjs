@@ -7,7 +7,6 @@ import path from 'node:path';
 // redirects to its new page under /proiecte/.
 const projectsDir = './src/content/projects';
 const redirects = {
-  '/contact': '/#contact',
   '/projects/casa-de-vacanta': '/proiecte/',
 };
 for (const slug of fs.readdirSync(projectsDir)) {

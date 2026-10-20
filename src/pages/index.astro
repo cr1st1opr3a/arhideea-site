@@ -5,12 +5,12 @@ import HeroSlider from '../components/HeroSlider.astro';
 import Stats from '../components/Stats.astro';
 import ProjectGrid from '../components/ProjectGrid.astro';
 import PassiveBadge from '../components/PassiveBadge.astro';
-import { SITE, TEAM, SPECIALTIES, HERO, HOW } from '../site';
-import { CATEGORIES } from '../content.config';
+import { SITE, TEAM, HERO, HOW, STATS } from '../site';
+import Reviews from '../components/Reviews.astro';
+import ContactSection from '../components/ContactSection.astro';
 
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 const featured = projects.filter((p) => p.data.featured);
-const usedCats = CATEGORIES.filter((c) => projects.some((p) => p.data.categories.includes(c)));
 
 const steps = HOW.steps.map((s) => ({ t: s.title, d: s.text }));
 
@@ -40,11 +40,7 @@ const jsonLd = {
 
   {featured.length > 0 && <HeroSlider projects={featured} />}
 
-  <Stats items={[
-    { value: projects.length, label: 'proiecte în portofoliu' },
-    { value: SPECIALTIES.length, label: 'specialități coordonate' },
-    { value: usedCats.length, label: 'tipuri de proiecte' },
-  ]} />
+  <Stats items={STATS} />
 
   <ProjectGrid projects={projects} pageSize={6} />
   <div class="wrap all-link"><a class="link-arrow" href="/proiecte/">Toate proiectele pe o singură pagină →</a></div>
@@ -65,6 +61,8 @@ const jsonLd = {
     </ol>
   </section>
 
+  <Reviews />
+
   <section id="atelier" class="team">
     <div class="wrap team__in">
       <h2>Atelier</h2>
@@ -82,6 +80,8 @@ const jsonLd = {
       </div>
     </div>
   </section>
+
+  <ContactSection />
 </Base>
 
 <style>

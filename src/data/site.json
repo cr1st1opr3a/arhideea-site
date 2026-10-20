@@ -53,5 +53,37 @@
       "mark": "/uploads/ocd_logo-text.webp"
     }
   ],
-  "footerCta": "Spuneți-ne cum vreți să locuiți. Noi ne ocupăm de restul."
+  "footerCta": "Spuneți-ne cum vreți să locuiți. Noi ne ocupăm de restul.",
+  "stats": [
+    {
+      "value": 17,
+      "suffix": "",
+      "label": "proiecte în portofoliu"
+    },
+    {
+      "value": 5,
+      "suffix": "",
+      "label": "specialități coordonate"
+    },
+    {
+      "value": 5,
+      "suffix": "",
+      "label": "tipuri de proiecte"
+    }
+  ],
+  "contact": {
+    "title": "Contact",
+    "intro": "Ne găsiți la birou în Brașov. Programați o întâlnire înainte, ca să avem timp pentru proiectul dumneavoastră.",
+    "address": "Str. Horia nr. 6, ap. 2",
+    "city": "Brașov",
+    "hours": "",
+    "mapQuery": "Strada Horia 6, Brașov, România"
+  },
+  "reviews": {
+    "title": "Ce spun clienții",
+    "googleUrl": "",
+    "rating": "",
+    "count": "",
+    "items": []
+  }
 }

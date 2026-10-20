@@ -12,3 +12,9 @@ export const TEAM: (Member & { initials: string })[] = data.team.map((m: Member)
   ...m,
   initials: m.name.replace(/^arh\.\s*/i, '').split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase(),
 }));
+
+export type Stat = { value: number; suffix?: string; label: string };
+export const STATS: Stat[] = data.stats ?? [];
+export const CONTACT = data.contact;
+export type Review = { author: string; rating?: number; date?: string; text: string };
+export const REVIEWS: { title: string; googleUrl?: string; rating?: string; count?: string; items: Review[] } = data.reviews;

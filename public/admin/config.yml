@@ -170,3 +170,42 @@ collections:
               - { name: photo, label: Portret, widget: image, required: false, choose_url: false, hint: 'Format vertical, 4:5.' }
               - { name: mark, label: Logo personal (opțional), widget: image, required: false, choose_url: false }
           - { name: footerCta, label: Fraza din subsol, widget: string }
+          - name: stats
+            label: Banda cu cifre
+            widget: list
+            hint: 'Cifrele de pe banda petrol de pe prima pagină. Ex.: 120 + „proiecte realizate”, 20 + „ani de experiență”.'
+            summary: '{{fields.value}}{{fields.suffix}} {{fields.label}}'
+            max: 4
+            fields:
+              - { name: value, label: Număr, widget: number, value_type: int }
+              - { name: suffix, label: Semn după număr (opțional), widget: string, required: false, hint: 'Ex.: + sau %' }
+              - { name: label, label: Text, widget: string }
+          - name: contact
+            label: Contact și hartă
+            widget: object
+            fields:
+              - { name: title, label: Titlu secțiune, widget: string }
+              - { name: intro, label: Text introductiv, widget: text, required: false }
+              - { name: address, label: Adresă, widget: string }
+              - { name: city, label: Oraș, widget: string }
+              - { name: hours, label: Program (opțional), widget: string, required: false, hint: 'Ex.: Luni–Vineri, 9–17' }
+              - { name: mapQuery, label: Căutare pe hartă, widget: string, hint: 'Ce se caută în Google Maps pentru pin. Poți pune și numele firmei, dacă e înregistrată pe Google.' }
+          - name: reviews
+            label: Recenzii clienți
+            widget: object
+            hint: 'Secțiunea apare pe site doar când există cel puțin o recenzie.'
+            fields:
+              - { name: title, label: Titlu secțiune, widget: string }
+              - { name: googleUrl, label: Link către recenziile Google, widget: string, required: false }
+              - { name: rating, label: Nota medie Google, widget: string, required: false, hint: 'Ex.: 4,9' }
+              - { name: count, label: Număr total de recenzii, widget: string, required: false }
+              - name: items
+                label: Recenzii
+                widget: list
+                required: false
+                summary: '{{fields.author}}'
+                fields:
+                  - { name: author, label: Nume, widget: string }
+                  - { name: rating, label: Stele, widget: number, value_type: int, min: 1, max: 5, default: 5 }
+                  - { name: date, label: Data (opțional), widget: string, required: false, hint: 'Ex.: martie 2025' }
+                  - { name: text, label: Text recenzie, widget: text }

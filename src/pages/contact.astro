@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Reviews from '../components/Reviews.astro';
+import { CONTACT, SITE } from '../site';
+---
+<Base title="Contact" description={`Contact ${SITE.company}: ${CONTACT.address}, ${CONTACT.city}. ${SITE.email}`} current="contact">
+  <ContactSection headingLevel="h1" />
+  <Reviews />
+</Base>
