@@ -3,7 +3,7 @@
   "company": "Atelier Arhideea SRL",
   "city": "Brașov",
   "email": "atelier@arhideea.ro",
-  "phone": "",
+  "phone": "0721242312",
   "facebook": "https://www.facebook.com/atelierarhideea",
   "description": "Birou de arhitectură din Brașov: locuințe eficiente energetic, case pasive, amenajări interioare și spații comerciale. Coordonăm toate specialitățile, de la urbanism la șantier.",
   "hero": {
@@ -12,18 +12,46 @@
     "lede": "Arhitectură, urbanism și coordonarea tuturor specialităților. Rigoare tehnică în proiect, atenție la oamenii care vor locui acolo."
   },
   "how": {
-    "intro": "Începem cu oamenii și cu locul. Continuăm cu calcule, detalii și coordonare, până pe șantier.",
+    "intro": "Începem cu oamenii și cu locul. Continuăm cu calcule, detalii și coordonare, până la finalizarea construcței.",
     "steps": [
-      { "title": "Ascultăm", "text": "Tema, bugetul și felul în care vreți să locuiți." },
-      { "title": "Calculăm", "text": "Bilanț energetic, însorire, punți termice, confort de vară." },
-      { "title": "Coordonăm", "text": "Urbanism, arhitectură, rezistență, instalații, amenajări interioare și exterioare." },
-      { "title": "Urmărim", "text": "Detaliile de execuție și lucrările pe șantier." }
+      {
+        "title": "Ascultăm",
+        "text": "Tema, bugetul și felul în care vreți să locuiți."
+      },
+      {
+        "title": "Calculăm",
+        "text": "Însorire, etanşeitate, punți termice, comfort."
+      },
+      {
+        "title": "Coordonăm",
+        "text": "Urbanism, arhitectură, rezistență, instalații, amenajări interioare și exterioare."
+      },
+      {
+        "title": "Urmărim",
+        "text": "Detaliile de execuție și lucrările pe șantier."
+      }
     ]
   },
-  "specialties": ["Urbanism", "Arhitectură", "Rezistență", "Instalații", "Amenajări interioare și exterioare"],
-  "team": [
-    { "name": "arh. Daniela Oprea", "role": "Partener · Interior design lead", "photo": "", "mark": "" },
-    { "name": "arh. Cristian Oprea", "role": "Partener · Certified Passive House Designer", "photo": "", "mark": "/logos/cristian-daniel-oprea.png" }
+  "specialties": [
+    "Arhitectură",
+    "Urbanism",
+    "Rezistență",
+    "Instalații",
+    "Amenajări interioare și exterioare"
   ],
-  "footerCta": "Spuneți-ne cum vreți să locuiți. Noi ne ocupăm de calcule."
+  "team": [
+    {
+      "name": "arh. Daniela Oprea",
+      "role": "Partener · Interior design lead",
+      "photo": "",
+      "mark": ""
+    },
+    {
+      "name": "arh. Cristian Oprea",
+      "role": "Partener · Certified Passive House Designer",
+      "photo": "",
+      "mark": "/uploads/ocd_logo-text.webp"
+    }
+  ],
+  "footerCta": "Spuneți-ne cum vreți să locuiți. Noi ne ocupăm de restul."
 }
