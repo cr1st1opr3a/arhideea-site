@@ -1,0 +1,172 @@
+# Admin editor (Sveltia CMS) for arhideea.ro
+# Every save becomes a commit on GitHub; Cloudflare Pages rebuilds the site in ~2 minutes.
+
+backend:
+  name: github
+  repo: cr1st1opr3a/arhideea-site
+  branch: main
+  auth_methods: [token]
+  commit_messages:
+    create: 'Proiect nou: {{slug}}'
+    update: 'Actualizare: {{slug}}'
+    delete: 'Ștergere: {{slug}}'
+    uploadMedia: 'Imagine încărcată: {{path}}'
+    deleteMedia: 'Imagine ștearsă: {{path}}'
+
+app_title: Arhideea · Administrare
+site_url: https://www.arhideea.ro
+display_url: https://www.arhideea.ro
+logo_url: /favicon.svg
+
+# Images not tied to a project (e.g. team portraits) go here.
+media_folder: public/uploads
+public_folder: /uploads
+
+# Uploaded photos are converted to WebP, max 2400 px, before they are saved
+# (this also drops camera/GPS metadata). Astro makes the smaller sizes at build time.
+media_libraries:
+  all:
+    slugify_filename: true
+    transformations:
+      raster_image:
+        format: webp
+        quality: 85
+        width: 2400
+        height: 2400
+
+collections:
+  - name: projects
+    label: Proiecte
+    label_singular: Proiect
+    description: Fiecare proiect are propriul folder cu text și fotografii. Fotografiile încărcate aici sunt optimizate automat pentru web.
+    folder: src/content/projects
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+    create: true
+    delete: true
+    slug: '{{title}}'
+    identifier_field: title
+    summary: '{{title}} — {{location}}'
+    sortable_fields: [order, title]
+    view_filters:
+      - { label: Construcții eficiente, field: categories, pattern: Construcții eficiente }
+      - { label: Locuințe, field: categories, pattern: Locuințe }
+      - { label: Amenajări interioare, field: categories, pattern: Amenajări interioare }
+      - { label: Spații comerciale, field: categories, pattern: Spații comerciale }
+      - { label: Dotări pentru turism, field: categories, pattern: Dotări pentru turism }
+    preview_path: 'proiecte/{{slug}}/'
+    fields:
+      - { name: title, label: Titlu, widget: string, hint: 'Ex.: Casa V/O' }
+      - { name: location, label: Amplasament, widget: string, required: false, hint: 'Ex.: Brașov' }
+      - { name: year, label: An, widget: string, required: false }
+      - name: categories
+        label: Categorii
+        widget: select
+        multiple: true
+        min: 1
+        options: [Construcții eficiente, Locuințe, Amenajări interioare, Spații comerciale, Dotări pentru turism]
+      - { name: summary, label: Descriere scurtă, widget: text, hint: 'Una-două fraze. Apare sub titlu și în listări.' }
+      - name: highlights
+        label: Puncte cheie
+        widget: list
+        required: false
+        hint: '2–3 rânduri scurte, apar în „Fișă tehnică” pe card și în slider.'
+        field: { name: item, label: Punct, widget: string }
+      - name: order
+        label: Ordine în listă
+        widget: number
+        value_type: int
+        default: 0
+        hint: 'Numărul mai mic apare primul. Proiectele existente au 10, 20, 30… Pune 5 ca să apară primul.'
+      - { name: featured, label: În sliderul de pe prima pagină, widget: boolean, default: false }
+      - { name: cover, label: Fotografie copertă, widget: image, choose_url: false }
+      - name: gallery
+        label: Galerie foto
+        widget: list
+        required: false
+        hint: 'Trage rândurile pentru a schimba ordinea.'
+        summary: '{{fields.caption}}'
+        fields:
+          - { name: src, label: Fotografie, widget: image, choose_url: false }
+          - { name: caption, label: Legendă (opțional), widget: string, required: false }
+      - name: facts
+        label: Fișa proiectului
+        widget: list
+        required: false
+        hint: 'Ex.: Suprafață — 180 mp'
+        summary: '{{fields.k}}: {{fields.v}}'
+        fields:
+          - { name: k, label: Denumire, widget: string }
+          - { name: v, label: Valoare, widget: string }
+      - name: technical
+        label: Date tehnice
+        widget: list
+        required: false
+        hint: 'Ex.: Necesar de căldură — 15 kWh/m²an; Etanșeitate n50 — 0,6 h⁻¹'
+        summary: '{{fields.k}}: {{fields.v}}'
+        fields:
+          - { name: k, label: Denumire, widget: string }
+          - { name: v, label: Valoare, widget: string }
+      - name: quote
+        label: Citat client
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { name: text, label: Citat, widget: text, required: false }
+          - { name: author, label: Autor (opțional), widget: string, required: false }
+      - { name: body, label: Text extins (opțional), widget: markdown, required: false, hint: 'Povestea proiectului: tema, contextul, soluțiile.' }
+      - { name: placeholderPhotos, widget: hidden, default: false }
+      - { name: oldPath, widget: hidden }
+
+  - name: settings
+    label: Setări site
+    editor: { preview: false }
+    files:
+      - name: site
+        label: Texte și date de contact
+        file: src/data/site.json
+        format: json
+        fields:
+          - { name: name, label: Nume scurt, widget: string }
+          - { name: company, label: Firmă, widget: string }
+          - { name: city, label: Oraș, widget: string }
+          - { name: email, label: Email, widget: string }
+          - { name: phone, label: Telefon, widget: string, required: false, hint: 'Lasă gol ca să nu apară pe site.' }
+          - { name: facebook, label: Pagina de Facebook, widget: string }
+          - { name: description, label: Descriere pentru Google, widget: text, hint: 'Apare în rezultatele căutării. Maxim ~160 de caractere.' }
+          - name: hero
+            label: Prima pagină — titlu
+            widget: object
+            fields:
+              - { name: eyebrow, label: Rândul mic de deasupra, widget: string }
+              - { name: title, label: Titlu mare, widget: string }
+              - { name: lede, label: Text sub titlu, widget: text }
+          - name: how
+            label: Secțiunea „Cum lucrăm”
+            widget: object
+            fields:
+              - { name: intro, label: Text introductiv, widget: text }
+              - name: steps
+                label: Pași
+                widget: list
+                summary: '{{fields.title}}'
+                fields:
+                  - { name: title, label: Titlu, widget: string }
+                  - { name: text, label: Text, widget: text }
+          - name: specialties
+            label: Specialități coordonate
+            widget: list
+            hint: 'Numărul lor apare în banda cu cifre de pe prima pagină.'
+            field: { name: item, label: Specialitate, widget: string }
+          - name: team
+            label: Echipa
+            widget: list
+            summary: '{{fields.name}}'
+            fields:
+              - { name: name, label: Nume, widget: string }
+              - { name: role, label: Rol, widget: string }
+              - { name: photo, label: Portret, widget: image, required: false, choose_url: false, hint: 'Format vertical, 4:5.' }
+              - { name: mark, label: Logo personal (opțional), widget: image, required: false, choose_url: false }
+          - { name: footerCta, label: Fraza din subsol, widget: string }

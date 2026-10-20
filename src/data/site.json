@@ -1,0 +1,29 @@
+{
+  "name": "Arhideea",
+  "company": "Atelier Arhideea SRL",
+  "city": "Brașov",
+  "email": "atelier@arhideea.ro",
+  "phone": "",
+  "facebook": "https://www.facebook.com/atelierarhideea",
+  "description": "Birou de arhitectură din Brașov: locuințe eficiente energetic, case pasive, amenajări interioare și spații comerciale. Coordonăm toate specialitățile, de la urbanism la șantier.",
+  "hero": {
+    "eyebrow": "Birou de arhitectură · Brașov",
+    "title": "Calculăm fiecare detaliu, ca să vă simțiți bine acasă.",
+    "lede": "Arhitectură, urbanism și coordonarea tuturor specialităților. Rigoare tehnică în proiect, atenție la oamenii care vor locui acolo."
+  },
+  "how": {
+    "intro": "Începem cu oamenii și cu locul. Continuăm cu calcule, detalii și coordonare, până pe șantier.",
+    "steps": [
+      { "title": "Ascultăm", "text": "Tema, bugetul și felul în care vreți să locuiți." },
+      { "title": "Calculăm", "text": "Bilanț energetic, însorire, punți termice, confort de vară." },
+      { "title": "Coordonăm", "text": "Urbanism, arhitectură, rezistență, instalații, amenajări interioare și exterioare." },
+      { "title": "Urmărim", "text": "Detaliile de execuție și lucrările pe șantier." }
+    ]
+  },
+  "specialties": ["Urbanism", "Arhitectură", "Rezistență", "Instalații", "Amenajări interioare și exterioare"],
+  "team": [
+    { "name": "arh. Daniela Oprea", "role": "Partener · Interior design lead", "photo": "", "mark": "" },
+    { "name": "arh. Cristian Oprea", "role": "Partener · Certified Passive House Designer", "photo": "", "mark": "/logos/cristian-daniel-oprea.png" }
+  ],
+  "footerCta": "Spuneți-ne cum vreți să locuiți. Noi ne ocupăm de calcule."
+}

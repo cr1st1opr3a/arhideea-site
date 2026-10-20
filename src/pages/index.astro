@@ -5,19 +5,14 @@ import HeroSlider from '../components/HeroSlider.astro';
 import Stats from '../components/Stats.astro';
 import ProjectGrid from '../components/ProjectGrid.astro';
 import PassiveBadge from '../components/PassiveBadge.astro';
-import { SITE, TEAM, SPECIALTIES } from '../site';
+import { SITE, TEAM, SPECIALTIES, HERO, HOW } from '../site';
 import { CATEGORIES } from '../content.config';
 
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 const featured = projects.filter((p) => p.data.featured);
 const usedCats = CATEGORIES.filter((c) => projects.some((p) => p.data.categories.includes(c)));
 
-const steps = [
-  { t: 'Ascultăm', d: 'Tema, bugetul și felul în care vreți să locuiți.' },
-  { t: 'Calculăm', d: 'Bilanț energetic, însorire, punți termice, confort de vară.' },
-  { t: 'Coordonăm', d: SPECIALTIES.join(', ') + '.' },
-  { t: 'Urmărim', d: 'Detaliile de execuție și lucrările pe șantier.' },
-];
+const steps = HOW.steps.map((s) => ({ t: s.title, d: s.text }));
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -36,9 +31,9 @@ const jsonLd = {
 
   <section class="wrap intro">
     <div class="intro__text">
-      <span class="eyebrow">Birou de arhitectură · Brașov</span>
-      <h1>Calculăm fiecare detaliu, ca să vă simțiți bine acasă.</h1>
-      <p class="intro__lede">Arhitectură, urbanism și coordonarea tuturor specialităților. Rigoare tehnică în proiect, atenție la oamenii care vor locui acolo.</p>
+      <span class="eyebrow">{HERO.eyebrow}</span>
+      <h1>{HERO.title}</h1>
+      <p class="intro__lede">{HERO.lede}</p>
     </div>
     <PassiveBadge />
   </section>
@@ -57,7 +52,7 @@ const jsonLd = {
   <section id="cum-lucram" class="wrap how">
     <div class="section-head">
       <h2>Cum lucrăm</h2>
-      <p class="lede">Începem cu oamenii și cu locul. Continuăm cu calcule, detalii și coordonare, până pe șantier.</p>
+      <p class="lede">{HOW.intro}</p>
     </div>
     <ol class="steps">
       {steps.map((s, i) => (
@@ -76,11 +71,11 @@ const jsonLd = {
       <div class="team__people">
         {TEAM.map((m) => (
           <div class="person">
-            <span class="person__img" aria-hidden="true">{m.initials}</span>
+            {m.photo ? <img class="person__img person__img--photo" src={m.photo} alt={m.name} width="240" height="300" loading="lazy" /> : <span class="person__img" aria-hidden="true">{m.initials}</span>}
             <div class="person__txt">
               <h3 class="person__name">{m.name}</h3>
               <p class="person__role">{m.role}</p>
-              {m.mark && <img class="person__mark" src={m.mark.src} alt={m.mark.alt} width={m.mark.w} height={m.mark.h} />}
+              {m.mark && <img class="person__mark" src={m.mark} alt="" width="90" height="40" loading="lazy" />}
             </div>
           </div>
         ))}
@@ -117,4 +112,5 @@ const jsonLd = {
   .person__name { font-size: 21px; letter-spacing: -0.015em; }
   .person__role { font-size: 15px; color: var(--text-2); }
   .person__mark { margin-top: 8px; width: 90px; height: auto; }
+  .person__img--photo { padding: 0; object-fit: cover; background: var(--grey-2); }
 </style>

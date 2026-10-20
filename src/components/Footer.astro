@@ -6,7 +6,7 @@ const year = new Date().getFullYear();
 <footer id="contact" class="site-footer">
   <div class="wrap site-footer__in">
     <div class="cta">
-      <p class="cta__line">Spuneți-ne cum vreți să locuiți. Noi ne ocupăm de calcule.</p>
+      <p class="cta__line">{SITE.footerCta}</p>
       <div class="cta__contact">
         <a class="cta__mail" href={`mailto:${SITE.email}`}>{SITE.email}</a>
         {SITE.phone && <a class="cta__phone" href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a>}

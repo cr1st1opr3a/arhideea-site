@@ -1,23 +1,14 @@
-// Practice details used across the site. Change them here once.
-export const SITE = {
-  name: 'Arhideea',
-  company: 'Atelier Arhideea SRL',
-  city: 'Brașov',
-  email: 'atelier@arhideea.ro',
-  phone: '', // e.g. '+40 7xx xxx xxx' — left out until confirmed
-  facebook: 'https://www.facebook.com/atelierarhideea',
-  description:
-    'Birou de arhitectură din Brașov: locuințe eficiente energetic, case pasive, amenajări interioare și spații comerciale. Coordonăm toate specialitățile, de la urbanism la șantier.',
-};
+// Practice details and homepage texts live in src/data/site.json,
+// which is editable from the admin page (/admin → Setări site).
+import data from './data/site.json';
 
-type Member = { name: string; role: string; initials: string; mark?: { src: string; alt: string; w: number; h: number } };
-export const TEAM: Member[] = [
-  { name: 'arh. Daniela Oprea', role: 'Partener · Interior design lead', initials: 'DO' },
-  {
-    name: 'arh. Cristian Oprea', role: 'Partener · Certified Passive House Designer', initials: 'CO',
-    // Logo of his individual practice, BIA Oprea Cristian Daniel (current file is 60×27 px).
-    mark: { src: '/logos/cristian-daniel-oprea.png', alt: 'Birou individual de arhitectură Cristian Daniel Oprea', w: 60, h: 27 },
-  },
-];
+export const SITE = data;
+export const HERO = data.hero;
+export const HOW = data.how;
+export const SPECIALTIES: string[] = data.specialties;
 
-export const SPECIALTIES = ['Urbanism', 'Arhitectură', 'Rezistență', 'Instalații', 'Amenajări interioare și exterioare'];
+export type Member = { name: string; role: string; photo?: string; mark?: string };
+export const TEAM: (Member & { initials: string })[] = data.team.map((m: Member) => ({
+  ...m,
+  initials: m.name.replace(/^arh\.\s*/i, '').split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase(),
+}));

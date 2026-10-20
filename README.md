@@ -51,3 +51,10 @@ Images are converted to responsive WebP at build time; no manual resizing beyond
 ## Font
 
 TeX Gyre Heros (Helvetica-style), GUST Font License — see `public/fonts/GUST-FONT-LICENSE.txt`.
+
+## Admin editor
+
+`/admin` runs [Sveltia CMS](https://sveltiacms.app) (config in `public/admin/config.yml`). Sign in with a
+fine-grained GitHub token that has **Contents: read and write** on this repository only. Every save is a
+commit on `main`; Cloudflare Pages rebuilds automatically. Homepage texts, contact details and team live in
+`src/data/site.json` (Setări site in the editor).
