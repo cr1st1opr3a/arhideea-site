@@ -13,6 +13,9 @@ gallery:
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
   - src: ./foto-05.jpg
+  - src: ./foto-06.jpg
+  - src: ./foto-07.jpg
+  - src: ./foto-08.jpg
 placeholderPhotos: false
 oldPath: "/projects/casa-3/"
 ---
