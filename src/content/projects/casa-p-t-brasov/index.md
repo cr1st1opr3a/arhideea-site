@@ -15,6 +15,8 @@ gallery:
     caption: "Bucătărie, living și dining"
   - src: ./foto-05.jpg
     caption: "Spațiul de zi, cu galeria de la etaj"
+  - src: ./foto-06.jpg
+    caption: "Casa scării, luminată prin ferestrele de mansardă (în timpul execuției)"
 area:
   land: 1072
   built: 263.45
