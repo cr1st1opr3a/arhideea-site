@@ -56,19 +56,19 @@
   "footerCta": "Spuneți-ne cum vreți să locuiți. Noi ne ocupăm de restul.",
   "stats": [
     {
-      "value": 17,
-      "suffix": "",
-      "label": "proiecte în portofoliu"
+      "value": 20,
+      "suffix": "+",
+      "label": "ani de experiențǎ"
     },
     {
-      "value": 5,
-      "suffix": "",
-      "label": "specialități coordonate"
+      "value": 30,
+      "suffix": "+",
+      "label": "locuințe finalizate"
     },
     {
-      "value": 5,
-      "suffix": "",
-      "label": "tipuri de proiecte"
+      "value": 20,
+      "suffix": "+",
+      "label": "colaboratori pe specialitǎți"
     }
   ],
   "contact": {
@@ -77,12 +77,12 @@
     "address": "Str. Horia nr. 6, ap. 2",
     "city": "Brașov",
     "hours": "",
-    "mapQuery": "Strada Horia 6, Brașov, România"
+    "mapQuery": "Strada Horia 6, Brașov, România, Arhideea"
   },
   "reviews": {
     "title": "Ce spun clienții",
     "googleUrl": "",
-    "rating": "",
+    "rating": "5.0",
     "count": "",
     "items": []
   }
