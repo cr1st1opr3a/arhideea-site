@@ -3,19 +3,22 @@
 // with the homepage headline laid over the photo.
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import { HERO } from '../site';
+import { langOf, t, site, url, proj } from '../i18n';
 interface Props { projects: CollectionEntry<'projects'>[] }
 const { projects } = Astro.props;
+const l = langOf(Astro);
+const T = t(l);
+const HERO = site(l).hero;
 const n = projects.length;
 const pad = (x: number) => String(x).padStart(2, '0');
 ---
-<section class="hero" aria-roledescription="carusel" aria-label="Proiecte în prim-plan" data-slider>
+<section class="hero" aria-roledescription={T.carousel} aria-label={T.heroLabel} data-slider data-pause-label={T.pause} data-play-label={T.play}>
   <div class="hero__stage">
-    {projects.map((p, i) => (
+    {projects.map((p, i) => { const x = proj(p, l); return (
       <figure class="slide" data-slide aria-hidden={i === 0 ? 'false' : 'true'} data-active={i === 0 ? '' : undefined}>
         <Image
           src={p.data.cover}
-          alt={p.data.title}
+          alt={x.title}
           widths={[800, 1280, 1920, 2400]}
           sizes="100vw"
           loading={i === 0 ? 'eager' : 'lazy'}
@@ -24,13 +27,13 @@ const pad = (x: number) => String(x).padStart(2, '0');
         />
         <span class="slide__shade" aria-hidden="true"></span>
         <figcaption class="slide__cap">
-          <a href={`/proiecte/${p.id}/`} tabindex={i === 0 ? undefined : '-1'}>
-            <span class="slide__cat">{p.data.categories[0]}</span>
-            <span class="slide__name">{p.data.title}{p.data.location && `, ${p.data.location}`} →</span>
+          <a href={url.project(l, p.id)} tabindex={i === 0 ? undefined : '-1'}>
+            <span class="slide__cat">{x.categories[0]}</span>
+            <span class="slide__name">{x.title}{x.location && `, ${x.location}`} →</span>
           </a>
         </figcaption>
       </figure>
-    ))}
+    ); })}
     <div class="wrap hero__text">
       <span class="hero__eyebrow">{HERO.eyebrow}</span>
       <h1 class="hero__title">{HERO.title}</h1>
@@ -41,19 +44,19 @@ const pad = (x: number) => String(x).padStart(2, '0');
     <div class="hero__bar wrap">
       <div class="hero__segs">
         {projects.map((p, i) => (
-          <button type="button" class="seg" data-go={i} aria-label={`Arată ${p.data.title}`} aria-current={i === 0 ? 'true' : undefined}>
+          <button type="button" class="seg" data-go={i} aria-label={`${T.show} ${proj(p, l).title}`} aria-current={i === 0 ? 'true' : undefined}>
             <span class="seg__track"><span class="seg__fill"></span></span>
           </button>
         ))}
       </div>
       <span class="hero__count" aria-live="polite"><span data-count>01</span>/{pad(n)}</span>
       <div class="hero__ctrls">
-        <button type="button" class="hbtn" data-prev aria-label="Proiectul anterior"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" /></svg></button>
-        <button type="button" class="hbtn" data-toggle aria-label="Oprește derularea">
+        <button type="button" class="hbtn" data-prev aria-label={T.prevProject}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" /></svg></button>
+        <button type="button" class="hbtn" data-toggle aria-label={T.pause}>
           <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3v10M10.5 3v10" /></svg>
           <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" /></svg>
         </button>
-        <button type="button" class="hbtn" data-next aria-label="Proiectul următor"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" /></svg></button>
+        <button type="button" class="hbtn" data-next aria-label={T.nextProject}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" /></svg></button>
       </div>
     </div>
   )}
@@ -130,7 +133,7 @@ const pad = (x: number) => String(x).padStart(2, '0');
       segs[idx].setAttribute('aria-current', 'true');
       if (count) count.textContent = String(idx + 1).padStart(2, '0');
       root.toggleAttribute('data-paused', paused || hover);
-      toggle.setAttribute('aria-label', paused ? 'Pornește derularea' : 'Oprește derularea');
+      toggle.setAttribute('aria-label', (paused ? root.dataset.playLabel : root.dataset.pauseLabel) ?? '');
     };
     const stop = () => { if (timer) { clearTimeout(timer); timer = undefined; remaining -= Date.now() - started; } };
     const run = () => {

@@ -1,16 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
-import Base from '../../layouts/Base.astro';
-import ProjectGrid from '../../components/ProjectGrid.astro';
-
-const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+import ProjectsList from '../../views/ProjectsList.astro';
 ---
-<Base title="Proiecte" description="Locuințe eficiente energetic, case aproape pasive, amenajări interioare, spații comerciale și turism — proiectele atelierului Arhideea din Brașov." current="proiecte">
-  <ProjectGrid projects={projects} pageSize={12} heading="Proiecte" headingLevel="h1" />
-  <div class="spacer"></div>
-</Base>
-
-<style>
-  .spacer { height: 64px; }
-  :global(.grid-section) { padding-top: 64px; }
-</style>
+<ProjectsList />

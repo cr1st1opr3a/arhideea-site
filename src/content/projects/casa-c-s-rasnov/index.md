@@ -29,4 +29,20 @@ structure: "Lemn"
 technical:
   - { k: "Structură", v: "Lemn" }
 placeholderPhotos: false
+en:
+  title: "House C/S"
+  summary: "An energy-efficient home in Râșnov, with a timber structure."
+  highlights: ["Energy-efficient", "Timber structure", "Râșnov"]
+  technical:
+    - { k: "Structure", v: "Timber" }
+  captions:
+    - "The house in its landscape, at the foot of the mountains"
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - "On site: erecting the timber structure"
+    - "On site: the floor deck and rafters, looking towards the mountains"
 ---

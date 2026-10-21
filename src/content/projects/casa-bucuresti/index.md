@@ -15,4 +15,8 @@ gallery:
 region: "București și Ilfov"
 placeholderPhotos: false
 oldPath: "/projects/casa-2/"
+en:
+  title: "House in Bucharest"
+  location: "Bucharest"
+  summary: "A single-family home in Bucharest."
 ---

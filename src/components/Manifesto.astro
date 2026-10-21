@@ -1,6 +1,8 @@
 ---
 // Large statement. In the admin, write links as [cuvânt](/proiecte/?categorie=...).
-import { MANIFESTO, HERO } from '../site';
+import { langOf, site } from '../i18n';
+const S = site(langOf(Astro));
+const MANIFESTO = S.manifesto, HERO = S.hero;
 import PassiveBadge from './PassiveBadge.astro';
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const html = esc(MANIFESTO.text).replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) => `<a href="${u.replace(/"/g, '')}">${t}</a>`);

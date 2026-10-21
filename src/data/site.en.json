@@ -1,0 +1,38 @@
+{
+  "description": "Architecture studio in Brașov, Romania: energy-efficient and passive houses, timber homes, interiors and offices. We coordinate every discipline, from planning approval to the building site.",
+  "hero": {
+    "eyebrow": "Architecture studio · Brașov, Romania",
+    "title": "We calculate every detail, so you feel at home.",
+    "lede": "Architecture, planning and the coordination of every engineering discipline. Technical rigour in the design, and care for the people who will live in it."
+  },
+  "specialties": [
+    "Architecture",
+    "Urban planning",
+    "Structural engineering",
+    "Building services",
+    "Interior and landscape design"
+  ],
+  "team": [
+    { "role": "Partner · Interior design lead" },
+    { "role": "Partner · Certified Passive House Designer" }
+  ],
+  "footerCta": "Tell us how you want to live. We'll take care of the rest.",
+  "stats": [
+    { "label": "years of experience" },
+    { "label": "homes completed" },
+    { "label": "specialist collaborators" }
+  ],
+  "contact": {
+    "title": "Contact",
+    "intro": "Our office is in central Brașov. We work in English and guide you through the whole Romanian process: checking the land, the zoning certificate (certificat de urbanism), the building permit and support during construction. Please book a meeting in advance, so we have time for your project.",
+    "hours": "",
+    "city": "Brașov, Romania"
+  },
+  "reviews": {
+    "title": "What clients say"
+  },
+  "manifesto": {
+    "label": "What we do",
+    "text": "We are an architecture studio specialising in [energy-efficient homes](/en/projects/?categorie=constructii-eficiente-energetic), [comfortable interiors](/en/projects/?categorie=amenajari-interioare) and [modern offices](/en/projects/?categorie=spatii-comerciale). We use BIM through every phase of a project, so that architecture, structure and building services fit together precisely."
+  }
+}

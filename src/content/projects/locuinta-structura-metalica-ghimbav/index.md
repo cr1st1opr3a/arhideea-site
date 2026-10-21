@@ -21,4 +21,10 @@ technical:
   - { k: "Structură", v: "Metalică" }
 placeholderPhotos: false
 oldPath: "/projects/locuinta-eficienta-cu-structura-metalica/"
+en:
+  title: "Energy-efficient steel-frame house"
+  summary: "Arhideea's first energy-efficient home, designed and built in Ghimbav. A small plot of 300 m² called for an unconventional solution."
+  highlights: ["Arhideea's first energy-efficient home", "300 m² plot, unconventional solution"]
+  technical:
+    - { k: "Structure", v: "Steel" }
 ---

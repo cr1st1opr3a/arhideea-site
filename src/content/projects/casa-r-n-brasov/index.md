@@ -15,4 +15,11 @@ facts:
   - { k: "Stadiu", v: "În execuție" }
   - { k: "Teren", v: "Lot de colț" }
 placeholderPhotos: false
+en:
+  title: "House R/N"
+  summary: "A house on a difficult corner plot that respects the local architecture while offering the most living space possible."
+  highlights: ["Difficult corner plot", "In keeping with the local architecture", "Maximum living space"]
+  facts:
+    - { k: "Status", v: "Under construction" }
+    - { k: "Plot", v: "Corner plot" }
 ---

@@ -38,6 +38,7 @@ const writeRedirects = {
 export default defineConfig({
   site: 'https://www.arhideea.ro',
   trailingSlash: 'always',
+  i18n: { locales: ['ro', 'en'], defaultLocale: 'ro', routing: { prefixDefaultLocale: false } },
   redirects,
   integrations: [
     sitemap({ filter: (page) => !Object.keys(redirects).some((r) => page.endsWith(r + '/')) }),

@@ -33,4 +33,18 @@ technical:
   - { k: "Structură", v: "Lemn, sistem framing" }
   - { k: "Execuție", v: "Panouri de perete prefabricate" }
 placeholderPhotos: false
+en:
+  title: "House A/B"
+  summary: "An energy-efficient home with a timber-frame structure, partly prefabricated: the wall panels were built in the factory and lifted into place on site by crane."
+  highlights: ["Energy-efficient", "Timber-frame structure", "Partly prefabricated"]
+  facts:
+    - { k: "Status", v: "Under construction" }
+  technical:
+    - { k: "Structure", v: "Timber frame" }
+    - { k: "Construction", v: "Prefabricated wall panels" }
+  captions:
+    - "Render: garden façade, with the terrace and pergola"
+    - "Render: overall view"
+    - "Render: side façade and carport"
+    - "Render: entrance and carport"
 ---

@@ -18,4 +18,11 @@ technical:
   - { k: "Încălzire", v: "Pompă de căldură aer-apă" }
 placeholderPhotos: false
 oldPath: "/projects/locuinta-la-campina/"
+en:
+  title: "House in Câmpina"
+  summary: "An energy-efficient home built with a hybrid structure: a concrete frame combined with timber framing. Heated by an air-to-water heat pump."
+  highlights: ["Hybrid structure: concrete and timber frame", "Air-to-water heat pump"]
+  technical:
+    - { k: "Structure", v: "Concrete frame and timber framing" }
+    - { k: "Heating", v: "Air-to-water heat pump" }
 ---

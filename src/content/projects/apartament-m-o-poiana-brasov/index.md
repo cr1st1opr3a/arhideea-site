@@ -20,4 +20,8 @@ gallery:
 region: "Brașov"
 placeholderPhotos: false
 oldPath: "/projects/2857/"
+en:
+  title: "Apartment M/O"
+  summary: "A small apartment fitted out for comfortable holidays. Wood, textiles and colours chosen and coordinated by Arhideea, from the overall layout down to the smallest details."
+  highlights: ["Small holiday apartment", "Coordinated wood, textiles and colours"]
 ---

@@ -130,6 +130,35 @@ collections:
           - { name: text, label: Citat, widget: text, required: false }
           - { name: author, label: Autor (opțional), widget: string, required: false }
       - { name: body, label: Text extins (opțional), widget: markdown, required: false, hint: 'Povestea proiectului: tema, contextul, soluțiile.' }
+      - name: en
+        label: English (versiunea în engleză)
+        widget: object
+        required: false
+        collapsed: true
+        hint: 'Textele pentru pagina în engleză. Ce lași gol apare în română.'
+        fields:
+          - { name: title, label: Title, widget: string, required: false, hint: 'Ex.: House V/O' }
+          - { name: location, label: Location, widget: string, required: false, hint: 'Doar dacă diferă, ex.: Bucharest' }
+          - { name: summary, label: Short description, widget: text, required: false }
+          - { name: highlights, label: Key points, widget: list, required: false, field: { name: item, label: Point, widget: string } }
+          - name: facts
+            label: Project sheet
+            widget: list
+            required: false
+            summary: '{{fields.k}}: {{fields.v}}'
+            fields:
+              - { name: k, label: Label, widget: string }
+              - { name: v, label: Value, widget: string }
+          - name: technical
+            label: Technical data
+            widget: list
+            required: false
+            summary: '{{fields.k}}: {{fields.v}}'
+            fields:
+              - { name: k, label: Label, widget: string }
+              - { name: v, label: Value, widget: string }
+          - { name: captions, label: Photo captions (în ordinea galeriei), widget: list, required: false, field: { name: item, label: Caption, widget: string, required: false } }
+          - { name: quote, label: Client quote, widget: text, required: false }
       - { name: placeholderPhotos, widget: hidden, default: false }
       - { name: oldPath, widget: hidden }
 
@@ -219,3 +248,49 @@ collections:
                   - { name: rating, label: Stele (opțional), widget: number, value_type: int, min: 1, max: 5, required: false }
                   - { name: date, label: Data (opțional), widget: string, required: false, hint: 'Ex.: martie 2025' }
                   - { name: text, label: Text recenzie, widget: text }
+      - name: site_en
+        label: Texte în engleză (/en/)
+        file: src/data/site.en.json
+        format: json
+        fields:
+          - { name: description, label: Description (Google), widget: text, required: false }
+          - name: hero
+            label: Slider title
+            widget: object
+            fields:
+              - { name: eyebrow, label: Small line above, widget: string, required: false }
+              - { name: title, label: Title, widget: string, required: false }
+              - { name: lede, label: Short text under the statement, widget: text, required: false }
+          - name: manifesto
+            label: Statement („Ce facem”)
+            widget: object
+            fields:
+              - { name: label, label: Label, widget: string, required: false }
+              - { name: text, label: Text, widget: text, required: false, hint: 'Links: [energy-efficient homes](/en/projects/?categorie=constructii-eficiente-energetic)' }
+          - { name: specialties, label: Specialties, widget: list, required: false, field: { name: item, label: Item, widget: string } }
+          - name: team
+            label: Team roles (same order as in Romanian)
+            widget: list
+            required: false
+            fields:
+              - { name: role, label: Role, widget: string }
+          - name: stats
+            label: Numbers band labels (same order as in Romanian)
+            widget: list
+            required: false
+            fields:
+              - { name: label, label: Label, widget: string }
+          - { name: footerCta, label: Footer sentence, widget: string, required: false }
+          - name: contact
+            label: Contact
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string, required: false }
+              - { name: intro, label: Intro, widget: text, required: false }
+              - { name: city, label: City, widget: string, required: false }
+              - { name: hours, label: Opening hours, widget: string, required: false }
+          - name: reviews
+            label: Reviews
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string, required: false }

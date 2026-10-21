@@ -21,4 +21,12 @@ technical:
   - { k: "Confort de vară", v: "Protecție la supraîncălzire" }
 placeholderPhotos: false
 oldPath: "/projects/casa-c-g/"
+en:
+  title: "House C/G"
+  location: "near Bucharest"
+  summary: "A home near Bucharest, designed for energy efficiency, with particular attention to preventing summer overheating."
+  highlights: ["Designed for energy efficiency", "Protection against overheating"]
+  technical:
+    - { k: "Concept", v: "Energy efficiency" }
+    - { k: "Summer comfort", v: "Protection against overheating" }
 ---

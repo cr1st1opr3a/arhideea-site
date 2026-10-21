@@ -21,4 +21,9 @@ area:
 region: "București și Ilfov"
 placeholderPhotos: false
 oldPath: "/projects/casa-d-s-bucuresti/"
+en:
+  title: "House D/S"
+  location: "Bucharest"
+  summary: "A single-family home in Bucharest, with a generous basement and an open-plan ground floor."
+  highlights: ["Generous basement", "Open-plan ground floor"]
 ---

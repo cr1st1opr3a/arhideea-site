@@ -16,4 +16,8 @@ gallery:
 region: "Împrejurimi Brașov"
 placeholderPhotos: false
 oldPath: "/projects/pensiune-cheile-gradistei/"
+en:
+  title: "Guesthouse in Cheile Grădiștei"
+  summary: "A mountain guesthouse on a sloping site. Fitting into the landscape and getting as much sun as possible were the core of the brief."
+  highlights: ["Sloping site", "Fitted to the landscape, maximum sun"]
 ---

@@ -7,6 +7,7 @@ import Base from '../layouts/Base.astro';
     <h1>Pagina aceasta nu mai există.</h1>
     <p>Poate a fost mutată odată cu noul site. Proiectele sunt toate aici:</p>
     <a class="btn btn--solid" href="/proiecte/">Vezi proiectele</a>
+    <p class="nf__en" lang="en">This page no longer exists. <a href="/en/projects/">See all our projects in English →</a></p>
   </section>
 </Base>
 
@@ -14,4 +15,5 @@ import Base from '../layouts/Base.astro';
   .nf { padding-block: 120px; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
   .nf h1 { font-size: clamp(36px, 5vw, 64px); max-width: 16ch; }
   .nf p { font-size: 18px; color: var(--text-2); }
+  .nf__en { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 16px !important; }
 </style>

@@ -16,4 +16,8 @@ gallery:
 region: "Brașov"
 placeholderPhotos: false
 oldPath: "/projects/locuinta-in-noua/"
+en:
+  title: "House O/Z"
+  summary: "A project carried out entirely by the Arhideea team, from the first drawings to the interior design."
+  highlights: ["Designed entirely by Arhideea", "From first drawings to interior design"]
 ---

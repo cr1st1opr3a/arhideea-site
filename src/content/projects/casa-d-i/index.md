@@ -20,4 +20,11 @@ technical:
   - { k: "Structură", v: "Integral din lemn" }
 placeholderPhotos: false
 oldPath: "/projects/3124/"
+en:
+  title: "House D/I"
+  summary: "A home designed very close to the Passive House standard, with an all-timber structure."
+  highlights: ["Close to the Passive House standard", "All-timber structure"]
+  technical:
+    - { k: "Standard", v: "Near Passive House" }
+    - { k: "Structure", v: "All timber" }
 ---

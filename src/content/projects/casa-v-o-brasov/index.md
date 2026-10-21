@@ -44,4 +44,14 @@ technical:
 quote: null
 placeholderPhotos: false
 oldPath: /projects/casa-v-o/
+en:
+  title: "House V/O"
+  summary: "An energy-efficient home with an all-timber structure. Cellulose and stone wool insulation, and mechanical ventilation with heat recovery."
+  highlights: ["All-timber structure", "Insulation: cellulose and stone wool", "Ventilation with heat recovery"]
+  facts:
+    - { k: "Status", v: "Completed" }
+  technical:
+    - { k: "Structure", v: "All timber" }
+    - { k: "Thermal insulation", v: "Cellulose, stone wool" }
+    - { k: "Ventilation", v: "With heat recovery (MVHR)" }
 ---

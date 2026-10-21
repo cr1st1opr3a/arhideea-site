@@ -21,4 +21,8 @@ area:
 region: "Alte zone"
 placeholderPhotos: false
 oldPath: "/projects/casa-i-s-tg-mures/"
+en:
+  title: "House I/S"
+  summary: "Set on high ground, this home has several terraces and generous glazing to make the most of the light and the view."
+  highlights: ["High ground, several terraces", "Generous glazing towards the view"]
 ---

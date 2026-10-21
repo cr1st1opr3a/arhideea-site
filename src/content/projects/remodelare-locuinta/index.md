@@ -17,4 +17,10 @@ technical:
   - { k: "Intervenție", v: "Consolidare, reabilitare termică" }
 placeholderPhotos: false
 oldPath: "/projects/remodelare-locuinta/"
+en:
+  title: "House remodelling"
+  summary: "Remodelling of a 1990s house: new internal layout, structural strengthening and thermal upgrade."
+  highlights: ["1990s house", "New layout, strengthening, thermal upgrade"]
+  technical:
+    - { k: "Works", v: "Structural strengthening, thermal upgrade" }
 ---

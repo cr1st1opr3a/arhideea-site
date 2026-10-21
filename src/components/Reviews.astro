@@ -1,7 +1,9 @@
 ---
 // Client reviews copied from the Google Business profile (Setări site → Recenzii in the admin).
 // The section stays hidden until at least one review is added.
-import { REVIEWS } from '../site';
+import { langOf, t, site } from '../i18n';
+const T = t(langOf(Astro));
+const REVIEWS = site(langOf(Astro)).reviews;
 const items = (REVIEWS?.items ?? []).filter((r) => r.text && r.author);
 const stars = (n = 5) => '★★★★★'.slice(0, Math.max(0, Math.min(5, Math.round(n))));
 ---
@@ -14,22 +16,22 @@ const stars = (n = 5) => '★★★★★'.slice(0, Math.max(0, Math.min(5, Math
         <p class="reviews__score">
           <span class="reviews__big">{REVIEWS.rating}</span>
           <span class="reviews__stars" aria-hidden="true">{stars(parseFloat(REVIEWS.rating.replace(',', '.')))}</span>
-          <span>{REVIEWS.count ? `${REVIEWS.count} recenzii pe Google` : 'pe Google'}</span>
+          <span>{REVIEWS.count ? T.reviewsCount(REVIEWS.count) : T.onGoogle}</span>
         </p>
       )}
-      {!REVIEWS.rating && <p class="reviews__score">Recenzii lăsate pe Google</p>}
+      {!REVIEWS.rating && <p class="reviews__score">{T.reviewsFrom}</p>}
     </div>
     <div class="reviews__track" data-reviews>
       {items.map((r) => (
         <figure class="review">
-          {r.rating && <span class="review__stars" aria-label={`${r.rating} din 5 stele`}>{stars(r.rating)}</span>}
+          {r.rating && <span class="review__stars" aria-label={T.starsOf(r.rating)}>{stars(r.rating)}</span>}
           <blockquote>{r.text}</blockquote>
           <figcaption><strong>{r.author}</strong>{r.date && <span> · {r.date}</span>}</figcaption>
         </figure>
       ))}
     </div>
     {REVIEWS.googleUrl && (
-      <a class="link-arrow reviews__all" href={REVIEWS.googleUrl} target="_blank" rel="noopener">Toate recenziile pe Google →</a>
+      <a class="link-arrow reviews__all" href={REVIEWS.googleUrl} target="_blank" rel="noopener">{T.allReviews}</a>
     )}
   </div>
 </section>

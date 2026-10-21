@@ -17,4 +17,8 @@ gallery:
 region: "Alte zone"
 placeholderPhotos: false
 oldPath: "/projects/casa/"
+en:
+  title: "House in Zagon"
+  summary: "The home of a family who wanted to leave the crowded city behind while keeping all the comfort of modern living."
+  highlights: ["Away from the city", "Modern comfort"]
 ---

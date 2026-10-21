@@ -20,4 +20,10 @@ facts:
   - { k: "Colaborare", v: "Graft Design (proiectant general)" }
 placeholderPhotos: false
 oldPath: "/projects/amenajare-zona-clienti-distrigaz-brasov/"
+en:
+  title: "Distrigaz customer area"
+  summary: "Fit-out of the public customer area and staff offices in the new Distrigaz (Engie) headquarters in Brașov, in collaboration with Graft Design, the lead designer of the fit-out."
+  highlights: ["Public area and offices, Engie headquarters", "With Graft Design"]
+  facts:
+    - { k: "Collaboration", v: "Graft Design (lead designer)" }
 ---

@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import { langOf, t } from '../i18n';
+const T = t(langOf(Astro));
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title={T.projectsTitle} description={T.projectsDesc} current="proiecte">
+  <ProjectGrid projects={projects} pageSize={12} heading={T.projectsTitle} headingLevel="h1" />
+  <div class="spacer"></div>
+</Base>
+
+<style>
+  .spacer { height: 64px; }
+  :global(.grid-section) { padding-top: 64px; }
+</style>

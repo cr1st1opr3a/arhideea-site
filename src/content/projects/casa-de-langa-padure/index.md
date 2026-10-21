@@ -20,4 +20,8 @@ area:
 region: "Împrejurimi Brașov"
 placeholderPhotos: false
 oldPath: "/projects/casa-de-langa-padure/"
+en:
+  title: "House by the forest"
+  summary: "An energy-efficient home with Scandinavian design touches."
+  highlights: ["Energy-efficient", "Scandinavian design touches"]
 ---

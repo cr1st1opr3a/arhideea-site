@@ -27,4 +27,20 @@ structure: "Lemn"
 technical:
   - { k: "Structură", v: "Lemn" }
 placeholderPhotos: false
+en:
+  title: "House C/D"
+  summary: "An energy-efficient home in Râșnov, with a timber structure."
+  highlights: ["Energy-efficient", "Timber structure", "Râșnov"]
+  technical:
+    - { k: "Structure", v: "Timber" }
+  captions:
+    - null
+    - null
+    - null
+    - null
+    - "On site: the timber structure with the roof in place"
+    - "On site: the main volume and the low wing"
+    - "On site: windows installed and airtightness details"
+    - "On site: the view from the living room"
+    - "On site: the cantilevered balcony, before finishes"
 ---

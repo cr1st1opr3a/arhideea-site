@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import ProjectCard from './ProjectCard.astro';
 import { CATEGORIES } from '../content.config';
 import { catSlug } from '../lib/categories';
+import { langOf, t, cat } from '../i18n';
 interface Props {
   projects: CollectionEntry<'projects'>[];
   /** How many cards to show before "Încarcă încă". */
@@ -13,13 +14,21 @@ interface Props {
 const { projects, pageSize = 6, heading = 'Proiecte', headingLevel = 'h2' } = Astro.props;
 const used = CATEGORIES.filter((c) => projects.some((p) => p.data.categories.includes(c)));
 const H = headingLevel;
+const l = langOf(Astro);
+const T = t(l);
+// Words the browser script needs, in this page's language.
+const words = {
+  more: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => T.loadMore(n)),
+  count: (n: number, c: string) => T.countIn(n, c),
+};
+const msgs = JSON.stringify({ more: words.more, one: T.countIn(1, '{c}'), many: T.countIn(2, '{c}').replace('2', '{n}'), none: T.countIn(2, '').replace('2', '{n}'), noneOne: T.countIn(1, ''), added: T.added(2).replace('2', '{n}') });
 ---
-<section id="proiecte" class="wrap grid-section" data-grid data-page-size={pageSize}>
+<section id="proiecte" class="wrap grid-section" data-grid data-page-size={pageSize} data-msgs={msgs}>
   <div class="section-head">
     <H class="grid-title">{heading}</H>
-    <div class="chips" role="group" aria-label="Filtrează după categorie">
-      <button type="button" class="chip" data-filter="" aria-pressed="true">Toate</button>
-      {used.map((c) => <button type="button" class="chip" data-filter={c} data-slug={catSlug(c)} aria-pressed="false">{c}</button>)}
+    <div class="chips" role="group" aria-label={T.filterBy}>
+      <button type="button" class="chip" data-filter="" aria-pressed="true">{T.all}</button>
+      {used.map((c) => <button type="button" class="chip" data-filter={c} data-slug={catSlug(c)} data-label={cat(l, c)} aria-pressed="false">{cat(l, c)}</button>)}
     </div>
   </div>
 
@@ -30,7 +39,7 @@ const H = headingLevel;
   </div>
 
   <div class="more">
-    <button type="button" class="btn" data-more hidden>Încarcă încă proiecte</button>
+    <button type="button" class="btn" data-more hidden>{T.loadMore(pageSize)}</button>
   </div>
 </section>
 
@@ -65,6 +74,13 @@ const H = headingLevel;
     const more = root.querySelector<HTMLButtonElement>('[data-more]')!;
     const status = root.querySelector<HTMLElement>('[data-status]')!;
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const M = JSON.parse(root.dataset.msgs || '{}');
+    const label = () => chips.find((c) => c.dataset.filter === filter)?.dataset.label ?? '';
+    const countText = (n: number) => {
+      const c = filter ? label() : '';
+      if (c) return (n === 1 ? M.one : M.many).replace('{n}', String(n)).replace('{c}', c);
+      return (n === 1 ? M.noneOne : M.none).replace('{n}', String(n));
+    };
 
     let filter = '';
     let limit = pageSize;
@@ -88,7 +104,7 @@ const H = headingLevel;
       cards.forEach((c) => c.toggleAttribute('data-hidden', !shown.includes(c)));
       const rest = m.length - shown.length;
       more.hidden = rest <= 0;
-      more.textContent = `Încarcă încă ${Math.min(rest, pageSize)} ${Math.min(rest, pageSize) === 1 ? 'proiect' : 'proiecte'}`;
+      more.textContent = M.more[Math.min(rest, pageSize) - 1] ?? M.more[M.more.length - 1];
       if (!reduce) enter(animate === 'all' ? shown : animate);
       return shown;
     };
@@ -100,7 +116,7 @@ const H = headingLevel;
         chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
         apply('all');
         const total = matching().length;
-        status.textContent = `${total} ${total === 1 ? 'proiect' : 'proiecte'}${filter ? ` în categoria ${filter}` : ''}`;
+        status.textContent = countText(total);
       })
     );
 
@@ -121,7 +137,7 @@ const H = headingLevel;
         limit += pageSize;
         apply(next);
         more.disabled = false;
-        status.textContent = `Au fost adăugate ${next.length} proiecte`;
+        status.textContent = M.added.replace('{n}', String(next.length));
         next[0]?.querySelector<HTMLAnchorElement>('.card__title a')?.focus({ preventScroll: true });
       }, reduce ? 0 : 450);
     });

@@ -14,4 +14,8 @@ gallery:
   - src: ./foto-05.jpg
 placeholderPhotos: false
 oldPath: "/projects/birouri-tiriac-leasing/"
+en:
+  title: "Țiriac Leasing offices"
+  summary: "This office space was fitted out with modular partitions. Stretch ceilings and aluminium composite cladding complete the overall look."
+  highlights: ["Modular partitions", "Stretch ceilings, composite cladding"]
 ---

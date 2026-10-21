@@ -41,4 +41,17 @@ structure: "Zidărie"
 facts:
   - { k: "Context", v: "Centrul istoric" }
 placeholderPhotos: false
+en:
+  title: "House P/T"
+  summary: "A house in Brașov's historic centre that takes up traditional elements of the area. An energy-efficient home."
+  highlights: ["Brașov's historic centre", "Traditional local elements", "Energy-efficient"]
+  facts:
+    - { k: "Context", v: "Historic centre" }
+  captions:
+    - null
+    - null
+    - null
+    - "Kitchen, living and dining"
+    - "The living area, with the gallery above"
+    - "The stairwell, lit by roof windows (during construction)"
 ---

@@ -28,4 +28,20 @@ technical:
   - { k: "Închideri", v: "Zidărie din cărămidă eficientă" }
   - { k: "Învelitoare", v: "Țiglă ceramică, brun închis" }
 placeholderPhotos: false
+en:
+  title: "House C/B"
+  summary: "A two-storey home in the old fabric of Râșnov, on a long, narrow plot, with a covered terrace facing the garden and a pavilion at the end of the yard."
+  highlights: ["Narrow plot in the old town", "Covered terrace facing the garden", "Garden pavilion at the end of the yard"]
+  facts:
+    - { k: "Storeys", v: "Ground + first floor; pavilion with basement" }
+  technical:
+    - { k: "External walls", v: "Energy-efficient clay block masonry" }
+    - { k: "Roof", v: "Ceramic tiles, dark brown" }
+  captions:
+    - null
+    - null
+    - null
+    - null
+    - "The house seen from the street"
+    - "The long yard, with the pavilion in the foreground"
 ---

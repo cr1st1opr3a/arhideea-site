@@ -24,4 +24,8 @@ gallery:
 region: "Brașov"
 placeholderPhotos: false
 oldPath: "/projects/casa-3/"
+en:
+  title: "House M/G"
+  summary: "A comfortable home with classic lines, in a green part of the city."
+  highlights: ["Classic lines", "Green part of the city"]
 ---

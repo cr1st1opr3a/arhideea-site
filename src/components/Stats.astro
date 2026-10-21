@@ -1,10 +1,12 @@
 ---
 // Numbers band. Values come from Setări site → Banda cu cifre in the admin.
 interface Props { items: { value: number; suffix?: string; label: string }[] }
+import { langOf, t } from '../i18n';
 const { items } = Astro.props;
+const T = t(langOf(Astro));
 ---
 {items.length > 0 && (
-<section class="stats" aria-label="Pe scurt">
+<section class="stats" aria-label={T.statsLabel}>
   <div class="wrap stats__in">
     {items.map((it) => (
       <div class="stat">

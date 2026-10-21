@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Reviews from '../components/Reviews.astro';
+import { langOf, t, site } from '../i18n';
+const l = langOf(Astro);
+const T = t(l);
+const SITE = site(l);
+const CONTACT = SITE.contact;
+---
+<Base title="Contact" description={T.contactDesc(CONTACT.address, CONTACT.city, SITE.email)} current="contact">
+  <ContactSection headingLevel="h1" />
+  <Reviews />
+</Base>

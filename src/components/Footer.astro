@@ -1,6 +1,7 @@
 ---
 import Logo from './Logo.astro';
-import { SITE } from '../site';
+import { langOf, site } from '../i18n';
+const SITE = site(langOf(Astro));
 const year = new Date().getFullYear();
 ---
 <footer id="subsol" class="site-footer">
@@ -9,7 +10,7 @@ const year = new Date().getFullYear();
       <p class="cta__line">{SITE.footerCta}</p>
       <div class="cta__contact">
         <a class="cta__mail" href={`mailto:${SITE.email}`}>{SITE.email}</a>
-        {SITE.phone && <a class="cta__phone" href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a>}
+        {SITE.phone && <a class="cta__phone" href={`tel:${SITE.phone.replace(/[^\d+]/g, '')}`}>{SITE.phone}</a>}
       </div>
     </div>
     <div class="base">

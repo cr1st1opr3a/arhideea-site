@@ -1,7 +1,11 @@
 ---
 // Contact block with the office map. The Google map loads only after a click,
 // so no Google cookies are set for visitors who don't open it.
-import { SITE, CONTACT } from '../site';
+import { langOf, t, site } from '../i18n';
+const l = langOf(Astro);
+const T = t(l);
+const SITE = site(l);
+const CONTACT = SITE.contact;
 interface Props { headingLevel?: 'h1' | 'h2' }
 const { headingLevel = 'h2' } = Astro.props;
 const H = headingLevel;
@@ -16,24 +20,24 @@ const tel = SITE.phone ? SITE.phone.replace(/[^\d+]/g, '') : '';
     <H class="contact__title">{CONTACT.title}</H>
     {CONTACT.intro && <p class="contact__intro">{CONTACT.intro}</p>}
     <dl class="contact__list">
-      <div><dt>Adresă</dt><dd>{CONTACT.address}<br />{CONTACT.city}</dd></div>
-      {SITE.phone && <div><dt>Telefon</dt><dd><a href={`tel:${tel}`}>{SITE.phone}</a></dd></div>}
+      <div><dt>{T.address}</dt><dd>{CONTACT.address}<br />{CONTACT.city}</dd></div>
+      {SITE.phone && <div><dt>{T.phone}</dt><dd><a href={`tel:${tel}`}>{SITE.phone}</a></dd></div>}
       <div><dt>Email</dt><dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd></div>
-      {CONTACT.hours && <div><dt>Program</dt><dd>{CONTACT.hours}</dd></div>}
+      {CONTACT.hours && <div><dt>{T.hours}</dt><dd>{CONTACT.hours}</dd></div>}
     </dl>
     <div class="contact__links">
-      <a class="btn btn--solid" href={gmaps} target="_blank" rel="noopener">Deschide în Google Maps</a>
-      <a class="btn" href={waze} target="_blank" rel="noopener">Navighează cu Waze</a>
+      <a class="btn btn--solid" href={gmaps} target="_blank" rel="noopener">{T.gmaps}</a>
+      <a class="btn" href={waze} target="_blank" rel="noopener">{T.waze}</a>
     </div>
   </div>
-  <div class="map" data-map={embed}>
+  <div class="map" data-map={embed} data-map-title={T.mapTitle}>
     <div class="map__placeholder">
       <svg class="map__grid" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0 70 H400 M0 160 H400 M0 240 H400 M90 0 V300 M210 0 V300 M320 0 V300 M0 300 L400 40" />
       </svg>
       <span class="map__pin" aria-hidden="true"></span>
-      <button type="button" class="btn btn--solid map__btn">Afișează harta</button>
-      <p class="map__note">Harta este furnizată de Google Maps și se încarcă doar la cerere.</p>
+      <button type="button" class="btn btn--solid map__btn">{T.showMap}</button>
+      <p class="map__note">{T.mapNote}</p>
     </div>
   </div>
 </section>
@@ -67,7 +71,7 @@ const tel = SITE.phone ? SITE.phone.replace(/[^\d+]/g, '') : '';
     box.querySelector('button')?.addEventListener('click', () => {
       const f = document.createElement('iframe');
       f.src = box.dataset.map!;
-      f.title = 'Harta: biroul Arhideea';
+      f.title = box.dataset.mapTitle ?? "";
       f.loading = 'lazy';
       f.referrerPolicy = 'no-referrer-when-downgrade';
       f.allowFullscreen = true;
