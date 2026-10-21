@@ -6,8 +6,16 @@ summary: "Locuință eficientă energetic, cu structură din lemn în sistem fra
 highlights: ["Eficientă energetic", "Structură din lemn tip framing", "Parțial prefabricată"]
 order: 5
 featured: false
-cover: ./foto-01.jpg
+cover: ./randare-01.jpg
 gallery:
+  - src: ./randare-01.jpg
+    caption: "Randare: fațada spre grădină, cu terasa și pergola"
+  - src: ./randare-02.jpg
+    caption: "Randare: vedere de ansamblu"
+  - src: ./randare-03.jpg
+    caption: "Randare: fațada laterală și carportul"
+  - src: ./randare-04.jpg
+    caption: "Randare: intrarea și carportul"
   - src: ./foto-01.jpg
   - src: ./foto-02.jpg
   - src: ./foto-03.jpg
