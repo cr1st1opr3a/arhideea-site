@@ -50,8 +50,15 @@ en:
   captions:
     - null
     - null
-    - null
+    - "Terrace facing the garden"
+    - "Entrance courtyard and garage"
     - "Kitchen, living and dining"
     - "The living area, with the gallery above"
     - "The stairwell, lit by roof windows (during construction)"
+    - "Before the landscaping"
+    - "The entrance, before the landscaping"
+    - "View from the street"
+    - "The plot, before construction"
+    - "On site: excavation into the slope and foundation reinforcement"
+    - "On site: reinforcing the foundations and basement walls"
 ---
