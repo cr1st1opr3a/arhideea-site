@@ -103,6 +103,7 @@ collections:
           - { name: gross, label: Suprafață desfășurată, widget: number, value_type: float, required: false }
       - { name: region, label: Zonă (pentru filtre), widget: select, required: false, options: ['Brașov', 'Împrejurimi Brașov', 'Prahova', 'București și Ilfov', 'Alte zone'] }
       - { name: structure, label: Structură (pentru filtre), widget: select, required: false, options: ['Lemn', 'Zidărie', 'Beton armat', 'Metal'] }
+      - { name: video, label: Video (opțional), widget: file, required: false, media_folder: /public/video, public_folder: /video, hint: 'Fișier .mp4, sub 25 MB.' }
       - name: facts
         label: Fișa proiectului
         widget: list

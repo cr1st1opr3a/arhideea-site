@@ -82,6 +82,15 @@ const tabs = [
     )}
   </section>
 
+  {d.video && (
+    <section class="wrap video">
+      <h2 class="video__title">{T.video}</h2>
+      <video class="video__el" controls preload="none" playsinline poster={d.video.replace(/\.mp4$/, '.jpg')}>
+        <source src={d.video} type="video/mp4" />
+      </video>
+    </section>
+  )}
+
   <section class="wrap about">
     <div class="about__text">
       <h2>{T.about}</h2>
@@ -186,6 +195,9 @@ const tabs = [
   .pager :global(.pager__img) { width: 96px; height: 72px; object-fit: cover; flex: none; }
   .pager__dir { font-size: 13px; color: var(--text-2); }
   .pager__name { font-size: 20px; font-weight: 700; color: var(--petrol-d); letter-spacing: -0.015em; }
+  .video { padding-top: 56px; }
+  .video__title { font-size: clamp(24px, 2.6vw, 32px); margin-bottom: 20px; }
+  .video__el { width: 100%; aspect-ratio: 16 / 9; background: var(--petrol-d); display: block; }
 </style>
 
 <script>

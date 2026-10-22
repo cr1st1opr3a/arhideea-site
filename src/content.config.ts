@@ -43,6 +43,8 @@ const projects = defineCollection({
       area: z.preprocess(blank, z.object({ land: sqm, built: sqm, gross: sqm }).partial().default({})),
       region: z.preprocess(blank, z.enum(REGIONS).optional()),
       structure: z.preprocess(blank, z.enum(STRUCTURES).optional()),
+      // Optional video (an mp4 in public/video/), shown under the gallery.
+      video: z.preprocess(blank, z.string().optional()),
       facts: z.preprocess(blank, z.array(row).default([])),
       technical: z.preprocess(blank, z.array(row).default([])),
       quote: z.preprocess(blank, z.object({ text: z.string().nullish(), author: z.string().nullish() }).partial().optional()).transform((q) => (q && q.text ? q : undefined)),
