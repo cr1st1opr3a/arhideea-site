@@ -8,7 +8,7 @@ const T = t(langOf(Astro));
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 ---
 <Base title={T.projectsTitle} description={T.projectsDesc} current="proiecte">
-  <ProjectGrid projects={projects} pageSize={12} heading={T.projectsTitle} headingLevel="h1" />
+  <ProjectGrid projects={projects} pageSize={12} heading={T.projectsTitle} headingLevel="h1" sidebar />
   <div class="spacer"></div>
 </Base>
 

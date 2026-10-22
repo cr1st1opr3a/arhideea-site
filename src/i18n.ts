@@ -60,6 +60,8 @@ export const UI = {
     mapNote: 'Harta este furnizată de Google Maps și se încarcă doar la cerere.', mapTitle: 'Harta biroului Arhideea',
     reviewsCount: (n: string) => `${n} recenzii pe Google`, onGoogle: 'pe Google', reviewsFrom: 'Recenzii lăsate pe Google',
     starsOf: (n: number) => `${n} din 5 stele`, allReviews: 'Toate recenziile pe Google →',
+    filters: 'Filtre', fRegion: 'Zonă', fStructure: 'Structură', fSize: 'Suprafață desfășurată', fAny: 'Oricare', fReset: 'Resetează filtrele', fNone: 'Niciun proiect nu corespunde filtrelor alese.',
+    sizes: { s: 'sub 250 mp', m: '250–350 mp', l: 'peste 350 mp' },
     statsLabel: 'Pe scurt', contactDesc: (a: string, c: string, e: string) => `Contact Atelier Arhideea: ${a}, ${c}. ${e}`,
   },
   en: {
@@ -92,6 +94,8 @@ export const UI = {
     mapNote: 'The map is provided by Google Maps and only loads when you ask for it.', mapTitle: 'Map of the Arhideea office',
     reviewsCount: (n: string) => `${n} reviews on Google`, onGoogle: 'on Google', reviewsFrom: 'Reviews left on Google',
     starsOf: (n: number) => `${n} out of 5 stars`, allReviews: 'All reviews on Google →',
+    filters: 'Filters', fRegion: 'Area', fStructure: 'Structure', fSize: 'Gross floor area', fAny: 'Any', fReset: 'Reset filters', fNone: 'No project matches the chosen filters.',
+    sizes: { s: 'under 250 m²', m: '250–350 m²', l: 'over 350 m²' },
     statsLabel: 'At a glance', contactDesc: (a: string, c: string, e: string) => `Contact Arhideea, architecture studio in ${c}, Romania: ${a}. ${e}`,
   },
 } as const;
@@ -108,6 +112,14 @@ const CAT_EN: Record<string, string> = {
   'Dotări pentru turism': 'Tourism',
 };
 export const cat = (l: Lang, c: string) => (l === 'en' ? CAT_EN[c] ?? c : c);
+
+const REGION_EN: Record<string, string> = {
+  'Brașov': 'Brașov', 'Împrejurimi Brașov': 'Around Brașov', 'Prahova': 'Prahova County',
+  'București și Ilfov': 'Bucharest & Ilfov', 'Alte zone': 'Other areas',
+};
+const STRUCT_EN: Record<string, string> = { 'Lemn': 'Timber', 'Zidărie': 'Masonry', 'Beton armat': 'Reinforced concrete', 'Metal': 'Steel' };
+export const region = (l: Lang, r: string) => (l === 'en' ? REGION_EN[r] ?? r : r);
+export const structure = (l: Lang, s: string) => (l === 'en' ? STRUCT_EN[s] ?? s : s);
 
 // ---------- Editable site texts ----------
 type Site = typeof ro;

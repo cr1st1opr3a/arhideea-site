@@ -1,21 +1,31 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import ProjectCard from './ProjectCard.astro';
-import { CATEGORIES } from '../content.config';
+import { CATEGORIES, REGIONS, STRUCTURES } from '../content.config';
 import { catSlug } from '../lib/categories';
-import { langOf, t, cat } from '../i18n';
+import { langOf, t, cat, region, structure } from '../i18n';
 interface Props {
   projects: CollectionEntry<'projects'>[];
   /** How many cards to show before "Încarcă încă". */
   pageSize?: number;
   heading?: string;
   headingLevel?: 'h1' | 'h2';
+  /** Side column with area / structure / size filters (projects page). */
+  sidebar?: boolean;
 }
-const { projects, pageSize = 6, heading = 'Proiecte', headingLevel = 'h2' } = Astro.props;
+const { projects, pageSize = 6, heading = 'Proiecte', headingLevel = 'h2', sidebar = false } = Astro.props;
+// Size buckets on gross floor area (m²).
+const bucket = (g?: number) => (g === undefined ? undefined : g < 250 ? 's' : g <= 350 ? 'm' : 'l');
+const count = <T,>(vals: (T | undefined)[], v: T) => vals.filter((x) => x === v).length;
 const used = CATEGORIES.filter((c) => projects.some((p) => p.data.categories.includes(c)));
 const H = headingLevel;
 const l = langOf(Astro);
 const T = t(l);
+const groups = sidebar ? [
+  { key: 'zona', field: 'region', label: T.fRegion, opts: REGIONS.map((r) => ({ v: r, label: region(l, r), n: count(projects.map((p) => p.data.region), r) })) },
+  { key: 'structura', field: 'structure', label: T.fStructure, opts: STRUCTURES.map((r) => ({ v: r, label: structure(l, r), n: count(projects.map((p) => p.data.structure), r) })) },
+  { key: 'suprafata', field: 'size', label: T.fSize, opts: (['s', 'm', 'l'] as const).map((k) => ({ v: k, label: T.sizes[k], n: count(projects.map((p) => bucket(p.data.area.gross)), k) })) },
+].map((g) => ({ ...g, opts: g.opts.filter((o) => o.n > 0) })) : [];
 // Words the browser script needs, in this page's language.
 const words = {
   more: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => T.loadMore(n)),
@@ -34,12 +44,33 @@ const msgs = JSON.stringify({ more: words.more, one: T.countIn(1, '{c}'), many: 
 
   <p class="visually-hidden" aria-live="polite" data-status></p>
 
-  <div class="grid" data-list>
-    {projects.map((p) => <ProjectCard project={p} />)}
-  </div>
-
-  <div class="more">
-    <button type="button" class="btn" data-more hidden>{T.loadMore(pageSize)}</button>
+  <div class:list={['layout', { 'layout--side': sidebar }]}>
+    {sidebar && (
+      <aside class="side" aria-label={T.filters}>
+        <details class="side__box" open data-side>
+          <summary class="side__sum">{T.filters}<span class="side__on" data-side-count hidden></span></summary>
+          {groups.map((g) => (
+            <fieldset class="fg">
+              <legend class="fg__legend">{g.label}</legend>
+              <label class="opt"><input type="radio" name={g.key} value="" data-group={g.field} checked /><span>{T.fAny}</span></label>
+              {g.opts.map((o) => (
+                <label class="opt"><input type="radio" name={g.key} value={o.v} data-group={g.field} data-slug={g.field === 'size' ? o.v : catSlug(o.v)} /><span>{o.label}</span><span class="opt__n">{o.n}</span></label>
+              ))}
+            </fieldset>
+          ))}
+          <button type="button" class="side__reset" data-reset>{T.fReset}</button>
+        </details>
+      </aside>
+    )}
+    <div class="main">
+      <div class="grid" data-list>
+        {projects.map((p) => <ProjectCard project={p} />)}
+      </div>
+      <p class="none" data-none hidden>{T.fNone}</p>
+      <div class="more">
+        <button type="button" class="btn" data-more hidden>{T.loadMore(pageSize)}</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -56,6 +87,28 @@ const msgs = JSON.stringify({ more: words.more, one: T.countIn(1, '{c}'), many: 
   .chip:hover { border-color: var(--petrol); }
   .chip[aria-pressed='true'] { background: var(--petrol); border-color: var(--petrol); color: #fff; }
   :global(html:not(.js)) .chips { display: none; }
+  .layout--side { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 48px; align-items: start; }
+  @media (max-width: 900px) { .layout--side { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
+  .side { position: sticky; top: 96px; max-height: calc(100vh - 112px); overflow-y: auto; }
+  @media (max-width: 900px) { .side { position: static; } }
+  :global(html:not(.js)) .side { display: none; }
+  .side__box { border-top: 2px solid var(--petrol-d); }
+  .side__sum { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; min-height: 48px; font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--petrol-d); }
+  .side__sum::-webkit-details-marker { display: none; }
+  .side__sum::after { content: '+'; margin-left: auto; font-size: 20px; font-weight: 300; }
+  .side__box[open] .side__sum::after { content: '−'; }
+  .side__on { min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px; background: var(--green); color: var(--petrol-d); font-size: 12px; display: inline-flex; align-items: center; justify-content: center; letter-spacing: 0; }
+  .side__on[hidden] { display: none; }
+  .fg { border: 0; margin: 0; padding: 0 0 20px; min-width: 0; }
+  .fg__legend { width: 100%; padding: 16px 0 0; border-top: 1px solid var(--line); margin-bottom: 8px; font-size: 15px; font-weight: 600; color: var(--ink); }
+  .opt { display: flex; align-items: center; gap: 10px; min-height: 36px; font-size: 15px; color: var(--text-2); cursor: pointer; }
+  .opt input { accent-color: var(--petrol); width: 16px; height: 16px; margin: 0; }
+  .opt:has(input:checked) { color: var(--petrol-d); font-weight: 600; }
+  .opt__n { margin-left: auto; font-size: 13px; color: var(--grey-3); font-variant-numeric: tabular-nums; }
+  .side__reset { margin-top: 4px; min-height: 44px; padding: 0; border: 0; background: none; color: var(--petrol); font-size: 14px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+  .none { padding: 48px 0; color: var(--text-2); font-size: 18px; }
+  .none[hidden] { display: none; }
+  .layout--side .grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 32px; }
   .more { display: flex; justify-content: center; margin-top: 40px; }
   .more .btn[hidden] { display: none; }
@@ -84,8 +137,46 @@ const msgs = JSON.stringify({ more: words.more, one: T.countIn(1, '{c}'), many: 
 
     let filter = '';
     let limit = pageSize;
+    const radios = [...root.querySelectorAll<HTMLInputElement>('input[data-group]')];
+    const none = root.querySelector<HTMLElement>('[data-none]');
+    const sideCount = root.querySelector<HTMLElement>('[data-side-count]');
+    const picked = (g: string) => radios.find((r) => r.dataset.group === g && r.checked)?.value ?? '';
+    const sizeOf = (c: HTMLElement) => { const g = Number(c.dataset.gross); return !c.dataset.gross ? '' : g < 250 ? 's' : g <= 350 ? 'm' : 'l'; };
 
-    const matching = () => cards.filter((c) => !filter || c.dataset.categories!.split('|').includes(filter));
+    const matching = () => {
+      const reg = picked('region'), st = picked('structure'), sz = picked('size');
+      return cards.filter((c) =>
+        (!filter || c.dataset.categories!.split('|').includes(filter)) &&
+        (!reg || c.dataset.region === reg) &&
+        (!st || c.dataset.structure === st) &&
+        (!sz || sizeOf(c) === sz));
+    };
+    // Keep the choice in the address, so a filtered list can be shared.
+    const syncUrl = () => {
+      const q = new URLSearchParams(location.search);
+      const chip = chips.find((c) => c.dataset.filter === filter);
+      chip?.dataset.slug ? q.set('categorie', chip.dataset.slug) : q.delete('categorie');
+      for (const [g, key] of [['region', 'zona'], ['structure', 'structura'], ['size', 'suprafata']]) {
+        const r = radios.find((x) => x.dataset.group === g && x.checked && x.value);
+        r ? q.set(key, r.dataset.slug!) : q.delete(key);
+      }
+      const n = ['region', 'structure', 'size'].filter((g) => picked(g)).length;
+      if (sideCount) { sideCount.hidden = n === 0; sideCount.textContent = String(n); }
+      history.replaceState(null, '', location.pathname + (q.toString() ? `?${q}` : ''));
+    };
+    const refresh = () => {
+      limit = pageSize;
+      apply('all');
+      const total = matching().length;
+      if (none) none.hidden = total > 0;
+      status.textContent = countText(total);
+      syncUrl();
+    };
+    radios.forEach((r) => r.addEventListener('change', refresh));
+    root.querySelector('[data-reset]')?.addEventListener('click', () => {
+      radios.forEach((r) => (r.checked = r.value === ''));
+      refresh();
+    });
 
     // Cards wait invisible until the grid scrolls into view, then rise in one after another.
     const enter = (els: HTMLElement[]) => {
@@ -114,9 +205,7 @@ const msgs = JSON.stringify({ more: words.more, one: T.countIn(1, '{c}'), many: 
         filter = chip.dataset.filter || '';
         limit = pageSize;
         chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
-        apply('all');
-        const total = matching().length;
-        status.textContent = countText(total);
+        refresh();
       })
     );
 
@@ -152,6 +241,21 @@ const msgs = JSON.stringify({ more: words.more, one: T.countIn(1, '{c}'), many: 
       filter = preset.dataset.filter || '';
       chips.forEach((c) => c.setAttribute('aria-pressed', String(c === preset)));
     }
+
+    const params = new URLSearchParams(location.search);
+    for (const [g, key] of [['region', 'zona'], ['structure', 'structura'], ['size', 'suprafata']]) {
+      const want = params.get(key);
+      const r = want ? radios.find((x) => x.dataset.group === g && x.dataset.slug === want) : undefined;
+      if (r) r.checked = true;
+    }
+    if (sideCount) {
+      const n = ['region', 'structure', 'size'].filter((g) => picked(g)).length;
+      sideCount.hidden = n === 0; sideCount.textContent = String(n);
+    }
+    // On phones the filter panel starts closed, unless a filter is already set.
+    const side = root.querySelector<HTMLDetailsElement>('[data-side]');
+    if (side && matchMedia('(max-width: 900px)').matches && !['region', 'structure', 'size'].some((g) => picked(g))) side.open = false;
+    if (none) none.hidden = matching().length > 0;
 
     // First paint: show the first page; animate it when it comes into view.
     const firstShown = apply([]);
