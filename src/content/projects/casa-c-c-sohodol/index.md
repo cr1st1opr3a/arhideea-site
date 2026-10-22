@@ -22,13 +22,12 @@ gallery:
     caption: "Șantier: casa la roșu, cu acoperișul și prispa gata"
 area:
   land: 8250
-  built: 389
-  gross: 482
+  built: 105
+  gross: 198
 region: "Împrejurimi Brașov"
 structure: "Zidărie"
 facts:
   - { k: "Regim de înălțime", v: "Parter și mansardă" }
-  - { k: "Suprafețe", v: "Construită și desfășurată, pentru întreaga gospodărie" }
 technical:
   - { k: "Pereți", v: "Zidărie din cărămidă" }
   - { k: "Acoperiș", v: "Șarpantă la 40°, țiglă ceramică" }
@@ -40,7 +39,6 @@ en:
   highlights: ["New house in a traditional farmstead", "Courtyard between old and new houses", "Timber porch facing the garden"]
   facts:
     - { k: "Storeys", v: "Ground floor and attic" }
-    - { k: "Areas", v: "Built and gross floor area for the whole farmstead" }
   technical:
     - { k: "Walls", v: "Clay brick masonry" }
     - { k: "Roof", v: "40° pitched roof, ceramic tiles" }
