@@ -14,12 +14,18 @@ gallery:
     caption: "Terasa spre grădină"
   - src: ./foto-10.jpg
     caption: "Curtea de acces și garajul"
-  - src: ./foto-04.jpg
-    caption: "Bucătărie, living și dining"
-  - src: ./foto-05.jpg
-    caption: "Spațiul de zi, cu galeria de la etaj"
-  - src: ./foto-06.jpg
-    caption: "Casa scării, luminată prin ferestrele de mansardă (în timpul execuției)"
+  - src: ./foto-14.jpg
+    caption: "Dining și bucătărie, sub tavanul dublu"
+  - src: ./foto-15.jpg
+    caption: "Bucătăria cu insulă"
+  - src: ./foto-16.jpg
+    caption: "Sufrageria, luminată prin ferestrele de acoperiș"
+  - src: ./foto-17.jpg
+    caption: "Livingul, deschis spre bucătărie și dining"
+  - src: ./foto-18.jpg
+    caption: "Casa scării"
+  - src: ./foto-19.jpg
+    caption: "Spațiul de zi de la mansardă"
   - src: ./foto-01.jpg
     caption: "Înainte de amenajarea exterioară"
   - src: ./foto-02.jpg
@@ -52,9 +58,12 @@ en:
     - null
     - "Terrace facing the garden"
     - "Entrance courtyard and garage"
-    - "Kitchen, living and dining"
-    - "The living area, with the gallery above"
-    - "The stairwell, lit by roof windows (during construction)"
+    - "Dining and kitchen, under the double-height ceiling"
+    - "The kitchen and island"
+    - "The dining room, lit by roof windows"
+    - "The living room, open to the kitchen and dining"
+    - "The stairwell"
+    - "The attic lounge"
     - "Before the landscaping"
     - "The entrance, before the landscaping"
     - "View from the street"
