@@ -11,6 +11,10 @@ const redirects = {
   // Renamed projects keep their old addresses.
   '/proiecte/casa-r1-rasnov': '/proiecte/casa-c-s-rasnov/',
   '/proiecte/casa-r2-rasnov': '/proiecte/casa-c-d-rasnov/',
+  // Removed projects go to the list.
+  '/proiecte/casa-bucuresti': '/proiecte/',
+  '/en/projects/casa-bucuresti': '/en/projects/',
+  '/projects/casa-2': '/proiecte/',
   '/proiecte/locuinta-campina': '/proiecte/casa-m-s-campina/',
   '/en/projects/locuinta-campina': '/en/projects/casa-m-s-campina/',
 };

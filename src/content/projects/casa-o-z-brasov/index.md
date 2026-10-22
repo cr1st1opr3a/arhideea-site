@@ -13,7 +13,12 @@ gallery:
   - src: ./foto-03.jpg
   - src: ./foto-04.jpg
   - src: ./foto-05.jpg
+area:
+  land: 1487
+  built: 205
+  gross: 397
 region: "Brașov"
+structure: "Zidărie"
 placeholderPhotos: false
 oldPath: "/projects/locuinta-in-noua/"
 en:

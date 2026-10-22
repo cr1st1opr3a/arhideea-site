@@ -21,7 +21,12 @@ gallery:
   - src: ./foto-11.jpg
   - src: ./foto-12.jpg
   - src: ./foto-13.jpg
+area:
+  land: 845
+  built: 253
+  gross: 435
 region: "Brașov"
+structure: "Zidărie"
 placeholderPhotos: false
 oldPath: "/projects/casa-3/"
 en:

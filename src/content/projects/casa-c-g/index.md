@@ -1,6 +1,6 @@
 ---
 title: "Casa C/G"
-location: "lângă București"
+location: "Pipera"
 categories: ["Construcții eficiente energetic", "Locuințe"]
 summary: "Locuință în apropierea Bucureștiului, proiectată pentru eficiență energetică, cu accent pe evitarea supraîncălzirii."
 highlights: ["Proiectată pentru eficiență energetică", "Accent pe evitarea supraîncălzirii"]
@@ -15,7 +15,12 @@ gallery:
   - src: ./foto-05.jpg
   - src: ./foto-06.jpg
   - src: ./foto-07.jpg
+area:
+  land: 595
+  built: 165
+  gross: 273
 region: "București și Ilfov"
+structure: "Zidărie"
 technical:
   - { k: "Concept", v: "Eficiență energetică" }
   - { k: "Confort de vară", v: "Protecție la supraîncălzire" }
@@ -23,7 +28,7 @@ placeholderPhotos: false
 oldPath: "/projects/casa-c-g/"
 en:
   title: "House C/G"
-  location: "near Bucharest"
+  location: "Pipera, near Bucharest"
   summary: "A home near Bucharest, designed for energy efficiency, with particular attention to preventing summer overheating."
   highlights: ["Designed for energy efficiency", "Protection against overheating"]
   technical:
