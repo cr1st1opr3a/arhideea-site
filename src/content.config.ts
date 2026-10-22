@@ -13,7 +13,7 @@ export const CATEGORIES = [
 
 // Used by the project filters (location and structure); kept as fixed lists so they group cleanly.
 export const REGIONS = ['Brașov', 'Împrejurimi Brașov', 'Prahova', 'București și Ilfov', 'Alte zone'] as const;
-export const STRUCTURES = ['Lemn', 'Zidărie', 'Beton armat', 'Metal'] as const;
+export const STRUCTURES = ['Lemn', 'Zidărie', 'Metal'] as const;
 
 // Empty values from the admin editor ("" or null) count as "not filled in".
 const blank = (v: unknown) => (v === '' || v === null ? undefined : v);

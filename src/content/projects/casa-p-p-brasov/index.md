@@ -28,7 +28,7 @@ area:
   built: 79.4
   gross: 158.8
 region: "Brașov"
-structure: "Beton armat"
+structure: "Zidărie"
 facts:
   - { k: "Regim de înălțime", v: "Demisol, parter, etaj" }
 technical:
