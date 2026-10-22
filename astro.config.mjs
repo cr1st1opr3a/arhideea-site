@@ -11,6 +11,8 @@ const redirects = {
   // Renamed projects keep their old addresses.
   '/proiecte/casa-r1-rasnov': '/proiecte/casa-c-s-rasnov/',
   '/proiecte/casa-r2-rasnov': '/proiecte/casa-c-d-rasnov/',
+  '/proiecte/locuinta-campina': '/proiecte/casa-m-s-campina/',
+  '/en/projects/locuinta-campina': '/en/projects/casa-m-s-campina/',
 };
 for (const slug of fs.readdirSync(projectsDir)) {
   const file = path.join(projectsDir, slug, 'index.md');
