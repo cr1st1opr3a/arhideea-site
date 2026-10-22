@@ -1,5 +1,6 @@
 ---
 title: "Casa de lângă pădure"
+location: "Săcele"
 categories: ["Construcții eficiente energetic", "Locuințe"]
 summary: "O locuință eficientă energetic, cu elemente de design scandinave."
 highlights: ["Eficientă energetic", "Elemente de design scandinave"]

@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import { langOf, t, url, proj } from '../i18n';
+import { cityOf } from '../lib/city';
 interface Props { project: CollectionEntry<'projects'> }
 const { project: p } = Astro.props;
 const d = p.data;
@@ -11,7 +12,7 @@ const x = proj(p, l);
 const facts = x.highlights.length ? x.highlights : [x.summary];
 const href = url.project(l, p.id);
 ---
-<article class="card" data-card data-categories={d.categories.join('|')} data-region={d.region} data-structure={d.structure} data-gross={d.area.gross}>
+<article class="card" data-card data-categories={d.categories.join('|')} data-city={cityOf(d.location)} data-structure={d.structure} data-gross={d.area.gross}>
   <a class="card__media" href={href} tabindex="-1" aria-hidden="true">
     <Image src={d.cover} alt="" widths={[400, 640, 900]} sizes="(min-width: 1100px) 390px, (min-width: 700px) 46vw, 100vw" class="card__img" />
   </a>

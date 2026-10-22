@@ -3,7 +3,8 @@ import type { CollectionEntry } from 'astro:content';
 import ProjectCard from './ProjectCard.astro';
 import { CATEGORIES, REGIONS, STRUCTURES } from '../content.config';
 import { catSlug } from '../lib/categories';
-import { langOf, t, cat, region, structure } from '../i18n';
+import { langOf, t, cat, structure } from '../i18n';
+import { cityOf } from '../lib/city';
 interface Props {
   projects: CollectionEntry<'projects'>[];
   /** How many cards to show before "Încarcă încă". */
@@ -16,13 +17,16 @@ interface Props {
 const { projects, pageSize = 6, heading = 'Proiecte', headingLevel = 'h2', sidebar = false } = Astro.props;
 // Size buckets on gross floor area (m²).
 const bucket = (g?: number) => (g === undefined ? undefined : g < 250 ? 's' : g <= 350 ? 'm' : 'l');
+const CITY_EN: Record<string, string> = { 'București': 'Bucharest' };
 const count = <T,>(vals: (T | undefined)[], v: T) => vals.filter((x) => x === v).length;
 const used = CATEGORIES.filter((c) => projects.some((p) => p.data.categories.includes(c)));
 const H = headingLevel;
 const l = langOf(Astro);
 const T = t(l);
 const groups = sidebar ? [
-  { key: 'zona', field: 'region', label: T.fRegion, opts: REGIONS.map((r) => ({ v: r, label: region(l, r), n: count(projects.map((p) => p.data.region), r) })) },
+  { key: 'oras', field: 'city', label: T.fRegion, opts: [...new Set(projects.map((p) => cityOf(p.data.location)).filter(Boolean))]
+      .map((c) => ({ v: c!, label: l === 'en' ? CITY_EN[c!] ?? c! : c!, n: count(projects.map((p) => cityOf(p.data.location)), c) }))
+      .sort((a, b) => b.n - a.n || a.label.localeCompare(b.label, 'ro')) },
   { key: 'structura', field: 'structure', label: T.fStructure, opts: STRUCTURES.map((r) => ({ v: r, label: structure(l, r), n: count(projects.map((p) => p.data.structure), r) })) },
   { key: 'suprafata', field: 'size', label: T.fSize, opts: (['s', 'm', 'l'] as const).map((k) => ({ v: k, label: T.sizes[k], n: count(projects.map((p) => bucket(p.data.area.gross)), k) })) },
 ].map((g) => ({ ...g, opts: g.opts.filter((o) => o.n > 0) })) : [];
@@ -144,10 +148,10 @@ const msgs = JSON.stringify({ more: words.more, one: T.countIn(1, '{c}'), many: 
     const sizeOf = (c: HTMLElement) => { const g = Number(c.dataset.gross); return !c.dataset.gross ? '' : g < 250 ? 's' : g <= 350 ? 'm' : 'l'; };
 
     const matching = () => {
-      const reg = picked('region'), st = picked('structure'), sz = picked('size');
+      const reg = picked('city'), st = picked('structure'), sz = picked('size');
       return cards.filter((c) =>
         (!filter || c.dataset.categories!.split('|').includes(filter)) &&
-        (!reg || c.dataset.region === reg) &&
+        (!reg || c.dataset.city === reg) &&
         (!st || c.dataset.structure === st) &&
         (!sz || sizeOf(c) === sz));
     };
@@ -156,11 +160,11 @@ const msgs = JSON.stringify({ more: words.more, one: T.countIn(1, '{c}'), many: 
       const q = new URLSearchParams(location.search);
       const chip = chips.find((c) => c.dataset.filter === filter);
       chip?.dataset.slug ? q.set('categorie', chip.dataset.slug) : q.delete('categorie');
-      for (const [g, key] of [['region', 'zona'], ['structure', 'structura'], ['size', 'suprafata']]) {
+      for (const [g, key] of [['city', 'oras'], ['structure', 'structura'], ['size', 'suprafata']]) {
         const r = radios.find((x) => x.dataset.group === g && x.checked && x.value);
         r ? q.set(key, r.dataset.slug!) : q.delete(key);
       }
-      const n = ['region', 'structure', 'size'].filter((g) => picked(g)).length;
+      const n = ['city', 'structure', 'size'].filter((g) => picked(g)).length;
       if (sideCount) { sideCount.hidden = n === 0; sideCount.textContent = String(n); }
       history.replaceState(null, '', location.pathname + (q.toString() ? `?${q}` : ''));
     };
@@ -243,18 +247,18 @@ const msgs = JSON.stringify({ more: words.more, one: T.countIn(1, '{c}'), many: 
     }
 
     const params = new URLSearchParams(location.search);
-    for (const [g, key] of [['region', 'zona'], ['structure', 'structura'], ['size', 'suprafata']]) {
+    for (const [g, key] of [['city', 'oras'], ['structure', 'structura'], ['size', 'suprafata']]) {
       const want = params.get(key);
       const r = want ? radios.find((x) => x.dataset.group === g && x.dataset.slug === want) : undefined;
       if (r) r.checked = true;
     }
     if (sideCount) {
-      const n = ['region', 'structure', 'size'].filter((g) => picked(g)).length;
+      const n = ['city', 'structure', 'size'].filter((g) => picked(g)).length;
       sideCount.hidden = n === 0; sideCount.textContent = String(n);
     }
     // On phones the filter panel starts closed, unless a filter is already set.
     const side = root.querySelector<HTMLDetailsElement>('[data-side]');
-    if (side && matchMedia('(max-width: 900px)').matches && !['region', 'structure', 'size'].some((g) => picked(g))) side.open = false;
+    if (side && matchMedia('(max-width: 900px)').matches && !['city', 'structure', 'size'].some((g) => picked(g))) side.open = false;
     if (none) none.hidden = matching().length > 0;
 
     // First paint: show the first page; animate it when it comes into view.

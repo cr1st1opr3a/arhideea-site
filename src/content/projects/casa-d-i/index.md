@@ -1,5 +1,6 @@
 ---
 title: "Casa D/I"
+location: "Săcele"
 categories: ["Construcții eficiente energetic", "Structuri din lemn", "Locuințe"]
 summary: "O locuință proiectată foarte aproape de standardul de casă pasivă, cu structură integral din lemn."
 highlights: ["Aproape de standardul de casă pasivă", "Structură integral din lemn"]
