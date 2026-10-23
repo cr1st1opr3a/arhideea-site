@@ -48,6 +48,7 @@ facts:
   - { k: "Context", v: "Centrul istoric" }
 collaborators:
   structural: "ing. Florin Roman, SC Prexico SRL"
+  mep: "ing. Cosmin Brebeanu"
 placeholderPhotos: false
 en:
   title: "House P/T"

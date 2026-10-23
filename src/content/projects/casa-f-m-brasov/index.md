@@ -47,6 +47,8 @@ technical:
 quote:
   text: "Full of ideas, building on customers expectations, supporting and solutions oriented! This was our experience with Cristi and Arhideea. Strongly recommended!"
   author: "Fănel M., beneficiar"
+collaborators:
+  structural: "ing. Florin Roman, SC Prexico SRL"
 placeholderPhotos: false
 en:
   title: "House F/M"

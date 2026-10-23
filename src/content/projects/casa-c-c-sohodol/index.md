@@ -32,6 +32,8 @@ technical:
   - { k: "Pereți", v: "Zidărie din cărămidă" }
   - { k: "Acoperiș", v: "Șarpantă la 40°, țiglă ceramică" }
   - { k: "Încălzire", v: "Centrală pe gaz, șemineu pe lemne" }
+collaborators:
+  structural: "ing. Florin Roman, SC Prexico SRL"
 placeholderPhotos: false
 en:
   title: "House C/C"

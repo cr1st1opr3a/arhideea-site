@@ -26,6 +26,8 @@ region: "Împrejurimi Brașov"
 structure: "Lemn"
 technical:
   - { k: "Structură", v: "Lemn" }
+collaborators:
+  structural: "ing. Alin-Sebastian Pleșcan, PFA"
 placeholderPhotos: false
 en:
   title: "House C/D"

@@ -39,6 +39,9 @@ area:
 region: "Alte zone"
 facts:
   - { k: "Stadiu", v: "În execuție" }
+collaborators:
+  structural: "ing. Florin Roman, SC Prexico SRL"
+  mep: "ing. Zsolt Halmaghi, SC Vis Proiect SRL"
 placeholderPhotos: false
 oldPath: "/projects/casa-i-s-tg-mures/"
 en:

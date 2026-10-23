@@ -29,6 +29,8 @@ technical:
   - { k: "Fațade", v: "Tencuială, lambriu din lemn, soclu din piatră" }
   - { k: "Învelitoare", v: "Țiglă" }
   - { k: "Încălzire", v: "Centrală pe lemne și peleți, panouri solare" }
+collaborators:
+  structural: "ing. Alin-Sebastian Pleșcan, PFA"
 placeholderPhotos: false
 en:
   title: "House O/M"

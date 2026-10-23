@@ -19,6 +19,8 @@ region: "Brașov"
 facts:
   - { k: "Stadiu", v: "În execuție" }
   - { k: "Teren", v: "Lot de colț" }
+collaborators:
+  mep: "ing. Cosmin Brebeanu"
 placeholderPhotos: false
 en:
   title: "House R/N"

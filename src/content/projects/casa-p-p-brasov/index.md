@@ -38,6 +38,7 @@ technical:
   - { k: "Încălzire", v: "Centrală pe gaz" }
 collaborators:
   structural: "ing. Florin Roman, SC Prexico SRL"
+  mep: "ing. Radu Roman, SC Proconfort SRL"
 placeholderPhotos: false
 en:
   title: "House P/P"
