@@ -39,6 +39,9 @@ technical:
   - { k: "Încălzire", v: "Pompă de căldură, gaz, peleți, termoșemineu" }
   - { k: "Ventilație", v: "Cu recuperare de căldură" }
   - { k: "Energie solară", v: "Panouri solare" }
+collaborators:
+  structural: "ing. Florin Roman, SC Prexico SRL"
+  mep: "ing. Zsolt Halmaghi, SC Vis Proiect SRL"
 placeholderPhotos: false
 en:
   title: "House R/C"

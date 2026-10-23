@@ -46,6 +46,8 @@ region: "Brașov"
 structure: "Zidărie"
 facts:
   - { k: "Context", v: "Centrul istoric" }
+collaborators:
+  structural: "ing. Florin Roman, SC Prexico SRL"
 placeholderPhotos: false
 en:
   title: "House P/T"

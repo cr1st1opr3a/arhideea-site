@@ -55,6 +55,8 @@ technical:
   - { k: "Pereți exteriori", v: "BCA și cărămidă eficientă, termosistem" }
   - { k: "Fațade", v: "Tencuială și placaj din piatră" }
   - { k: "Învelitoare", v: "Țiglă ceramică" }
+collaborators:
+  structural: "ing. Lucian Rozorea, SC Rozini SRL"
 placeholderPhotos: false
 en:
   title: "Offices H/S"

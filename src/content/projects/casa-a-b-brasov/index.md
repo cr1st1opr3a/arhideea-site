@@ -32,6 +32,9 @@ facts:
 technical:
   - { k: "Structură", v: "Lemn, sistem framing" }
   - { k: "Execuție", v: "Panouri de perete prefabricate" }
+collaborators:
+  structural: "ing. Alin-Sebastian Pleșcan, PFA"
+  mep: "ing. Robert Soare, SC Energycad SRL"
 placeholderPhotos: false
 en:
   title: "House A/B"

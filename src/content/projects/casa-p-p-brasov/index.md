@@ -36,6 +36,8 @@ technical:
   - { k: "Pereți exteriori", v: "BCA și cărămidă eficientă, termosistem" }
   - { k: "Învelitoare", v: "Țiglă ceramică" }
   - { k: "Încălzire", v: "Centrală pe gaz" }
+collaborators:
+  structural: "ing. Florin Roman, SC Prexico SRL"
 placeholderPhotos: false
 en:
   title: "House P/P"

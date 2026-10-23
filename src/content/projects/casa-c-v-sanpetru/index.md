@@ -30,6 +30,8 @@ technical:
   - { k: "Învelitoare", v: "Țiglă ceramică" }
   - { k: "Încălzire", v: "Centrală pe gaz" }
   - { k: "Ventilație", v: "Cu recuperare de căldură" }
+collaborators:
+  structural: "ing. Bogdan Bolborea, SC B&B 89 Project SRL"
 placeholderPhotos: false
 en:
   title: "House C/V"

@@ -42,6 +42,9 @@ technical:
   - k: Ventilație
     v: Cu recuperare de căldură
 quote: null
+collaborators:
+  structural: "ing. Florin Roman, SC Prexico SRL"
+  mep: "ing. Radu Roman, SC Proconfort SRL"
 placeholderPhotos: false
 oldPath: /projects/casa-v-o/
 en:

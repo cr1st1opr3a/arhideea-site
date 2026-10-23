@@ -28,6 +28,9 @@ region: "Împrejurimi Brașov"
 structure: "Lemn"
 technical:
   - { k: "Structură", v: "Lemn" }
+collaborators:
+  structural: "ing. Ștefan Hriscu, SC Ultracon SRL"
+  mep: "ing. G. Năstac, SC N.D.C. Proiect SRL"
 placeholderPhotos: false
 en:
   title: "House C/S"

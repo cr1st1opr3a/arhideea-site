@@ -27,6 +27,9 @@ facts:
 technical:
   - { k: "Închideri", v: "Zidărie din cărămidă eficientă" }
   - { k: "Învelitoare", v: "Țiglă ceramică, brun închis" }
+collaborators:
+  structural: "ing. Alin-Sebastian Pleșcan, PFA"
+  mep: "dr. ing. Cosmin Ioanovici, PFA"
 placeholderPhotos: false
 en:
   title: "House C/B"
