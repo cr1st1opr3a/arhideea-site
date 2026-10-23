@@ -17,12 +17,33 @@
   --green: #6BAC08; /* the green from the Arhideea logo */
   --red: #E2231A;
   --red-text: #C81E17;
+  /* Text roles that change with the theme */
+  --fg-strong: #0A3640; /* headings, strong text */
+  --accent: #0F4C5C;    /* links, outlines, active borders */
+  color-scheme: light;
 
   --font: 'Inter Tight Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --wrap: 1280px;
   --gutter: clamp(16px, 4vw, 40px);
   --ease: cubic-bezier(.2, .7, .2, 1);
 }
+
+/* Dark theme: follows the system unless the visitor picked one with the switch in the header. */
+:root[data-theme='dark'] {
+  --bg: #0E1517; --surface: #141E21; --grey-1: #19252A; --grey-2: #26343A; --grey-3: #5E6C71;
+  --line: #2A383D; --line-soft: #1F2B2F; --muted: #8C999D; --text-2: #A8B5B9; --ink: #E4EBED;
+  --petrol-l: #2C5A66; --fg-strong: #EAF2F3; --accent: #7CC3D3; --red-text: #FF6B63;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0E1517; --surface: #141E21; --grey-1: #19252A; --grey-2: #26343A; --grey-3: #5E6C71;
+    --line: #2A383D; --line-soft: #1F2B2F; --muted: #8C999D; --text-2: #A8B5B9; --ink: #E4EBED;
+    --petrol-l: #2C5A66; --fg-strong: #EAF2F3; --accent: #7CC3D3; --red-text: #FF6B63;
+    color-scheme: dark;
+  }
+}
+body, .site-header, .card, .manifesto, .reviews, .data, .pager__item { transition: background-color .3s, border-color .3s, color .3s; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
@@ -38,11 +59,19 @@ body {
 }
 img { display: block; max-width: 100%; height: auto; }
 [id] { scroll-margin-top: 96px; }
-a { color: var(--petrol); text-decoration: none; }
-a:hover { color: var(--petrol-d); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--fg-strong); }
+/* Light/dark logo pairs: only the one for the current theme shows. */
+.when-dark { display: none !important; }
+:root[data-theme='dark'] .when-dark { display: block !important; }
+:root[data-theme='dark'] .when-light { display: none !important; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .when-dark { display: block !important; }
+  :root:not([data-theme='light']) .when-light { display: none !important; }
+}
 button { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid var(--petrol); outline-offset: 3px; }
-h1, h2, h3 { margin: 0; color: var(--petrol-d); font-weight: 300; letter-spacing: -0.03em; line-height: 1.05; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+h1, h2, h3 { margin: 0; color: var(--fg-strong); font-weight: 300; letter-spacing: -0.03em; line-height: 1.05; }
 p { margin: 0; }
 
 .wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gutter); }
@@ -78,7 +107,7 @@ p { margin: 0; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   min-height: 48px; padding: 0 26px;
-  border: 1px solid var(--petrol); background: var(--surface); color: var(--petrol);
+  border: 1px solid var(--accent); background: var(--surface); color: var(--accent);
   cursor: pointer; transition: background .2s, color .2s;
 }
 .btn:hover { background: var(--petrol); color: #fff; }
@@ -92,7 +121,7 @@ p { margin: 0; }
   border: 1px solid var(--grey-3); background: var(--surface); cursor: pointer;
   transition: border-color .2s, background .2s;
 }
-.icon-btn:hover { border-color: var(--petrol); }
+.icon-btn:hover { border-color: var(--accent); }
 .icon-btn svg { width: 16px; height: 16px; stroke: var(--ink); fill: none; stroke-width: 1.6; }
 
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }

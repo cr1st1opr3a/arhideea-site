@@ -24,10 +24,10 @@ const html = esc(MANIFESTO.text).replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u)
   .manifesto { background: var(--surface); }
   .manifesto__in { padding-block: clamp(72px, 10vw, 140px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3.2fr); gap: 32px 48px; }
   @media (max-width: 860px) { .manifesto__in { grid-template-columns: minmax(0, 1fr); } }
-  .manifesto__label { margin: 0; padding-top: 14px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--petrol-d); }
-  .manifesto__text { margin: 0; font-size: clamp(30px, 4.2vw, 58px); font-weight: 300; line-height: 1.16; letter-spacing: -0.03em; color: var(--petrol-d); text-wrap: pretty; }
-  .manifesto__text :global(a) { color: var(--petrol-d); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .14em; text-decoration-color: var(--green); transition: color .2s, text-decoration-color .2s; }
-  .manifesto__text :global(a:hover) { color: var(--petrol); text-decoration-color: var(--petrol); }
+  .manifesto__label { margin: 0; padding-top: 14px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-strong); }
+  .manifesto__text { margin: 0; font-size: clamp(30px, 4.2vw, 58px); font-weight: 300; line-height: 1.16; letter-spacing: -0.03em; color: var(--fg-strong); text-wrap: pretty; }
+  .manifesto__text :global(a) { color: var(--fg-strong); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .14em; text-decoration-color: var(--green); transition: color .2s, text-decoration-color .2s; }
+  .manifesto__text :global(a:hover) { color: var(--accent); text-decoration-color: var(--accent); }
   .manifesto__foot { margin-top: clamp(40px, 6vw, 72px); display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: center; justify-content: space-between; padding-top: 32px; border-top: 1px solid var(--line); }
   .manifesto__lede { flex: 1 1 380px; max-width: 56ch; font-size: 18px; color: var(--text-2); margin: 0; }
 </style>

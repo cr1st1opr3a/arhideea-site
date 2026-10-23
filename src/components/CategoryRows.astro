@@ -57,12 +57,12 @@ const pad = (x: number) => String(x).padStart(2, '0');
   .rows { padding-block: clamp(64px, 8vw, 112px) 24px; display: flex; flex-direction: column; gap: clamp(56px, 7vw, 96px); }
   .row__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 24px; margin-bottom: 24px; }
   .row__title { font-size: clamp(28px, 3.2vw, 44px); }
-  .row__title a { color: var(--petrol-d); }
-  .row__title a:hover { color: var(--petrol); }
+  .row__title a { color: var(--fg-strong); }
+  .row__title a:hover { color: var(--accent); }
   .row__meta { display: flex; align-items: center; gap: 6px; }
   .row__count { font-size: 14px; color: var(--text-2); font-variant-numeric: tabular-nums; margin-right: 10px; }
   .rbtn { width: 44px; height: 44px; border: 1px solid var(--grey-3); border-radius: 50%; background: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: border-color .2s, background .2s, opacity .2s; }
-  .rbtn:hover { border-color: var(--petrol); }
+  .rbtn:hover { border-color: var(--accent); }
   .rbtn:disabled { opacity: .3; cursor: default; }
   .rbtn svg { width: 15px; height: 15px; stroke: var(--ink); fill: none; stroke-width: 1.6; }
 

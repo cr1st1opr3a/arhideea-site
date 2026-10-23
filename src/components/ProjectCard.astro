@@ -41,11 +41,11 @@ const href = url.project(l, p.id);
   .card__open { grid-area: open; padding: 8px 22px 12px 0; align-self: start; }
   summary {
     list-style: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; gap: 8px;
-    font-size: 14px; color: var(--petrol);
+    font-size: 14px; color: var(--accent);
   }
   summary::-webkit-details-marker { display: none; }
-  .card__sign { width: 18px; height: 18px; border: 1px solid var(--petrol); position: relative; flex: none; }
-  .card__sign::before, .card__sign::after { content: ''; position: absolute; left: 50%; top: 50%; background: var(--petrol); transform: translate(-50%, -50%); }
+  .card__sign { width: 18px; height: 18px; border: 1px solid var(--accent); position: relative; flex: none; }
+  .card__sign::before, .card__sign::after { content: ''; position: absolute; left: 50%; top: 50%; background: var(--accent); transform: translate(-50%, -50%); }
   .card__sign::before { width: 8px; height: 1.5px; }
   .card__sign::after { width: 1.5px; height: 8px; transition: transform .2s; }
   details[open] .card__sign::after { transform: translate(-50%, -50%) scaleY(0); }

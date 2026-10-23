@@ -13,11 +13,15 @@ const tel = SITE.phone ? SITE.phone.replace(/[^\d+]/g, '') : '';
 ---
 <header class="site-header">
   <div class="wrap site-header__in">
-    <a href={url.home(l)} class="site-header__logo" aria-label={T.homeLabel}><Logo /></a>
+    <a href={url.home(l)} class="site-header__logo" aria-label={T.homeLabel}><Logo themed /></a>
     <nav class="site-header__quick" aria-label={T.shortcuts}>
       <a href={url.projects(l)} aria-current={current === 'proiecte' ? 'page' : undefined}>{T.projects}</a>
       <a href={url.contact(l)} aria-current={current === 'contact' ? 'page' : undefined}>{T.contact}</a>
     </nav>
+    <button type="button" class="theme" data-theme-toggle aria-label={T.themeToggle} title={T.themeToggle}>
+      <svg class="theme__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" /></svg>
+      <svg class="theme__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" /><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" /></svg>
+    </button>
     <a class="lang" href={switchHref} hreflang={l === 'ro' ? 'en' : 'ro'} lang={l === 'ro' ? 'en' : 'ro'} aria-label={T.switchLabel} data-lang-switch>{T.switchShort}</a>
     <button type="button" class="burger" aria-expanded="false" aria-controls="meniu" data-menu-open>
       <span class="visually-hidden">{T.openMenu}</span>
@@ -62,7 +66,7 @@ const tel = SITE.phone ? SITE.phone.replace(/[^\d+]/g, '') : '';
   .site-header__logo { display: block; margin-right: auto; }
   .site-header__quick { display: flex; gap: 28px; font-size: 15px; }
   .site-header__quick a { color: var(--ink); min-height: 44px; display: inline-flex; align-items: center; }
-  .site-header__quick a:hover, .site-header__quick a[aria-current='page'] { color: var(--petrol); }
+  .site-header__quick a:hover, .site-header__quick a[aria-current='page'] { color: var(--accent); }
   .site-header__quick a[aria-current='page'] { box-shadow: inset 0 -2px 0 var(--green); }
   @media (max-width: 640px) { .site-header__quick { display: none; } }
   .lang {
@@ -70,7 +74,17 @@ const tel = SITE.phone ? SITE.phone.replace(/[^\d+]/g, '') : '';
     font-size: 13px; font-weight: 600; letter-spacing: .08em; color: var(--ink);
     border-left: 1px solid var(--line); padding-left: 18px; margin-left: 4px;
   }
-  .lang:hover { color: var(--petrol); }
+  .lang:hover { color: var(--accent); }
+  .theme { width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: var(--ink); margin-left: 2px; }
+  .theme:hover { color: var(--accent); }
+  .theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+  .theme__sun { display: none; }
+  :global(:root[data-theme='dark']) .theme__sun { display: block; }
+  :global(:root[data-theme='dark']) .theme__moon { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .theme__sun { display: block; }
+    :global(:root:not([data-theme='light'])) .theme__moon { display: none; }
+  }
   .menu__main a.menu__lang { font-size: 22px; letter-spacing: .02em; margin-top: 20px; color: var(--on-petrol); }
   .menu__main a.menu__lang:hover { color: var(--green); }
 
@@ -99,6 +113,16 @@ const tel = SITE.phone ? SITE.phone.replace(/[^\d+]/g, '') : '';
 </style>
 
 <script>
+  // Light / dark switch. With no saved choice the site follows the system setting.
+  document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+    const root = document.documentElement;
+    const sysDark = matchMedia('(prefers-color-scheme: dark)').matches;
+    const now = root.dataset.theme ?? (sysDark ? 'dark' : 'light');
+    const next = now === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { (next === 'dark') === sysDark ? localStorage.removeItem('theme') : localStorage.setItem('theme', next); } catch {}
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', next === 'dark' ? '#0E1517' : '#FFFFFF');
+  });
   // Keep the chosen filter (?categorie=…) when switching language.
   document.querySelectorAll<HTMLAnchorElement>('[data-lang-switch]').forEach((a) => {
     if (location.search) a.href = a.getAttribute('href') + location.search;

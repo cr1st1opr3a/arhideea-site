@@ -1,15 +1,23 @@
 ---
 // Arhideea logo, traced to vector from public/logos/arhideea-original.jpg.
-interface Props { inverse?: boolean }
-const { inverse = false } = Astro.props;
+// `inverse` is for dark backgrounds; `themed` swaps to the light version when the site is in dark mode.
+interface Props { inverse?: boolean; themed?: boolean }
+const { inverse = false, themed = false } = Astro.props;
 ---
-<img
-  class:list={['logo', { 'logo--inverse': inverse }]}
-  src={inverse ? '/logos/arhideea-light.svg' : '/logos/arhideea.svg'}
-  alt="Arhideea arhitectură · design"
-  width="2528"
-  height="591"
-/>
+{themed && !inverse ? (
+  <>
+    <img class="logo when-light" src="/logos/arhideea.svg" alt="Arhideea arhitectură · design" width="2528" height="591" />
+    <img class="logo when-dark" src="/logos/arhideea-light.svg" alt="Arhideea arhitectură · design" width="2528" height="591" />
+  </>
+) : (
+  <img
+    class:list={['logo', { 'logo--inverse': inverse }]}
+    src={inverse ? '/logos/arhideea-light.svg' : '/logos/arhideea.svg'}
+    alt="Arhideea arhitectură · design"
+    width="2528"
+    height="591"
+  />
+)}
 
 <style>
   .logo { display: block; height: 48px; width: auto; }

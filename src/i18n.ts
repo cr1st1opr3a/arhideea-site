@@ -63,6 +63,7 @@ export const UI = {
     starsOf: (n: number) => `${n} din 5 stele`, allReviews: 'Toate recenziile pe Google →',
     filters: 'Filtre', fRegion: 'Localitate', fStructure: 'Structură', fSize: 'Suprafață desfășurată', fAny: 'Oricare', fReset: 'Resetează filtrele', fNone: 'Niciun proiect nu corespunde filtrelor alese.',
     sizes: { s: 'sub 250 mp', m: '250–350 mp', l: 'peste 350 mp' },
+    themeToggle: 'Schimbă tema (luminoasă / întunecată)',
     statsLabel: 'Pe scurt', contactDesc: (a: string, c: string, e: string) => `Contact Atelier Arhideea: ${a}, ${c}. ${e}`,
   },
   en: {
@@ -98,6 +99,7 @@ export const UI = {
     starsOf: (n: number) => `${n} out of 5 stars`, allReviews: 'All reviews on Google →',
     filters: 'Filters', fRegion: 'Location', fStructure: 'Structure', fSize: 'Gross floor area', fAny: 'Any', fReset: 'Reset filters', fNone: 'No project matches the chosen filters.',
     sizes: { s: 'under 250 m²', m: '250–350 m²', l: 'over 350 m²' },
+    themeToggle: 'Switch theme (light / dark)',
     statsLabel: 'At a glance', contactDesc: (a: string, c: string, e: string) => `Contact Arhideea, architecture studio in ${c}, Romania: ${a}. ${e}`,
   },
 } as const;
