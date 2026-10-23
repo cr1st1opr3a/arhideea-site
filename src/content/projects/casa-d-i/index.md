@@ -20,7 +20,7 @@ technical:
   - { k: "Standard", v: "Aproape de casă pasivă" }
   - { k: "Structură", v: "Integral din lemn" }
 collaborators:
-  structural: "ing. Cătălin Caraza"
+  structural: "ing. Cătălin Caraza, SC Inginerie Creativa SRL"
   mep: "dr. ing. Cosmin Ioanovici, PFA"
 placeholderPhotos: false
 oldPath: "/projects/3124/"

@@ -27,6 +27,8 @@ area:
   gross: 435
 region: "Brașov"
 structure: "Zidărie"
+collaborators:
+  structural: "ing. Adrian Cazacu"
 placeholderPhotos: false
 oldPath: "/projects/casa-3/"
 en:

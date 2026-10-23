@@ -56,7 +56,7 @@ technical:
   - { k: "Fațade", v: "Tencuială și placaj din piatră" }
   - { k: "Învelitoare", v: "Țiglă ceramică" }
 collaborators:
-  structural: "ing. Lucian Rozorea, SC Rozini SRL"
+  structural: "ing. Adrian Cazacu"
   mep: "ing. Zsolt Halmaghi, SC Vis Proiect SRL"
 placeholderPhotos: false
 en:
