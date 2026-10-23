@@ -231,7 +231,7 @@ const msgs = JSON.stringify({ more: words.more, one: T.countIn(1, '{c}'), many: 
         apply(next);
         more.disabled = false;
         status.textContent = M.added.replace('{n}', String(next.length));
-        next[0]?.querySelector<HTMLAnchorElement>('.card__title a')?.focus({ preventScroll: true });
+        next[0]?.querySelector<HTMLAnchorElement>('.card__media')?.focus({ preventScroll: true });
       }, reduce ? 0 : 450);
     });
 
