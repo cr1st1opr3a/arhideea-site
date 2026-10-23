@@ -20,7 +20,7 @@ facts:
   - { k: "Stadiu", v: "În execuție" }
   - { k: "Teren", v: "Lot de colț" }
 collaborators:
-  mep: "ing. Cosmin Brebeanu"
+  structural: "ing. Árpád Fejér, SC Fejer E.S SRL"
 placeholderPhotos: false
 en:
   title: "House R/N"
