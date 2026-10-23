@@ -104,6 +104,16 @@ collections:
       - { name: region, label: Zonă (pentru filtre), widget: select, required: false, options: ['Brașov', 'Împrejurimi Brașov', 'Prahova', 'București și Ilfov', 'Alte zone'] }
       - { name: structure, label: Structură (pentru filtre), widget: select, required: false, options: ['Lemn', 'Zidărie', 'Metal'] }
       - { name: video, label: Video (opțional), widget: file, required: false, media_folder: /public/video, public_folder: /video, hint: 'Fișier .mp4, sub 25 MB.' }
+      - name: collaborators
+        label: Colaboratori
+        widget: object
+        required: false
+        collapsed: true
+        hint: 'Format: ing. Ion Popescu, SC Exemplu SRL'
+        fields:
+          - { name: structural, label: Rezistență, widget: string, required: false }
+          - { name: mep, label: Instalații, widget: string, required: false, hint: 'Sau doar instalații sanitare/termice, dacă electricele sunt separat.' }
+          - { name: electrical, label: Instalații electrice (dacă e alt colaborator), widget: string, required: false }
       - name: facts
         label: Fișa proiectului
         widget: list

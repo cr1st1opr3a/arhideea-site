@@ -45,6 +45,12 @@ const projects = defineCollection({
       structure: z.preprocess(blank, z.enum(STRUCTURES).optional()),
       // Optional video (an mp4 in public/video/), shown under the gallery.
       video: z.preprocess(blank, z.string().optional()),
+      // Engineering collaborators, written as "ing. Ion Popescu, SC Exemplu SRL".
+      collaborators: z.preprocess(blank, z.object({
+        structural: z.preprocess(blank, z.string().optional()),
+        mep: z.preprocess(blank, z.string().optional()),
+        electrical: z.preprocess(blank, z.string().optional()),
+      }).partial().default({})),
       facts: z.preprocess(blank, z.array(row).default([])),
       technical: z.preprocess(blank, z.array(row).default([])),
       quote: z.preprocess(blank, z.object({ text: z.string().nullish(), author: z.string().nullish() }).partial().optional()).transform((q) => (q && q.text ? q : undefined)),

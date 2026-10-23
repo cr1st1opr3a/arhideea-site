@@ -29,6 +29,9 @@ const projectRows = [
   d.area.built && { k: T.built, v: mp(d.area.built) },
   d.area.gross && { k: T.gross, v: mp(d.area.gross) },
   ...x.facts,
+  d.collaborators.structural && { k: T.structuralEng, v: d.collaborators.structural },
+  d.collaborators.mep && { k: T.mepEng, v: d.collaborators.mep },
+  d.collaborators.electrical && { k: T.electricalEng, v: d.collaborators.electrical },
 ].filter(Boolean) as { k: string; v: string }[];
 const tabs = [
   { id: 'proiect', label: T.sheet, rows: projectRows },
