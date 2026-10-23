@@ -10,22 +10,23 @@ export type Lang = 'ro' | 'en';
 export const langOf = (a: { currentLocale?: string }): Lang => (a.currentLocale === 'en' ? 'en' : 'ro');
 
 // ---------- Addresses ----------
-const base = { ro: { home: '/', projects: '/proiecte/', contact: '/contact/' }, en: { home: '/en/', projects: '/en/projects/', contact: '/en/contact/' } };
+const base = { ro: { home: '/', projects: '/proiecte/', contact: '/contact/', privacy: '/confidentialitate/' }, en: { home: '/en/', projects: '/en/projects/', contact: '/en/contact/', privacy: '/en/privacy/' } };
 export const url = {
   home: (l: Lang) => base[l].home,
   projects: (l: Lang) => base[l].projects,
   project: (l: Lang, id: string) => `${base[l].projects}${id}/`,
   category: (l: Lang, slug: string) => `${base[l].projects}?categorie=${slug}`,
   contact: (l: Lang) => base[l].contact,
+  privacy: (l: Lang) => base[l].privacy,
   anchor: (l: Lang, id: string) => `${base[l].home}#${id}`,
 };
 /** The same page in the other language. */
 export function counterpart(path: string): string {
   if (path === '/en' || path.startsWith('/en/')) {
     const rest = path.replace(/^\/en/, '') || '/';
-    return rest.replace(/^\/projects\//, '/proiecte/');
+    return rest.replace(/^\/projects\//, '/proiecte/').replace(/^\/privacy\//, '/confidentialitate/');
   }
-  return '/en' + path.replace(/^\/proiecte\//, '/projects/');
+  return '/en' + path.replace(/^\/proiecte\//, '/projects/').replace(/^\/confidentialitate\//, '/privacy/');
 }
 
 // ---------- Words used by the templates ----------
@@ -63,7 +64,7 @@ export const UI = {
     starsOf: (n: number) => `${n} din 5 stele`, allReviews: 'Toate recenziile pe Google →',
     filters: 'Filtre', fRegion: 'Localitate', fStructure: 'Structură', fSize: 'Suprafață desfășurată', fAny: 'Oricare', fReset: 'Resetează filtrele', fNone: 'Niciun proiect nu corespunde filtrelor alese.',
     sizes: { s: 'sub 250 mp', m: '250–350 mp', l: 'peste 350 mp' },
-    themeToggle: 'Schimbă tema (luminoasă / întunecată)',
+    themeToggle: 'Schimbă tema (luminoasă / întunecată)', privacy: 'Confidențialitate și cookie-uri',
     statsLabel: 'Pe scurt', contactDesc: (a: string, c: string, e: string) => `Contact Atelier Arhideea: ${a}, ${c}. ${e}`,
   },
   en: {
@@ -99,7 +100,7 @@ export const UI = {
     starsOf: (n: number) => `${n} out of 5 stars`, allReviews: 'All reviews on Google →',
     filters: 'Filters', fRegion: 'Location', fStructure: 'Structure', fSize: 'Gross floor area', fAny: 'Any', fReset: 'Reset filters', fNone: 'No project matches the chosen filters.',
     sizes: { s: 'under 250 m²', m: '250–350 m²', l: 'over 350 m²' },
-    themeToggle: 'Switch theme (light / dark)',
+    themeToggle: 'Switch theme (light / dark)', privacy: 'Privacy and cookies',
     statsLabel: 'At a glance', contactDesc: (a: string, c: string, e: string) => `Contact Arhideea, architecture studio in ${c}, Romania: ${a}. ${e}`,
   },
 } as const;

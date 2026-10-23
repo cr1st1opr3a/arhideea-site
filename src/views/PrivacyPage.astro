@@ -1,0 +1,60 @@
+---
+// Privacy and cookies notice (RO / EN). Plain text, no consent banner needed:
+// the site sets no tracking cookies; the Google map loads only when the visitor asks for it.
+import Base from '../layouts/Base.astro';
+import { langOf, site, t } from '../i18n';
+const l = langOf(Astro);
+const T = t(l);
+const S = site(l);
+const updated = l === 'ro' ? 'octombrie 2026' : 'October 2026';
+---
+<Base title={T.privacy} description={T.privacy}>
+  <article class="wrap legal">
+    <h1>{T.privacy}</h1>
+    <p class="legal__date">{l === 'ro' ? 'Actualizat' : 'Updated'}: {updated}</p>
+    {l === 'ro' ? (
+      <>
+        <h2>Cine suntem</h2>
+        <p>Site-ul www.arhideea.ro aparține {S.company}, {S.contact.address}, {S.contact.city}. Ne puteți scrie oricând la <a href={`mailto:${S.email}`}>{S.email}</a>.</p>
+        <h2>Cookie-uri</h2>
+        <p>Site-ul nu folosește cookie-uri de urmărire, de publicitate sau de analiză și nu vă cere consimțământul pentru că nu are nevoie de el.</p>
+        <ul>
+          <li><strong>Preferința de temă</strong> (luminoasă / întunecată) se păstrează doar în browserul dumneavoastră (local storage), nu ajunge la noi și nu vă identifică.</li>
+          <li><strong>Harta Google</strong> din pagina de contact se încarcă numai după ce apăsați „Afișează harta”. Din acel moment se aplică <a href="https://policies.google.com/privacy" rel="noopener">politica de confidențialitate Google</a>, iar Google poate seta propriile cookie-uri.</li>
+          <li><strong>Statistici de vizitare</strong>: numărăm vizitele cu Cloudflare Web Analytics, un serviciu fără cookie-uri, care nu urmărește vizitatorii de la o pagină la alta și nu păstrează adrese IP. Vedem doar totaluri, de exemplu câte vizite a avut un proiect.</li>
+        </ul>
+        <h2>Date personale</h2>
+        <p>Site-ul nu are formulare și nu colectează date personale. Dacă ne scrieți pe e-mail sau ne sunați, folosim datele doar ca să vă răspundem și pentru eventuala colaborare, conform Regulamentului (UE) 2016/679 (GDPR). Găzduirea este asigurată de Cloudflare, care poate păstra temporar jurnale tehnice (de exemplu adresa IP) pentru securitate.</p>
+        <h2>Drepturile dumneavoastră</h2>
+        <p>Aveți dreptul de acces, rectificare, ștergere, restricționare și opoziție. Pentru orice solicitare ne scrieți la adresa de mai sus. Puteți depune și o plângere la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (<a href="https://www.dataprotection.ro" rel="noopener">dataprotection.ro</a>).</p>
+      </>
+    ) : (
+      <>
+        <h2>Who we are</h2>
+        <p>www.arhideea.ro is run by {S.company}, {S.contact.address}, Brașov, Romania. You can write to us at any time at <a href={`mailto:${S.email}`}>{S.email}</a>.</p>
+        <h2>Cookies</h2>
+        <p>This site uses no tracking, advertising or analytics cookies, so it does not ask for your consent: it does not need it.</p>
+        <ul>
+          <li><strong>Your theme choice</strong> (light / dark) is kept only in your own browser (local storage). It never reaches us and does not identify you.</li>
+          <li><strong>The Google map</strong> on the contact page loads only after you click “Show map”. From then on <a href="https://policies.google.com/privacy" rel="noopener">Google’s privacy policy</a> applies and Google may set its own cookies.</li>
+          <li><strong>Visit statistics</strong>: we count visits with Cloudflare Web Analytics, a cookie-free service that does not follow visitors across pages or keep IP addresses. We only see totals, such as how many visits a project had.</li>
+        </ul>
+        <h2>Personal data</h2>
+        <p>The site has no forms and collects no personal data. If you email or call us, we use your details only to reply and for any work together, in line with the EU General Data Protection Regulation (GDPR). Hosting is provided by Cloudflare, which may keep short-lived technical logs (such as IP addresses) for security.</p>
+        <h2>Your rights</h2>
+        <p>You have the right to access, correct, erase, restrict and object. Write to us at the address above for any request. You can also complain to the Romanian data protection authority, ANSPDCP (<a href="https://www.dataprotection.ro" rel="noopener">dataprotection.ro</a>).</p>
+      </>
+    )}
+  </article>
+</Base>
+
+<style>
+  .legal { max-width: 760px; padding-block: 72px 104px; }
+  .legal h1 { font-size: clamp(36px, 5vw, 56px); margin-bottom: 8px; }
+  .legal__date { color: var(--muted); font-size: 14px; margin-bottom: 40px; }
+  .legal h2 { font-size: 24px; margin: 40px 0 12px; }
+  .legal p, .legal li { color: var(--text-2); font-size: 17px; }
+  .legal ul { padding-left: 20px; display: flex; flex-direction: column; gap: 12px; margin: 16px 0 0; }
+  .legal a { text-decoration: underline; text-underline-offset: 3px; }
+  .legal strong { color: var(--ink); }
+</style>

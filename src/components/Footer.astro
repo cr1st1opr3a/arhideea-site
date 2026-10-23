@@ -1,7 +1,9 @@
 ---
 import Logo from './Logo.astro';
-import { langOf, site } from '../i18n';
+import { langOf, site, t, url } from '../i18n';
 const SITE = site(langOf(Astro));
+const T = t(langOf(Astro));
+const privacyHref = url.privacy(langOf(Astro));
 const year = new Date().getFullYear();
 ---
 <footer id="subsol" class="site-footer">
@@ -17,6 +19,7 @@ const year = new Date().getFullYear();
       <Logo inverse />
       <span>{SITE.company} · {SITE.city}</span>
       <a href={SITE.facebook} rel="noopener">Facebook</a>
+      <a href={privacyHref}>{T.privacy}</a>
       <span>© {year}</span>
     </div>
   </div>

@@ -31,8 +31,7 @@ const ogImage = image ? new URL(image, Astro.site).href : undefined;
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0E1517" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#0E1517" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content={T.ogLocale} />
   <link rel="alternate" hreflang="ro" href={roUrl} />
@@ -46,7 +45,8 @@ const ogImage = image ? new URL(image, Astro.site).href : undefined;
   <meta name="twitter:card" content="summary_large_image" />
   <script is:inline>
     document.documentElement.classList.add('js');
-    try { const t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch {}
+    // Dark is the default look; the switch in the header saves the visitor's choice.
+    (function () { let t = 'dark'; try { t = localStorage.getItem('theme') === 'light' ? 'light' : 'dark'; } catch (e) {} document.documentElement.dataset.theme = t; })();
   </script>
   <slot name="head" />
 </head>

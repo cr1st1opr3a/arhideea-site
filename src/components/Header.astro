@@ -113,14 +113,12 @@ const tel = SITE.phone ? SITE.phone.replace(/[^\d+]/g, '') : '';
 </style>
 
 <script>
-  // Light / dark switch. With no saved choice the site follows the system setting.
+  // Light / dark switch. Dark is the default; choosing light is remembered in this browser.
   document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
     const root = document.documentElement;
-    const sysDark = matchMedia('(prefers-color-scheme: dark)').matches;
-    const now = root.dataset.theme ?? (sysDark ? 'dark' : 'light');
-    const next = now === 'dark' ? 'light' : 'dark';
+    const next = root.dataset.theme === 'light' ? 'dark' : 'light';
     root.dataset.theme = next;
-    try { (next === 'dark') === sysDark ? localStorage.removeItem('theme') : localStorage.setItem('theme', next); } catch {}
+    try { next === 'light' ? localStorage.setItem('theme', 'light') : localStorage.removeItem('theme'); } catch {}
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', next === 'dark' ? '#0E1517' : '#FFFFFF');
   });
   // Keep the chosen filter (?categorie=…) when switching language.
