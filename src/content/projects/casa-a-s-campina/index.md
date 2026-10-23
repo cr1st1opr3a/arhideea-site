@@ -30,6 +30,8 @@ area:
   built: 185
   gross: 349
 region: "Prahova"
+collaborators:
+  structural: "ing. Lucian Rozorea, SC Rozini SRL"
 placeholderPhotos: false
 en:
   title: "House A/S"
