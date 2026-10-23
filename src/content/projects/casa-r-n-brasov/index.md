@@ -25,7 +25,7 @@ facts:
   - { k: "Stadiu", v: "În execuție" }
   - { k: "Teren", v: "Lot de colț" }
   - { k: "Context", v: "Centrul Civic, Brașov" }
-  - { k: "Regim de înălțime", v: "P+1E+2R" }
+  - { k: "Regim de înălțime", v: "Parter, etaj 1 și etaj 2 retras (P+1E+2R)" }
 technical:
   - { k: "Structură", v: "Cadre din beton armat, zidărie din BCA" }
   - { k: "Izolație termică", v: "Vată minerală 15–25 cm la pereți, 40 cm la acoperiș" }
@@ -48,7 +48,7 @@ en:
     - { k: "Status", v: "Under construction" }
     - { k: "Plot", v: "Corner plot" }
     - { k: "Context", v: "Civic Centre, Brașov" }
-    - { k: "Storeys", v: "Ground, first floor and two set-back levels" }
+    - { k: "Storeys", v: "Ground, first floor and set-back second floor" }
   technical:
     - { k: "Structure", v: "Reinforced concrete frame, aerated concrete walls" }
     - { k: "Thermal insulation", v: "Mineral wool 15–25 cm on walls, 40 cm on the roof" }
