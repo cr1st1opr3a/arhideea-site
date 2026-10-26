@@ -73,15 +73,15 @@ technical:
   - k: Pereți exteriori
     v: Cărămidă de 30 cm, vată minerală de 30 cm
   - k: Placa pe sol
-    v: Polistiren extrudat de 15 cm
-  - k: Planșeu spre pod
-    v: Vată minerală de 20 cm
+    v: Polistiren extrudat de 20 cm
+  - k: Izolație acoperiș
+    v: 45 cm
   - k: Ferestre
     v: PVC, tripan
   - k: Învelitoare
     v: Țiglă ceramică
   - k: Încălzire
-    v: În pardoseală
+    v: În pardoseală, cu pompă de căldură și termoșemineu
 quote: null
 en:
   title: House S/C
@@ -107,15 +107,15 @@ en:
     - k: External walls
       v: 30 cm brick, 30 cm mineral wool
     - k: Ground slab
-      v: 15 cm extruded polystyrene
-    - k: Attic floor
-      v: 20 cm mineral wool
+      v: 20 cm extruded polystyrene
+    - k: Roof insulation
+      v: 45 cm
     - k: Windows
       v: PVC, triple glazing
     - k: Roof
       v: Ceramic tiles
     - k: Heating
-      v: Underfloor
+      v: Underfloor, with a heat pump and a wood-burning boiler stove
   captions:
     - The house in October 2026
     - Garden façade with the carport
