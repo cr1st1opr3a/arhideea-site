@@ -23,6 +23,8 @@ gallery:
     caption: Vedere spre munte
   - src: ./foto-04.jpg
     caption: Casa, văzută de la stradă
+  - src: ./foto-16.jpg
+    caption: Foișorul de grădină
   - src: ./foto-05.jpg
     caption: Randare din faza de proiect
   - src: ./foto-06.jpg
@@ -69,7 +71,7 @@ technical:
   - k: Structură
     v: Zidărie portantă și cadre din beton armat; pereți din lemn la mansardă
   - k: Pereți exteriori
-    v: Cărămidă de 30 cm, vată minerală de 15 cm
+    v: Cărămidă de 30 cm, vată minerală de 30 cm
   - k: Placa pe sol
     v: Polistiren extrudat de 15 cm
   - k: Planșeu spre pod
@@ -103,7 +105,7 @@ en:
     - k: Structure
       v: Load-bearing masonry and reinforced-concrete frames; timber walls in the attic
     - k: External walls
-      v: 30 cm brick, 15 cm mineral wool
+      v: 30 cm brick, 30 cm mineral wool
     - k: Ground slab
       v: 15 cm extruded polystyrene
     - k: Attic floor
@@ -119,6 +121,7 @@ en:
     - Garden façade with the carport
     - View towards the mountains
     - The house seen from the street
+    - Garden pavilion
     - Design-stage render
     - "Render: covered terrace with pergola"
     - "Render: carport with exposed timber roof"
