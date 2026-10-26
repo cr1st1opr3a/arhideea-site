@@ -5,30 +5,46 @@ year: ''
 categories:
   - Construcții eficiente energetic
   - Locuințe
-summary: Locuință P+E+M în Brașov, proiectată la nivelul unei case pasive. Cu un necesar de căldură de 14,58 kWh/m²an, casa este certificabilă Passive House Plus. Pe un teren de 1360 mp, volumul cu acoperiș în două ape este completat de un carport cu șarpantă aparentă și o terasă acoperită cu pergolă spre grădină. Pe acoperiș sunt montate panouri fotovoltaice.
+summary: Locuință P+E+M în Brașov, proiectată la nivelul unei case pasive. Cu un necesar de căldură de 14,58 kWh/m²an, casa este certificabilă Passive House Plus. Pe un teren de 1360 mp, volumul cu acoperiș în două ape este completat de un carport cu șarpantă aparentă și o terasă acoperită cu pergolă spre grădină. Casa a fost construită între 2024 și 2026, iar etanșeitatea anvelopei a fost verificată pe șantier prin test blower door.
 highlights:
   - Certificabilă Passive House Plus
   - Necesar de căldură 14,58 kWh/m²an
   - Ferestre cu tripan
-  - Panouri fotovoltaice
+  - Test de etanșeitate (blower door)
 order: 6.2
 featured: false
 cover: ./foto-01.jpg
 gallery:
   - src: ./foto-01.jpg
-    caption: Randare din faza de proiect
+    caption: Casa, în octombrie 2026
   - src: ./foto-02.jpg
-    caption: Terasa acoperită cu pergolă
+    caption: Fațada spre grădină, cu carportul
   - src: ./foto-03.jpg
-    caption: Carportul, cu șarpantă din lemn aparentă
+    caption: Vedere spre munte
   - src: ./foto-04.jpg
-    caption: Randare din faza de proiect
+    caption: Casa, văzută de la stradă
   - src: ./foto-05.jpg
-    caption: Fațada spre grădină
+    caption: Randare din faza de proiect
   - src: ./foto-06.jpg
-    caption: Randare de seară
+    caption: "Randare: terasa acoperită cu pergolă"
   - src: ./foto-07.jpg
+    caption: "Randare: carportul, cu șarpantă din lemn aparentă"
+  - src: ./foto-08.jpg
+    caption: Randare din faza de proiect
+  - src: ./foto-09.jpg
+    caption: "Randare: fațada spre grădină"
+  - src: ./foto-10.jpg
     caption: Randare de seară
+  - src: ./foto-11.jpg
+    caption: Randare de seară
+  - src: ./foto-12.jpg
+    caption: Șantierul, în noiembrie 2024
+  - src: ./foto-13.jpg
+    caption: Șantierul, în ianuarie 2025
+  - src: ./foto-14.jpg
+    caption: Testul de etanșeitate (blower door)
+  - src: ./foto-15.jpg
+    caption: Testul de etanșeitate, la presiunea de lucru
 area:
   land: 1360
   built: 203
@@ -68,12 +84,12 @@ quote: null
 en:
   title: House S/C
   location: ''
-  summary: A three-level home in Brașov designed to passive-house standards. With a heating demand of 14.58 kWh/m²a, the house can be certified as Passive House Plus. On a 1,360 m² plot, the gabled volume is joined by a carport with an exposed timber roof and a covered terrace with a pergola facing the garden. Solar panels are fitted on the roof.
+  summary: A three-level home in Brașov designed to passive-house standards. With a heating demand of 14.58 kWh/m²a, the house can be certified as Passive House Plus. On a 1,360 m² plot, the gabled volume is joined by a carport with an exposed timber roof and a covered terrace with a pergola facing the garden. The house was built between 2024 and 2026, and the airtightness of the envelope was checked on site with a blower-door test.
   highlights:
     - Passive House Plus certifiable
     - Heating demand 14.58 kWh/m²a
     - Triple-glazed windows
-    - Solar panels
+    - Airtightness (blower door) test
   facts:
     - k: Storeys
       v: Ground floor, first floor and attic
@@ -99,13 +115,21 @@ en:
     - k: Heating
       v: Underfloor
   captions:
+    - The house in October 2026
+    - Garden façade with the carport
+    - View towards the mountains
+    - The house seen from the street
     - Design-stage render
-    - Covered terrace with pergola
-    - Carport with exposed timber roof
+    - "Render: covered terrace with pergola"
+    - "Render: carport with exposed timber roof"
     - Design-stage render
-    - Garden façade
+    - "Render: garden façade"
     - Evening render
     - Evening render
+    - The site in November 2024
+    - The site in January 2025
+    - Airtightness test (blower door)
+    - Airtightness test at working pressure
   quote: ''
 placeholderPhotos: false
 ---
