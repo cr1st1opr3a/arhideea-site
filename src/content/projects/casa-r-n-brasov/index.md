@@ -6,10 +6,22 @@ summary: "O casă pe un lot dificil, de colț, de doar 287 mp, în Centrul Civic
 highlights: ["Lot dificil, de colț", "Respectă arhitectura zonei", "Maximum de spațiu locuibil"]
 order: 4
 featured: false
-cover: ./foto-01.jpg
+cover: ./foto-03.jpg
 gallery:
+  - src: ./foto-03.jpg
+    caption: "Noiembrie 2026: fațadele finisate, vedere de pe colțul străzii"
+  - src: ./foto-04.jpg
+    caption: "Fațadele spre curte și spre stradă"
+  - src: ./foto-05.jpg
+    caption: "Etajul în consolă peste intrare"
+  - src: ./foto-06.jpg
+    caption: "Fațada spre curte, cu ferestrele parterului"
+  - src: ./foto-07.jpg
+  - src: ./foto-08.jpg
   - src: ./foto-01.jpg
+    caption: "Șantier: etapa de zidărie"
   - src: ./foto-02.jpg
+    caption: "Șantier: etapa de zidărie"
   - src: ./randare-01.jpg
     caption: "Randare: vedere de ansamblu, de pe colțul străzii"
   - src: ./randare-02.jpg
@@ -40,8 +52,14 @@ en:
   summary: "A house on a difficult 287 m² corner plot in Brașov's Civic Centre. It respects the local architecture and offers the most living space possible, with a very well insulated, airtight envelope and mechanical ventilation with heat recovery."
   highlights: ["Difficult corner plot", "In keeping with the local architecture", "Maximum living space"]
   captions:
+    - "November 2026: finished façades, view from the street corner"
+    - "Garden and street façades"
+    - "Cantilevered upper floor above the entrance"
+    - "Garden façade with the ground-floor windows"
     - null
     - null
+    - "Construction: masonry stage"
+    - "Construction: masonry stage"
     - "Render: overall view from the street corner"
     - "Render: entrance and cantilevered upper floor"
   facts:
